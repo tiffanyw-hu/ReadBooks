@@ -1,6 +1,6 @@
 # README
 
-##Implementation Timeline
+## Implementation Timeline
 
 - (1 Day) Backend and Front-end User Authentication 
 - (2 Days) Book API, Book Components
