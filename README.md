@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Implementation Timeline
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- (1 Day) Backend and Front-end User Authentication 
+- (2 Days) Book API, Book Components
+  - Users will be able to browse through books
+- (3 Days) Shelving & Read Status 
+  - Users will be able to sort books into shelves
+- (2 Days) Reviews
+  - Users will be able to write reviews and see it on the book's page 
+- (2 Days) Search
+  - Users will be able to search through books based on title, genre, or author
+- (1 Day) CSS Styling
