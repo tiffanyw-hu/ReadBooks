@@ -1,9 +1,11 @@
 let path = require('path');
 
 module.exports = {
+  mode: 'production',
   entry: './frontend/entry.js',
   output: {
-    filename: './app/assets/javascripts',
+    path: path.resolve(__dirname, "app", "assets", "javascripts"),
+    filename: "bundle.js"
   },
   module: {
     rules: [
