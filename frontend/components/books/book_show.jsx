@@ -7,12 +7,16 @@ class BookShow extends React.Component {
   }
 
   render () {
+    if (!this.props.book) return null
+
+    return (
     <div>
-      <h3>{book.title}</h3>
-      <p>{book.author}</p>
-      <p>{book.description}</p>
-      <img src={book.img_url} /> 
+      <h3>{this.props.book.title}</h3>
+      <p>{this.props.book.author}</p>
+      <p>{this.props.book.description}</p>
+      <img src={this.props.book.img_url} />
     </div>
+    )
   }
 
 }
