@@ -1,14 +1,13 @@
 let path = require('path');
 
 module.exports = {
-  mode: 'production',
   entry: './frontend/entry.js',
   output: {
     path: path.resolve(__dirname, "app", "assets", "javascripts"),
     filename: "bundle.js"
   },
   module: {
-    rules: [
+    loaders: [
       {
         test: [/\.jsx?$/],
         exclude: /(node_modules)/,

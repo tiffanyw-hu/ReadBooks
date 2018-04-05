@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
 
 const BooksIndexContainer = connect(mapStateToProps, mapDispatchToProps)(BooksIndex)
 
-export default booksIndexContainer;
+export default BooksIndexContainer;
