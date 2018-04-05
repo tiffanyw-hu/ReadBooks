@@ -1,17 +1,14 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import SignUpFormContainer from './sessions/signup_form_container';
-import SignInFormContainer from './sessions/signin_form_container';
-import BooksIndexContainer from './books/books_index_container';
+import {HashRouter} from 'react-router-dom';
+import App from './app';
+
 
 const Root = ({store}) => (
   <Provider store={store}>
-    <div>
-    <p>Render</p>
-    <SignUpFormContainer />
-    <SignInFormContainer />
-    <BooksIndexContainer />
-  </div>
+    <HashRouter>
+      <App />
+    </HashRouter>
   </Provider>
 );
 
