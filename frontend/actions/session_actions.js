@@ -19,10 +19,10 @@ export const signin = user => dispatch => (
 )
 
 export const signup = user => dispatch => (
-  SessionAPIUtil.signup().then(user => dispatch(receiveCurrentUser(null))),
+  SessionAPIUtil.signup(user).then(user => dispatch(receiveCurrentUser(user))),
   err => (dispatch(receiveErrors(err.responseJSON)))
 )
 
 export const signout = () => dispatch => (
-  SessionAPIUtil.login(user).then(user => dispatch(receiveCurrentUser(user)))
+  SessionAPIUtil.signout().then(user => dispatch(receiveCurrentUser(null)))
 )
