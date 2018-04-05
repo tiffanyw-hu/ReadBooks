@@ -7,7 +7,7 @@ class Api::BooksController < ApplicationController
   def show
     @book = Book.find(id: params[:id])
     if @book
-      render "api/book/:id"
+      render "api/books/:id"
     else
       render json: ["No book matching that id"]
     end

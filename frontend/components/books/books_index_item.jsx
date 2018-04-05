@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const BooksIndexItem = {book} => (
+const BooksIndexItem = props => (
   <div>
-    <Link to={`/books/${book.id}`}>
-      <img src={book.img_url} />
+    <Link to={`/books/${props.book.id}`}>
+      <img src={props.book.img_url} />
     </Link>
   </div>
 )
