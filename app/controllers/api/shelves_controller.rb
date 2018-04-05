@@ -6,7 +6,7 @@ class Api::ShelvesController < ApplicationController
     @shelf = Shelf.new(shelf_params)
 
     if @shelf.save
-      render "api/user/show"
+      render "api/users/show"
     else
       render json: @shelf.errors.full_message, status: 422
     end
@@ -15,9 +15,9 @@ class Api::ShelvesController < ApplicationController
 
   def update
     @shelf = Shelf.find(params[:id])
-    
+
     if @shelf.update(shelf_params)
-      render "api/user/show"
+      render "api/users/show"
     else
       render json: @shelf.errors.full_message, status: 422
     end
@@ -27,7 +27,7 @@ class Api::ShelvesController < ApplicationController
   def destroy
     @shelf = Shelf.find(params[:id])
     @shelf.destroy
-    render "api/user/show"
+    render "api/users/show"
   end
 
   def index
