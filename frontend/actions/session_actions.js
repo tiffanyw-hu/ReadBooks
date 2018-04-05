@@ -4,12 +4,12 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 export const receiveCurrentUser = currentUser => ({
-  method: RECEIVE_CURRENT_USER,
+  type: RECEIVE_CURRENT_USER,
   currentUser
 })
 
 export const receiveErrors = errors => ({
-  method: RECEIVE_SESSION_ERRORS,
+  type: RECEIVE_SESSION_ERRORS,
   errors
 })
 
