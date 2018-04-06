@@ -9,7 +9,7 @@ class Api::BooksController < ApplicationController
     if @book
       render "api/books/show"
     else
-      render json: ["No book matching that id"]
+      render json: ["No book found matching that id"]
     end
   end
 
