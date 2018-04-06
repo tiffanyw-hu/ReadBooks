@@ -1,1 +1,1 @@
-json.partial! "api/shelves/shelf" shelf: @shelf
+json.partial! "api/shelves/shelf", shelf: @shelf
