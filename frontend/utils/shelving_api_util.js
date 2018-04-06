@@ -1,13 +1,14 @@
-export const createShelving = () => (
+export const createShelving = (shelving) => (
   $.ajax({
     method: 'POST',
-    url: 'api/books/',
+    url: 'api/shelvings',
+    data: {shelving}
   })
 )
 
-export const deleteShelving = id => (
+export const deleteShelving = (shelving) => (
   $.ajax({
     method: 'DELETE',
-    url: `api/books/${id}`,
+    url: `api/shelvings`,
   })
 )
