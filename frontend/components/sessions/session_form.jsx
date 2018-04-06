@@ -17,7 +17,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let user = Object.assign({}, this.state);
-    this.props.action(user);
+    this.props.action(user).then(() => this.props.history.push('/'));
   }
 
   render() {
@@ -43,4 +43,4 @@ class SessionForm extends React.Component {
 
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

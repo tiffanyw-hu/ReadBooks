@@ -13,10 +13,10 @@ const App = () => (
     <Switch>
       <Route exact path="/books/:book_id" component={BookShowContainer} />
       <Route exact path="/books" component={BooksIndexContainer} />
+      <Route exact path="/login" component={SignInFormContainer} />
+      <Route exact path="/signup" component={SignUpFormContainer} />
       <Route path="/" component={SignUpFormContainer} />
     </Switch>
-    <BooksIndexContainer />
-    <SignInFormContainer />
   </div>
 );
 
