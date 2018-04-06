@@ -20,3 +20,6 @@ const navBar = ({ currentUser, signout }) => (
 );
 
 export default navBar;
+
+//so display logo, home(link), mybooks(link differences), browse(link differences), and sessions area that
+//changes whether or not there is a currentUser
