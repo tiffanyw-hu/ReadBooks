@@ -2,6 +2,10 @@ import React from 'react';
 
 class BookShow extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.fetchBook(this.props.match.params.book_id)
   }
