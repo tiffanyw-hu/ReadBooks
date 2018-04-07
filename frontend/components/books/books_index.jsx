@@ -15,7 +15,7 @@ class BooksIndex extends React.Component {
     });
 
     return (
-      <div>
+      <div className="book-index">
         {books}
       </div>
     )

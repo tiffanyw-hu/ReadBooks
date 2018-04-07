@@ -1,0 +1,29 @@
+Beware of using fontawesome with `onClick` event handlers!
+fontawesome uses pseudoselectors (`::before`, `::after`) for images,
+so when you click them you are not clicking the _actual_ element
+
+Bugs/Trouble spots
+
+## Selective NavBar
+* Trouble: The NavBar should appear everywhere except for the splash page.
+* First attempt: have the NavBar render an empty div if location.pathname
+was the same as the splash page "/"
+* Noticed we didn't have ownProps because the NavBarContainer wasn't
+in the routes in the app component
+* Solution: window.location.href.split("/") returns the url in an array
+Since the splash page would always have that a length of 5, we will not
+render the navBar if the urlArray length is 5.
+* Future problems: The length count is the count of the localhost, so
+the count is going to change when we push it to heroku.
+
+## Shelving updates shelf but not the book
+* Trouble: Shelving dispatches receiveShelf, which updates the shelf but
+not the book which means book will not be updated in the store, which
+means book will not re-render, which makes the book's shelf status
+incorrect since it relies on the book's value in the store.
+* Solution: Since status is a boolean, we can update the visual representation of it without updating the store by keeping a local state in the shelving status component. The database can still be updated without needing to update the store. Refreshing the page or going to another link will show that the data persists (this term means save to database apparently)
+* This saved a lot of time in redoing our actions because Andrew was doing some weird way
+
+## Routing issues
+* "/" renders splash page when there isn't a currentUser
+* "/" renders the shelves page if there is a currentUser

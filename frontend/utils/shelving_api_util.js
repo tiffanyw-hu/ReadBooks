@@ -10,5 +10,6 @@ export const deleteShelving = (shelving) => (
   $.ajax({
     method: 'DELETE',
     url: `api/shelvings`,
+    data: {shelving}
   })
 )

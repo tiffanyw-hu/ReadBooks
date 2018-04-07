@@ -2,7 +2,6 @@ class Api::ShelvingsController < ApplicationController
 
   def create
     @shelf = Shelf.find_by(id: shelving_params[:shelf_id])
-    #trying
     @shelving = Shelving.new(shelving_params)
     if @shelving.save!
       render "api/shelves/show"
@@ -12,11 +11,8 @@ class Api::ShelvingsController < ApplicationController
   end
 
   def destroy
-    @shelf = Shelf.find_by(id: shelving_params[:shelf_id])
-    @shelving = Shelving.find_by(
-    book_id: shelving_params[:book_id],
-    shelf_id: shelving_params[:shelf_id]
-    )
+    @shelving = Shelving.find(params[:id])
+    @shelf = Shelf.find_by(id: @shelving.shelf_id)
     if @shelving
       @shelving.destroy!
       render "api/shelves/show"
@@ -25,11 +21,6 @@ class Api::ShelvingsController < ApplicationController
     end
 
   end
-
-  def index
-    @shelvings = Shelving.all
-  end
-
 
   private
 

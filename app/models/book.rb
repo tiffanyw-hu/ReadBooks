@@ -17,7 +17,7 @@ class Book < ApplicationRecord
   validates :img_url, uniqueness: true
 
   has_many :shelvings
-  has_many :bookshelves,
+  has_many :shelves,
     through: :shelvings
   has_many :reviews
 
