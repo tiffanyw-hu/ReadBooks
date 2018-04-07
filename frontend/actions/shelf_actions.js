@@ -14,9 +14,9 @@ export const receiveShelf = shelf => ({
   shelf
 })
 
-export const removeShelf = shelfId => ({
+export const removeShelf = shelf => ({
   type: REMOVE_SHELF,
-  shelfId
+  shelf
 })
 
 export const fetchShelves = () => dispatch => (
@@ -36,5 +36,5 @@ export const updateShelf = shelf => dispatch => (
 )
 
 export const deleteShelf = shelfId => dispatch => (
-  ShelfAPIUtil.deleteShelf(shelfId).then(shelf => dispatch(removeShelf(shelfId)))
+  ShelfAPIUtil.deleteShelf(shelfId).then(shelf => dispatch(removeShelf(shelf)))
 )

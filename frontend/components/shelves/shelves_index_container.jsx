@@ -1,11 +1,13 @@
 import {connect} from 'react-redux';
 import React from 'react';
+import {withRouter} from 'react-router-dom';
+import ShelvesIndex from './shelves_index';
+import {fetchShelves, createShelf, deleteShelf} from '../../actions/shelf_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
-  shelves: state.entities.shelves
-  shelvesArray: Object.keys(state.entities.shelves).map
-  (id => state.entities.shelves[id])
+  shelves: state.entities.shelves,
+  shelvesArray: Object.keys(state.entities.shelves).map(id => state.entities.shelves[id])
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -14,6 +16,6 @@ const mapDispatchToProps = dispatch => ({
   deleteShelf: shelfId => dispatch(deleteShelf(shelfId))
 })
 
-const ShelvesIndex = connect(mapStateToProps, mapDispatchToProps)(ShelvesIndex)
+const ShelvesIndexContainer = connect(mapStateToProps, mapDispatchToProps)(ShelvesIndex)
 
-export default ShelvesIndex;
+export default withRouter(ShelvesIndexContainer);
