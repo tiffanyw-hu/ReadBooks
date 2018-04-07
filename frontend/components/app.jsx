@@ -4,7 +4,8 @@ import SignUpFormContainer from './sessions/signup_form_container';
 import SignInFormContainer from './sessions/signin_form_container';
 import BooksIndexContainer from './books/books_index_container';
 import BookShowContainer from './books/book_show_container';
-import NavBarContainer from './navbar/signed_navbar_container';
+import NavBarContainer from './navbar/navbar_container';
+import Splash from './splash';
 
 const App = () => (
   <div>
@@ -15,7 +16,7 @@ const App = () => (
       <Route exact path="/books" component={BooksIndexContainer} />
       <Route exact path="/login" component={SignInFormContainer} />
       <Route exact path="/signup" component={SignUpFormContainer} />
-      <Route path="/" component={SignUpFormContainer} />
+      <Route exact path="/" component={Splash} />
     </Switch>
   </div>
 );
