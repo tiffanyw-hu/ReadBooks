@@ -1,6 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import ShelfIndexItem from './shelves_index_item';
+import ShelvesIndexItem from './shelves_index_item';
 import ShelfCountsItem from './shelves_count'
 
 class ShelvesIndex extends React.Component {
@@ -16,23 +16,30 @@ class ShelvesIndex extends React.Component {
 
   handleDelete(param, e) {
     e.preventDefault();
+    console.log(param)
     this.props.deleteShelf(param);
   }
 
   render() {
-    let shelves = this.props.shelves.map(shelf => {
+    let shelves;
+    let counts;
+
+    let shelfArray = Object.keys(this.props.shelves)
+    if (shelfArray.length !== 0) {
+
+      shelves = this.props.shelvesArray.map(shelf => {
       return (
-        <ShelfIndexItem shelf={shelf} key={`shelf_id: ${shelf.id}`}
+        <ShelvesIndexItem shelf={shelf} key={`shelf_id: ${shelf.id}`}
           deleteShelf={this.deleteShelf} handleDelete={this.handleDelete} />
       )
     })
 
-    let counts = this.props.shelves.map(shelf => {
+      counts = this.props.shelvesArray.map(shelf => {
       return (
         <ShelfCountsItem shelf={shelf} key={`shelf_id: ${shelf.id}`} />
       )
     })
-
+  }
     return (
       <div className="shelves-index">
         <div className="shelves-counts">
@@ -50,3 +57,5 @@ class ShelvesIndex extends React.Component {
   }
 
 }
+
+export default ShelvesIndex;

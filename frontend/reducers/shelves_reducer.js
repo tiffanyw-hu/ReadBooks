@@ -1,10 +1,11 @@
 import merge from 'lodash/merge';
 import {RECEIVE_SHELVES,
   RECEIVE_SHELF,
-  REMOVE_SHELF} from '../actions/book_actions';
+  REMOVE_SHELF} from '../actions/shelf_actions';
 
 const shelvesReducer = (state = {}, action) => {
   Object.freeze(state);
+
   switch(action.type) {
     case RECEIVE_SHELVES:
       return action.shelves;

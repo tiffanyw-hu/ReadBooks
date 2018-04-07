@@ -28,9 +28,9 @@ export const updateShelf = shelf => (
   })
 )
 
-export const deleteShelf = shelfId => (
+export const deleteShelf = id => (
   $.ajax({
     method: 'DELETE',
-    url: `api/shelves/`,
+    url: `api/shelves/${id}`,
   })
 )
