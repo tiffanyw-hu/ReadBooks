@@ -12,7 +12,8 @@
 class Shelf < ApplicationRecord
 
   validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :name, uniqueness: { scope: :user_id,
+  message: "that shelf name already exists" }
 
   belongs_to :user
   has_many :shelvings,

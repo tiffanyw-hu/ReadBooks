@@ -1,7 +1,9 @@
 import React from 'react';
 
-class CurrentlyReading extends React.Component {
-  
-}
+const CurrentlyReading = props => (
+  <div className="currently-reading">
+    
+  </div>
+)
 
 export default CurrentlyReading;
