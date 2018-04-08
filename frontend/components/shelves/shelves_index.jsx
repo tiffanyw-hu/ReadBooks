@@ -32,6 +32,7 @@ class ShelvesIndex extends React.Component {
     let shelf = this.state;
     this.props.createShelf(shelf);
     this.setState({name: "" })
+  //clears the name of the form/state/whateverthingy
   }
 
   render() {
@@ -56,11 +57,11 @@ class ShelvesIndex extends React.Component {
   }
     return (
       <div className="shelves-index">
+        <h3 className="bookshelves-title">BOOKSHELVES</h3>
         <div className="shelves-counts">
           {counts}
         </div>
         <div className="shelves-list">
-          <h3 className="bookshelves-title">BOOKSHELVES</h3>
           <ul className="shelves-list-items">
             {shelves}
           </ul>
