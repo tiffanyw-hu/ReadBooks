@@ -27,3 +27,12 @@ incorrect since it relies on the book's value in the store.
 ## Routing issues
 * "/" renders splash page when there isn't a currentUser
 * "/" renders the shelves page if there is a currentUser
+* Copy pasted auth routes from benchbnb (Protected and Auth routes)
+
+Things to consider:
+* initial render state
+* empty cases
+
+## Thoughts Day 5
+* ShelfSideBarNav shows up for /shelves and /books (React magic) but not for /shelves/shelf_id and /books/book_id (it goes to the ShelfShowNav)
+* thinking about having it for all the pages but just hiding it once the route is not /shelves or /books
