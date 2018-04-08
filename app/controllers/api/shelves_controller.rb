@@ -31,7 +31,7 @@ class Api::ShelvesController < ApplicationController
   end
 
   def index
-    @shelves = Shelf.all
+    @shelves = current_user.shelves
   end
 
   def show

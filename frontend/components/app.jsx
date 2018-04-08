@@ -6,6 +6,7 @@ import BooksIndexContainer from './books/books_index_container';
 import BookShowContainer from './books/book_show_container';
 import NavBarContainer from './navbar/navbar_container';
 import ShelvesIndexContainer from './shelves/shelves_index_container';
+import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import Splash from './splash';
 
 const App = () => (
@@ -13,11 +14,11 @@ const App = () => (
     <p>Render</p>
     <NavBarContainer />
     <Switch>
-      <Route exact path="/shelves" component={ShelvesIndexContainer} />
+      <ProtectedRoute exact path="/shelves" component={ShelvesIndexContainer} />
       <Route exact path="/books/:book_id" component={BookShowContainer} />
       <Route exact path="/books" component={BooksIndexContainer} />
-      <Route exact path="/login" component={SignInFormContainer} />
-      <Route exact path="/signup" component={SignUpFormContainer} />
+      <AuthRoute exact path="/login" component={SignInFormContainer} />
+      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <Route exact path="/" component={Splash} />
     </Switch>
   </div>

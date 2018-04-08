@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const ShelvesIndexItem = props => {
+const newShelf = props => {
   let deleteButton = [<a href="#" onClick={props.handleDelete.bind(this, props.shelf.id)}>x</a>]
   if (props.shelf.name === "Read" || props.shelf.name === "Currently Reading"
   || props.shelf.name === "Want to Read") {
@@ -17,4 +17,4 @@ const ShelvesIndexItem = props => {
   )
 };
 
-export default ShelvesIndexItem;
+export default newShelf;

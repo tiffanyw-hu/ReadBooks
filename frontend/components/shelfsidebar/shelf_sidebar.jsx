@@ -17,8 +17,8 @@ class shelfSideBar extends React.Component {
   render() {
     return (
       <div className="shelf-side-bar">
-        <CurrentlyReading />
-        <WantToRead />
+        <CurrentlyReading book={this.props.shelves[0].books[0]}/>
+        <WantToRead shelf={this.props.shelves[1]}/>
         <Shelveslist />
       </div>
     )

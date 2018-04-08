@@ -8,16 +8,30 @@ class ShelvesIndex extends React.Component {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {name: "", user_id: this.props.currentUser.id}
   }
 
   componentDidMount() {
     this.props.fetchShelves();
   }
 
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value })
+    }
+  }
+
   handleDelete(param, e) {
     e.preventDefault();
-    console.log(param)
     this.props.deleteShelf(param);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let shelf = this.state;
+    this.props.createShelf(shelf);
+    this.setState({name: "" })
   }
 
   render() {
@@ -50,6 +64,10 @@ class ShelvesIndex extends React.Component {
           <ul className="shelves-list-items">
             {shelves}
           </ul>
+          <p>Add a Shelf:</p>
+          <input type="text" value={this.state.name}
+            onChange={this.update('name')} />
+          <input type="submit" onClick={this.handleSubmit} value="add" />
         </div>
       </div>
     )

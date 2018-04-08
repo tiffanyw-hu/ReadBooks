@@ -5,7 +5,6 @@ import {RECEIVE_SHELVES,
 
 const shelvesReducer = (state = {}, action) => {
   Object.freeze(state);
-
   switch(action.type) {
     case RECEIVE_SHELVES:
       return action.shelves;
