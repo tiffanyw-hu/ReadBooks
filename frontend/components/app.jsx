@@ -14,8 +14,9 @@ const App = () => (
   <div>
     <p>Render</p>
     <NavBarContainer />
+    <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
+    <ProtectedRoute path="/shelves/books" component={BooksIndexContainer} />
     <Switch>
-      <ProtectedRoute exact path="/shelves" component={ShelfSideBarContainer} />
       <Route exact path="/books/:book_id" component={BookShowContainer} />
       <Route exact path="/books" component={BooksIndexContainer} />
       <AuthRoute exact path="/login" component={SignInFormContainer} />

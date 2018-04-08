@@ -6,7 +6,7 @@ import {withRouter} from 'react-router-dom';
 const mapStateToProps = (state, ownProps) => {
   const books = Object.keys(state.entities.books).map(id => state.entities.books[id]);
   return {
-    books: ownProps.location.pathname === "/books" ? books : books.slice(0, 10)
+    books: ownProps.location.pathname === "/" ? books.slice(0, 10) : books
   }
 }
 
