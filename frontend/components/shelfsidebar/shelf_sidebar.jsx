@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import CurrentlyReading from './currently_reading';
-// import WantToRead from './want_to_read';
+import WantToRead from './want_to_read';
 import ShelvesIndexContainer from '../shelves/shelves_index_container';
 
 class shelfSideBar extends React.Component {
@@ -15,19 +15,22 @@ class shelfSideBar extends React.Component {
   }
 
   render() {
-    console.log(this.props.shelvesArray)
     let secondShelf = { books: [] };
     if (this.props.shelvesArray.length !== 0) {
       secondShelf = this.props.shelvesArray[1];
     }
+    let thirdShelf = { books: [] };
+    if (this.props.shelvesArray.length !== 0) {
+      thirdShelf = this.props.shelvesArray[2];
+    }
     return (
       <div className="shelf-side-bar">
         <CurrentlyReading shelf={secondShelf}/>
+        <WantToRead shelf={thirdShelf} />
         <ShelvesIndexContainer />
       </div>
     )
 
-    // <WantToRead shelf={this.props.shelves[2]} />
   }
 }
 
