@@ -1,15 +1,16 @@
 import {connect} from 'react-redux';
 import React from 'react';
-import {fetchShelves, createShelf} from '../../actions/shelf_action';
+import {fetchShelves} from '../../actions/shelf_actions';
 import shelfSideBar from './shelf_sidebar';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
-  shelves: state.entitites.shelves
+  shelves: state.entities.shelves,
+  shelvesArray: Object.keys(state.entities.shelves).map(id => state.entities.shelves[id])
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchShelves = () => dispatch(fetchShelves())
+  fetchShelves: () => dispatch(fetchShelves())
 })
 
 const ShelfSideBarContainer = connect(
