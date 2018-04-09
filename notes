@@ -41,5 +41,4 @@ Things to consider:
 ## more Routing issues
 * Trouble: /shelves/books and /shelves/:shelf_id had some issues as they both go through the same /shelves route. We couldn't get the /:shelf_id page to render because the ownProps.match.params.id was going to "books" every time.
 * Solution: Redirect what was being passed in if the params.url matched "books". Pass in an empty array/object (either would've worked) if the url was "books". If not, we pass in what we want, which was state.entities.shelves.
-
-## 
+* Tips: Added extra shelf_id as an a prop to make easier access.

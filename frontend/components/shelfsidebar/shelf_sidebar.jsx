@@ -23,13 +23,23 @@ class shelfSideBar extends React.Component {
     if (this.props.shelvesArray.length !== 0) {
       thirdShelf = this.props.shelvesArray[2];
     }
-    return (
-      <div className="shelf-side-bar">
-        <CurrentlyReading shelf={secondShelf}/>
-        <WantToRead shelf={thirdShelf} />
-        <ShelvesIndexContainer />
-      </div>
-    )
+
+    let urlArray = window.location.href.split("/")
+    if (urlArray.last === "books") {
+      return (
+        <div className="shelf-side-bar">
+          <CurrentlyReading shelf={secondShelf}/>
+          <WantToRead shelf={thirdShelf} />
+          <ShelvesIndexContainer />
+        </div>
+      )
+    } else {
+      return (
+        <div className="shelf-show-side-bar">
+          <ShelvesIndexContainer />
+        </div>
+      )
+    }
 
   }
 }

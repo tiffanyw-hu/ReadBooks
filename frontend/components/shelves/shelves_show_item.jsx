@@ -7,25 +7,30 @@ const ShelvesShowItem = props => {
     onClick={props.handleDelete.bind(this, props.shelvingId)}>x</a>]
 
     return (
-      <div className="shelves-show-item">
-      <Link to={`/books/${props.book.id}`}>
-        <img src={props.book.img_url} />
-      </Link>
 
-      <Link to={`/books/${props.book.id}`}>
-        {props.book.title}
-      </Link>
+      <tr className="shelves-show-item">
+        <td>
+          <Link to={`/books/${props.book.id}`}>
+            <img src={props.book.img_url} />
+          </Link>
+        </td>
+        <td>
+          <Link to={`/books/${props.book.id}`}>
+            {props.book.title}
+          </Link>
+        </td>
+        <td><p className="shelves-show-author">{props.book.author}</p></td>
 
-      <p className="shelves-show-author">{props.book.author}</p>
+        <td><p>{props.book.name}</p></td>
 
-      <p>{props.book.name}</p>
+        <td><p>Rating</p></td>
 
-      <p>Rating</p>
+        <td><p>Review</p></td>
 
-      <p>Review</p>
-
-      {deleteButton}
-      </div>
+        <td>
+          {deleteButton}
+        </td>
+      </tr>
   )
 };
 
