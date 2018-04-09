@@ -9,7 +9,9 @@ class Splash extends React.Component {
   render() {
     return (
       <div className="splash">
-        <SignInFormContainer />
+        <div className="splash-signin">
+          <SignInFormContainer />
+        </div>
         <SignUpFormContainer />
         <BooksIndexContainer />
       </div>

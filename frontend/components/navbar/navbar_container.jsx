@@ -7,7 +7,7 @@ const mapStateToProps = ({session}, ownProps) => {
   let urlArray = window.location.href.split("/")
   return {
     currentUser: session.currentUser,
-    splash: urlArray.length === 5
+    splash: urlArray
   }
 }
 

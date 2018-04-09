@@ -7,14 +7,15 @@ const navBar = ({ currentUser, signout, splash }) => {
     return (
       <div className="navbar">
         <p className="nav-logo">Logo</p>
-        <Link to="/shelves">Home</Link>
-        <Link to="/shelves">MyBooks</Link>
-        <Link to="/books">Browse</Link>
+        <Link className="home" to="/shelves">Home</Link>
+        <Link className="mybooks" to="/shelves">MyBooks</Link>
+        <Link className="browse" to="/books">Browse</Link>
         <button className="nav-button" onClick={signout}>Log Out</button>
       </div>
     )
   } else {
-      if (splash) {
+      if (splash.length === 5 && !splash.includes("books") && !splash.includes("shelves")
+    && !splash.includes("signup") && !splash.includes("login")) {
         return <div></div>
       }
       return (

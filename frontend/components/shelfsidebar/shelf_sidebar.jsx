@@ -25,7 +25,7 @@ class shelfSideBar extends React.Component {
     }
 
     let urlArray = window.location.href.split("/")
-    if (urlArray.last === "books") {
+    if (urlArray[urlArray.length - 1] === "books" || urlArray[urlArray.length - 1] === "shelves") {
       return (
         <div className="shelf-side-bar">
           <CurrentlyReading shelf={secondShelf}/>

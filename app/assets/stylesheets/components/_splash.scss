@@ -1,0 +1,20 @@
+.splash {
+  background-color: $sandy-white;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+
+}
+
+.splash-signin {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+.username {
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.username-box {
+  width: 100px;
+}
