@@ -24,27 +24,35 @@
   margin-right: auto;
 }
 
-// .nav-logo {
-//
-// }
-//
-// .home {
-//   padding: 15px 30px;
-// }
-//
-// .home:hover {
-//   pointer-events: auto;
-//   z-index: 1px;
-// }
-//
-// .mybooks {
-//   padding: 0 30px;
-// }
-//
-// .browse {
-//   padding: 0 30px;
-// }
-
 .nav-button {
   justify-content: flex-end;
+}
+
+.login-signup {
+  width: 200px;
+  background-color: $sandy-white;
+  display: flex;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  height: 50px;
+
+}
+
+.login-signup > a {
+  justify-content: flex-end;
+  margin-right: auto;
+  text-decoration: none;
+  padding: 17px 30px;
+  color: $brown;
+}
+
+.login-signup > a:hover {
+  background-color: $nav_hover_color;
+  color: $nav_hover_text;
+}
+
+.nav-logo {
+  font-size: 20px;
+  display: flex;
+  padding: 13px 40px;
+
 }
