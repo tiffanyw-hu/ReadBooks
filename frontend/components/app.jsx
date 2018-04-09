@@ -8,14 +8,18 @@ import NavBarContainer from './navbar/navbar_container';
 import ShelvesIndexContainer from './shelves/shelves_index_container';
 import ShelfSideBarContainer from './shelfsidebar/shelf_sidebar_container';
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
+import ShelvesShowContainer from './shelves/shelves_show_container';
 import Splash from './splash';
 
 const App = () => (
   <div>
     <p>Render</p>
     <NavBarContainer />
+    <div className="page-container">
     <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
     <ProtectedRoute path="/shelves/books" component={BooksIndexContainer} />
+    <ProtectedRoute path="/shelves/:shelf_id" component={ShelvesShowContainer} />
+    </div>
     <Switch>
       <Route exact path="/books/:book_id" component={BookShowContainer} />
       <Route exact path="/books" component={BooksIndexContainer} />
