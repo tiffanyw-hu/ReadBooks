@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class SplashSignInForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {username: "", password: ""};
@@ -22,26 +22,23 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-login-body">
-      <form className="signup-login" onSubmit={this.handleSubmit}>
-        <label>Username:
-          <br></br>
-          <input type="text" value={this.state.username}
+      <form className="splash" onSubmit={this.handleSubmit}>
+        <label>
+          <input placeholder="username" type="text" value={this.state.username}
             onChange={this.update('username')} />
         </label>
-        <br></br>
-        <label>Password:
-          <br></br>
-          <input type="password" value={this.state.password}
+
+        <label>
+          <input placeholder="password" type="password" value={this.state.password}
             onChange={this.update('password')} />
         </label>
-        <br></br>
+
         <input type="submit" value={this.props.formType} />
+
       </form>
-    </div>
     )
   }
 
 }
 
-export default withRouter(SessionForm);
+export default withRouter(SplashSignInForm);
