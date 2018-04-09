@@ -27,6 +27,10 @@ class ShelvesShow extends React.Component {
   }
 
   render() {
+    // if (!this.props.shelves && !this.props.books) {
+    //   return (<div></div>)
+    // }
+
     let shelf = [];
     if (Object.keys(this.props.shelves).length !== 0) {
       let bookshelving_table = this.bookIdsToShelvingIds();
