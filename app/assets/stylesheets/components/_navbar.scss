@@ -1,0 +1,50 @@
+.navbar {
+  background-color: $sandy-white;
+  display: flex;
+  height: 50px;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+;
+}
+
+.navbar > a {
+  padding: 17px 30px;
+  justify-content: flex-start;
+  text-decoration: none;
+  color: $brown;
+}
+
+.navbar > a:hover {
+   background-color: $nav_hover_color;
+   color: $nav_hover_text;
+}
+
+.navbar > a:last-of-type {
+  margin-right: auto;
+}
+
+// .nav-logo {
+//
+// }
+//
+// .home {
+//   padding: 15px 30px;
+// }
+//
+// .home:hover {
+//   pointer-events: auto;
+//   z-index: 1px;
+// }
+//
+// .mybooks {
+//   padding: 0 30px;
+// }
+//
+// .browse {
+//   padding: 0 30px;
+// }
+
+.nav-button {
+  justify-content: flex-end;
+}

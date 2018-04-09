@@ -7,7 +7,9 @@ import {signup} from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
+  let currentUser;
   if (window.currentUser) {
+    currentUser = window.currentUser;
     const preloadedState = { session: { currentUser: window.currentUser } };
     store = configureStore(preloadedState);
     delete window.currentUser;
@@ -19,5 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   const root = document.getElementById('root');
-  ReactDOM.render(<Root store={store} />, root);
+  ReactDOM.render(<Root store={store} currentUser={currentUser} />, root);
 })
