@@ -21,8 +21,31 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let urlArray = window.location.href.split("/");
+    if (urlArray[urlArray.length - 1] === "login" ||
+  urlArray[urlArray.length - 1] === "signup") {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div className="signup-login-body">
+      <form className="signup-login" onSubmit={this.handleSubmit}>
+        <label className="username-sign">Username:
+          <br></br>
+          <input className="username-box-sign" type="text" value={this.state.username}
+            onChange={this.update('username')} />
+        </label>
+        <br></br>
+        <label className="password-sign">Password:
+          <br></br>
+          <input className="password-box-sign" type="password" value={this.state.password}
+            onChange={this.update('password')} />
+        </label>
+        <br></br>
+        <input className="submit-sign" type="submit" value={this.props.formType} />
+      </form>
+    </div>
+    )
+  }
+    return (
+      <form className="splash" onSubmit={this.handleSubmit}>
         <label className="username">Username
           <input className="username-box" type="text" value={this.state.username}
             onChange={this.update('username')} />

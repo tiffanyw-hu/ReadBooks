@@ -7,11 +7,13 @@ import BookShowContainer from './books/book_show_container';
 import NavBarContainer from './navbar/navbar_container';
 import ShelvesIndexContainer from './shelves/shelves_index_container';
 import ShelfSideBarContainer from './shelfsidebar/shelf_sidebar_container';
-import { AuthRoute, ProtectedRoute } from '../utils/route_util';
+import { AuthRoute, ProtectedRoute, DefaultRoute } from '../utils/route_util';
 import ShelvesShowContainer from './shelves/shelves_show_container';
 import Splash from './splash';
 
-const App = (props) => (
+const App = (props) => {
+  // debugger
+  return (
     <div>
     <NavBarContainer />
     <div className="page-container">
@@ -24,15 +26,10 @@ const App = (props) => (
       <Route path="/books" component={BooksIndexContainer} />
       <AuthRoute exact path="/login" component={SignInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      <Route exact path="/" render={() => (
-          props.currentUser ? (
-            <Redirect to="/shelves" />
-          ) : (
-            <Splash />
-          )
-        )} />
+      <DefaultRoute exact path="/" component={Splash} />
     </Switch>
   </div>
-);
+)
+};
 
 export default App;

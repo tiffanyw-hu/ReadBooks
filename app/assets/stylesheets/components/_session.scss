@@ -1,0 +1,22 @@
+.signup-login-body {
+  background-color: $sandy-white;
+  height: 100vh;
+}
+
+.signup-login {
+  background-color: white;
+  border: 1px solid $gray;
+  height: 500px;
+  width: 600px;
+  box-shadow: 0px 1px 1px $gray;
+  border-radius: 4px;
+  text-align: center;
+  padding: 28px 10px 34px 10px;
+  margin: 0 auto;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  // margin-top: 50px;
+}
+
+.username-sign {
+  padding: 10px;
+}
