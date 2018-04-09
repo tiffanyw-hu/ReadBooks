@@ -33,6 +33,13 @@ Things to consider:
 * initial render state
 * empty cases
 
-## Thoughts Day 5
-* ShelfSideBarNav shows up for /shelves and /books (React magic) but not for /shelves/shelf_id and /books/book_id (it goes to the ShelfShowNav)
-* thinking about having it for all the pages but just hiding it once the route is not /shelves or /books
+## deleteShelving issues
+* Trouble: deleteShelving took in an id, which should've been specified as a shelving id. The ShelvesShowItem is actually a single book, but a book didn't have a shelving_id.
+* Solution: the shelf the book was on contains a shelving_id. We created an empty object and set it with the key of book_id to a value of shelving_id; that way, we are able to extract the shelving_id through the new object.
+* Tips: always see what you have available. store.getState(); and etc. and see where you can go from there.
+
+## more Routing issues
+* Trouble: /shelves/books and /shelves/:shelf_id had some issues as they both go through the same /shelves route. We couldn't get the /:shelf_id page to render because the ownProps.match.params.id was going to "books" every time.
+* Solution: Redirect what was being passed in if the params.url matched "books". Pass in an empty array/object (either would've worked) if the url was "books". If not, we pass in what we want, which was state.entities.shelves.
+
+## 
