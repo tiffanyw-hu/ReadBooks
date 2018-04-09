@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
 import React from 'react';
 import {signup} from '../../actions/session_actions';
-import SplashSignUpForm from './splash_signin_form';
+import SplashSignUpForm from './splash_signup';
 
 const mapStateToProps = (state, ownProps) => ({
-  formType: "signup",
+  formType: "Sign Up",
   currentUser: state.session.currentUser,
 });
 

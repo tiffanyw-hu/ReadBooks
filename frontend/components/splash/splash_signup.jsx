@@ -22,18 +22,19 @@ class SplashSignUpForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Username
-          <input type="text" value={this.state.username}
+      <form className="splash-signup" onSubmit={this.handleSubmit}>
+        <h2>New here? Create a free account!</h2>
+        <label>
+          <input placeholder="Username" type="text" value={this.state.username}
             onChange={this.update('username')} />
         </label>
-
-        <label>Password:
-          <input type="password" value={this.state.password}
+        <br></br>
+        <label>
+          <input placeholder="Password" type="password" value={this.state.password}
             onChange={this.update('password')} />
         </label>
-
-        <input type="submit" value={this.props.formType} />
+        <br></br>
+        <button>{this.props.formType}</button>
 
       </form>
     )

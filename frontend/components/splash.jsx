@@ -7,14 +7,21 @@ import BooksIndexContainer from './books/books_index_container';
 class Splash extends React.Component {
 
   render() {
-    // <img src="http://res.cloudinary.com/dqj3kgpoj/image/upload/v1523297820/background.png"
+
     return (
       <div className="splash">
-        <div className="splash-signin">
-          <SplashSignInContainer />
+        <div className="splash-header">
+          <div className="splash-top">
+            <SplashSignInContainer />
+          </div>
+          <div className="splash-bottom">
+            <img src="http://res.cloudinary.com/dqj3kgpoj/image/upload/c_scale,w_337/v1523307981/headline-e2cd420e71737ff2815d09af5b65c4e4.png" />
+            <SplashSignUpContainer />
+          </div>
         </div>
-        <SplashSignUpContainer />
-        <BooksIndexContainer />
+        <div className="splash-body">
+          <BooksIndexContainer />
+        </div>
       </div>
     )
   }

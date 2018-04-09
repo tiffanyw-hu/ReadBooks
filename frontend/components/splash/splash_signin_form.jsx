@@ -22,7 +22,7 @@ class SplashSignInForm extends React.Component {
 
   render() {
     return (
-      <form className="splash" onSubmit={this.handleSubmit}>
+      <form className="splash-signin" onSubmit={this.handleSubmit}>
         <label>
           <input placeholder="username" type="text" value={this.state.username}
             onChange={this.update('username')} />
@@ -33,7 +33,7 @@ class SplashSignInForm extends React.Component {
             onChange={this.update('password')} />
         </label>
 
-        <input type="submit" value={this.props.formType} />
+        <button>{this.props.formType}</button>
 
       </form>
     )
