@@ -6,7 +6,7 @@ const navBar = ({ currentUser, signout, splash }) => {
   if (currentUser) {
     return (
       <div className="navbar">
-        <p className="nav-logo">Logo</p>
+        <p className="nav-logo">ReadBooks</p>
         <Link className="home" to="/shelves">Home</Link>
         <Link className="mybooks" to="/shelves">MyBooks</Link>
         <Link className="browse" to="/books">Browse</Link>
@@ -20,13 +20,13 @@ const navBar = ({ currentUser, signout, splash }) => {
       }
       return (
         <div className="navbar">
-          <p className="nav-logo">Logo</p>
+          <p className="nav-logo">ReadBooks</p>
           <Link to="/signup">Home</Link>
           <Link to="/signup">MyBooks</Link>
           <Link to="/books">Browse</Link>
           <nav className="login-signup">
             <Link to="/login">Login</Link>
-            <Link to="/signup">Sign up!</Link>
+            <Link to="/signup">Sign up</Link>
           </nav>
         </div>
       )
