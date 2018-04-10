@@ -21,7 +21,7 @@ const navBar = ({ currentUser, signout, splash }) => {
       return (
         <div className="navbar">
           <p className="nav-logo">ReadBooks</p>
-          <Link to="/signup">Home</Link>
+          <Link to="/">Home</Link>
           <Link to="/signup">MyBooks</Link>
           <Link to="/books">Browse</Link>
           <nav className="login-signup">

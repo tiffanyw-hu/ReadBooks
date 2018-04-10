@@ -1,6 +1,8 @@
 .signup-login-body {
   background-color: $sandy-white;
   height: 100vh;
+  margin: 0 auto;
+  width: 75%;
 }
 
 .signup-login {
@@ -12,7 +14,46 @@
   border-radius: 4px;
   text-align: center;
   padding: 28px 10px 34px 10px;
-  margin: 0 auto;
+  // margin: 0 auto;
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
-  // margin-top: 50px;
+}
+
+.signup-login input {
+  font-size: 15px;
+  padding: 6px 4px;
+  border: 1px solid $gray;
+  border-radius: 3px;
+}
+
+.signup-login h3 {
+  padding: 0px 0px 2px 0px;
+  font-size: 20px;
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: $brown;
+  line-height: 24px;
+}
+
+.signup-login p {
+  margin-top: 0;
+  margin: auto;
+  margin-bottom: 25px;
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+}
+
+.signup-login button {
+  border-radius: 3px;
+  border: 1px solid $other-gray;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: #333333;
+  background-color: $sandy-white;
+  line-height: 1;
+  padding: 8px 12px;
 }
