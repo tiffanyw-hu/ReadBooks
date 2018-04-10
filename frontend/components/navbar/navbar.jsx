@@ -6,11 +6,11 @@ const navBar = ({ currentUser, signout, splash, clearErrors }) => {
   if (currentUser) {
     return (
       <div className="navbar">
-        <p className="nav-logo">ReadBooks</p>
+        <Link onClick={clearErrors} to="/" className="nav-logo">ReadBooks</Link>
         <Link className="home" to="/shelves">Home</Link>
         <Link className="mybooks" to="/shelves">MyBooks</Link>
         <Link className="browse" to="/shelves/books">Browse</Link>
-        <Link to="/" onClick={signout}>Log Out</Link>
+        <Link className="last" to="/" onClick={signout}>Log Out</Link>
       </div>
     )
   } else {
