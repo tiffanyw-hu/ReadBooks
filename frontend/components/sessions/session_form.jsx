@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
+import Demo from '../demo';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -86,6 +87,9 @@ class SessionForm extends React.Component {
           </label>
           <br></br>
           <button onClick={this.handleSubmit}>{this.props.formType}</button>
+          <div className="demo">
+            <Demo />
+          </div>
           <div className="other-name-container">
             <p className="other-p">{otherNameLink.text}</p>
             <Link to={otherNameLink.link} onClick={this.handleClickError}>{otherNameLink.name}</Link>

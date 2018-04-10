@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import Demo from '../demo';
 
 class SplashSignInForm extends React.Component {
   constructor(props) {
@@ -32,8 +33,10 @@ class SplashSignInForm extends React.Component {
           <input placeholder="password" type="password" value={this.state.password}
             onChange={this.update('password')} />
         </label>
-
-        <button>{this.props.formType}</button>
+        <div className="splash-buttons">
+          <button>{this.props.formType}</button>
+          <Demo />
+        </div>
 
       </form>
     )

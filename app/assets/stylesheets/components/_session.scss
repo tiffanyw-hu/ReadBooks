@@ -84,6 +84,8 @@
 .sign-container button {
   margin-top: 20px;
   margin-bottom: 15px;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .container-ception {
@@ -106,4 +108,10 @@
 .error {
   background-color: $yellow;
   color: $brown;
+  padding: 7px;
+}
+
+.demo {
+  margin: 0 auto;
+  display: inline-block;
 }

@@ -18,7 +18,7 @@ class BookShow extends React.Component {
       <h3 className="book-title">{this.props.book.title}</h3>
       <p className="book-author">{this.props.book.author}</p>
       <p className="book-description">{this.props.book.description}</p>
-      <img src={this.props.book.img_url} />
+      <img src={this.props.book.img_url} width="150px" height="231px" />
     </div>
     )
   }

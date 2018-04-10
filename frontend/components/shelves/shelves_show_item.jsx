@@ -11,7 +11,7 @@ const ShelvesShowItem = props => {
       <tr className="shelves-show-item">
         <td>
           <Link to={`/books/${props.book.id}`}>
-            <img src={props.book.img_url} />
+            <img src={props.book.img_url} width="50px" height="77px" />
           </Link>
         </td>
         <td>
