@@ -27,22 +27,22 @@ class SessionForm extends React.Component {
       return (<p></p>)
     } else {
       return (
-      <p>Sign up to see what your friends are reading, get book recommendations,
-        and join the world’s largest community of readers.</p>
+      <div className="goodReadsWhy"><p>Sign up to see what your friends are reading, get book recommendations,
+        and join the world’s largest community of readers.</p></div>
       )
     }
   }
 
   otherOne() {
     let otherNameLink = {};
-    let otherName = "";
-    let otherLink = "";
     if (this.props.formType === "Sign In") {
       otherNameLink["name"] = "Sign Up";
       otherNameLink["link"] = "/signup";
+      otherNameLink["text"] = "Not a member?";
     } else {
       otherNameLink["name"] = "Sign In";
       otherNameLink["link"] = "/login";
+      otherNameLink["text"] = "Already a member?";
     }
     return otherNameLink;
   }
@@ -55,21 +55,28 @@ class SessionForm extends React.Component {
       <form className="signup-login" onSubmit={this.handleSubmit}>
         <h3>{this.props.formType} for ReadBooks</h3>
         {goodReadsWhy}
-        <label>Username:
+        <div className="container-ception">
+
+        <div className="sign-container">
+          <label><p>Username</p>
+            <br></br>
+            <input type="text" value={this.state.username}
+              onChange={this.update('username')} />
+          </label>
           <br></br>
-          <input type="text" value={this.state.username}
-            onChange={this.update('username')} />
-        </label>
-        <br></br>
-        <label>Password:
+          <label><p>Password</p>
+            <br></br>
+            <input type="password" value={this.state.password}
+              onChange={this.update('password')} />
+          </label>
           <br></br>
-          <input type="password" value={this.state.password}
-            onChange={this.update('password')} />
-        </label>
-        <br></br>
-        <button>{this.props.formType}</button>
-        <p className="other-p">Already a member?</p>
-        <Link to={otherNameLink.link}>{otherNameLink.name}</Link>
+          <button onClick={this.handleSubmit}>{this.props.formType}</button>
+          <div className="other-name-container">
+            <p className="other-p">{otherNameLink.text}</p>
+            <Link to={otherNameLink.link}>{otherNameLink.name}</Link>
+          </div>
+      </div>
+    </div>
       </form>
     </div>
     )
