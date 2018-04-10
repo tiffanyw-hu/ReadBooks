@@ -17,7 +17,7 @@ class SplashSignInForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let user = Object.assign({}, this.state);
-    this.props.action(user);
+    this.props.action(user).then(this.props.history.push('/login'));
   }
 
   render() {

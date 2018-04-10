@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const navBar = ({ currentUser, signout, splash }) => {
+const navBar = ({ currentUser, signout, splash, clearErrors }) => {
 
   if (currentUser) {
     return (
@@ -21,12 +21,12 @@ const navBar = ({ currentUser, signout, splash }) => {
       return (
         <div className="navbar">
           <p className="nav-logo">ReadBooks</p>
-          <Link to="/">Home</Link>
-          <Link to="/signup">MyBooks</Link>
-          <Link to="/books">Browse</Link>
+          <Link onClick={clearErrors} to="/">Home</Link>
+          <Link onClick={clearErrors} to="/signup">MyBooks</Link>
+          <Link onClick={clearErrors} to="/books">Browse</Link>
           <nav className="login-signup">
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign up</Link>
+            <Link onClick={clearErrors} to="/login">Login</Link>
+            <Link onClick={clearErrors} to="/signup">Sign up</Link>
           </nav>
         </div>
       )

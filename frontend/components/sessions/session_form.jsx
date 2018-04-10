@@ -8,6 +8,8 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.goodReadsWhy = this.goodReadsWhy.bind(this);
     this.otherOne = this.otherOne.bind(this);
+    this.handleClickError = this.handleClickError.bind(this);
+    this.renderError = this.renderError.bind(this);
   }
 
   update(field) {
@@ -33,6 +35,10 @@ class SessionForm extends React.Component {
     }
   }
 
+  handleClickError(e) {
+    this.props.clearErrors();
+  }
+
   otherOne() {
     let otherNameLink = {};
     if (this.props.formType === "Sign In") {
@@ -47,16 +53,25 @@ class SessionForm extends React.Component {
     return otherNameLink;
   }
 
+  renderError() {
+    let error = [<div></div>];
+    if (this.props.errors.length !== 0) {
+      error = [<div className="error">{this.props.errors[0]}</div>];
+    }
+    return error;
+  }
+
   render() {
     let goodReadsWhy = this.goodReadsWhy();
     let otherNameLink = this.otherOne();
+    let error = this.renderError();
     return (
       <div className="signup-login-body">
       <form className="signup-login" onSubmit={this.handleSubmit}>
         <h3>{this.props.formType} for ReadBooks</h3>
         {goodReadsWhy}
         <div className="container-ception">
-
+          {error}
         <div className="sign-container">
           <label><p>Username</p>
             <br></br>
@@ -73,7 +88,7 @@ class SessionForm extends React.Component {
           <button onClick={this.handleSubmit}>{this.props.formType}</button>
           <div className="other-name-container">
             <p className="other-p">{otherNameLink.text}</p>
-            <Link to={otherNameLink.link}>{otherNameLink.name}</Link>
+            <Link to={otherNameLink.link} onClick={this.handleClickError}>{otherNameLink.name}</Link>
           </div>
       </div>
     </div>

@@ -3,9 +3,11 @@ import React from 'react';
 import {signup} from '../../actions/session_actions';
 import SplashSignUpForm from './splash_signup';
 
+
 const mapStateToProps = (state, ownProps) => ({
   formType: "Sign Up",
   currentUser: state.session.currentUser,
+  errors: state.errors.session
 });
 
 const mapDispatchToProps = (dispatch) => ({
