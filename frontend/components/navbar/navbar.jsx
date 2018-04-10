@@ -20,7 +20,7 @@ const navBar = ({ currentUser, signout, splash, clearErrors }) => {
       }
       return (
         <div className="navbar">
-          <p className="nav-logo">ReadBooks</p>
+          <Link onClick={clearErrors} to="/" className="nav-logo">ReadBooks</Link>
           <Link onClick={clearErrors} to="/">Home</Link>
           <Link onClick={clearErrors} to="/signup">MyBooks</Link>
           <Link onClick={clearErrors} to="/books">Browse</Link>
