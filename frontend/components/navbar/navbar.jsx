@@ -9,7 +9,7 @@ const navBar = ({ currentUser, signout, splash, clearErrors }) => {
         <p className="nav-logo">ReadBooks</p>
         <Link className="home" to="/shelves">Home</Link>
         <Link className="mybooks" to="/shelves">MyBooks</Link>
-        <Link className="browse" to="/books">Browse</Link>
+        <Link className="browse" to="/shelves/books">Browse</Link>
         <Link to="/" onClick={signout}>Log Out</Link>
       </div>
     )

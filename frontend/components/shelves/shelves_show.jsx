@@ -27,9 +27,12 @@ class ShelvesShow extends React.Component {
   }
 
   render() {
+    if (this.props.shelf_id === "books") {
+      return (<div></div>)
+    }
 
     let shelf = [];
-    if (Object.keys(this.props.shelves).length !== 0) {
+    if (Object.keys(this.props.shelves).length !== 0 && this.props.shelf_id !== "books") {
       let bookshelving_table = this.bookIdsToShelvingIds();
       shelf = this.props.shelves[this.props.shelf_id].books.map(book => {
       return (
@@ -38,9 +41,6 @@ class ShelvesShow extends React.Component {
       )
     });
   }
-    if (this.props.shelf_id === "books") {
-      return (<div></div>)
-    }
 
     return (
       <div className="shelves-show-list">
