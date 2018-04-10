@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import React from 'react';
 import {signout} from '../../actions/session_actions';
 import NavBar from './navbar';
+import {clearErrors} from '../../actions/session_actions';
 
 const mapStateToProps = ({session}, ownProps) => {
   let urlArray = window.location.href.split("/")
@@ -12,7 +13,8 @@ const mapStateToProps = ({session}, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  signout: () => dispatch(signout())
+  signout: () => dispatch(signout()),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 const NavBarContainer = connect(mapStateToProps, mapDispatchToProps)(NavBar)
