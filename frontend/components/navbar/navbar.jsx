@@ -10,7 +10,7 @@ const navBar = ({ currentUser, signout, splash }) => {
         <Link className="home" to="/shelves">Home</Link>
         <Link className="mybooks" to="/shelves">MyBooks</Link>
         <Link className="browse" to="/books">Browse</Link>
-        <button className="nav-button" onClick={signout}>Log Out</button>
+        <Link to="/" onClick={signout}>Log Out</Link>
       </div>
     )
   } else {

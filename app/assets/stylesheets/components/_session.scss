@@ -1,15 +1,14 @@
 .signup-login-body {
   background-color: $sandy-white;
   height: 100vh;
-  margin: 0 auto;
-  width: 75%;
 }
 
 .signup-login {
+  margin: 0 auto;
+  width: 33%;
   background-color: white;
   border: 1px solid $gray;
-  height: 500px;
-  width: 600px;
+  height: 330px;
   box-shadow: 0px 1px 1px $gray;
   border-radius: 4px;
   text-align: center;
@@ -18,16 +17,18 @@
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
 }
 
+
 .signup-login input {
   font-size: 15px;
-  padding: 6px 4px;
+  // padding: 3px 4px;
   border: 1px solid $gray;
   border-radius: 3px;
+  width: 100%;
 }
 
 .signup-login h3 {
   padding: 0px 0px 2px 0px;
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Merriweather", Georgia, "Times New Roman", serif;
   font-weight: bold;
   margin-top: 0;
@@ -36,13 +37,11 @@
   line-height: 24px;
 }
 
-.signup-login p {
+.other-p {
   margin-top: 0;
-  margin: auto;
   margin-bottom: 25px;
-  width: 100%;
-  font-size: 14px;
-  text-align: center;
+  font-size: 10px;
+  padding-right: 10px;
 }
 
 .signup-login button {
@@ -56,4 +55,50 @@
   background-color: $sandy-white;
   line-height: 1;
   padding: 8px 12px;
+}
+
+.goodReadsWhy {
+  margin: 0 auto;
+  width: 90%;
+  line-height: 20px;
+  color: $brown;
+  p {
+    font-size: 13px
+  }
+}
+
+.sign-container {
+  margin: 0 auto;
+  width: 45%;
+  text-align: left;
+}
+
+.sign-container label p {
+  padding-top: 10px;
+  // padding-left: 30px;
+  margin-bottom: -10px;
+  text-align: left;
+  font-size: 10px;
+}
+
+.sign-container button {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.container-ception {
+  padding-top: 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.other-name-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.other-name-container a {
+  font-size: 10px;
+  color: $teal;
+  text-decoration: none;
 }
