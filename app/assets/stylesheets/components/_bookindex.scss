@@ -1,5 +1,5 @@
 .book-index-container {
-  width: 70%;
+  width: 80%;
   margin: 20px;
 }
 
@@ -7,8 +7,8 @@
   // background-color: $off-white;
   display: flex;
   flex-direction: row;
-  width: 80%;
   flex-flow: row wrap;
+  justify-content: center;
 }
 
 .index-heading h4 {
@@ -30,4 +30,5 @@ body {
 .index-heading {
   margin: 0 auto;
   width: 79%;
+  padding: 10px;
 }
