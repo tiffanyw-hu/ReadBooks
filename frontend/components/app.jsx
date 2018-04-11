@@ -16,14 +16,18 @@ const App = (props) => {
   return (
     <div>
     <NavBarContainer />
-    <div className="page-container">
-    <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
-    <ProtectedRoute path="/shelves/books" component={BooksIndexContainer} />
-    <ProtectedRoute path="/shelves/:shelf_id" component={ShelvesShowContainer} />
+    <div className="shelf-book-container">
+      <div className="page-container">
+      <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
+      <ProtectedRoute path="/shelves/books" component={BooksIndexContainer} />
+      <ProtectedRoute path="/shelves/:shelf_id" component={ShelvesShowContainer} />
+      </div>
+      <Switch>
+        <Route path="/books/:book_id" component={BookShowContainer} />
+        <Route path="/books" component={BooksIndexContainer} />
+      </Switch>
     </div>
-    <Switch>
-      <Route path="/books/:book_id" component={BookShowContainer} />
-      <Route path="/books" component={BooksIndexContainer} />
+      <Switch>
       <AuthRoute exact path="/login" component={SignInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <DefaultRoute exact path="/" component={Splash} />

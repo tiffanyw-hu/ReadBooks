@@ -1,7 +1,8 @@
 .shelf-side-bar {
-  background-color: $off-white;
+  // background-color: $green;
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   padding-top: 13px;
+  padding-right: 20px;
 }
 
 .currently-reading {
@@ -18,4 +19,13 @@
 }
 
 .currently-reading img {
+}
+
+.shelf-book-container {
+  // background-color: $green;
+  margin: 0 auto;
+  width: 75%;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
 }

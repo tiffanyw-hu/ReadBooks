@@ -15,9 +15,14 @@ class BooksIndex extends React.Component {
     });
 
     return (
-      <div className="book-index">
-        {books}
-      </div>
+      <div className="books-index-container">
+        <div className="index-heading">
+          <h4>Explore Books</h4>
+        </div>
+          <div className="book-index">
+            {books}
+          </div>
+    </div>
     )
   }
 

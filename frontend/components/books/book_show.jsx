@@ -31,7 +31,7 @@ class BookShow extends React.Component {
           <div className="book-details">
             <h3 className="book-title">{this.props.book.title}</h3>
             <p className="book-author">{this.props.book.author}</p>
-            <div>W</div>
+            <div></div>
             <p className="book-description">{this.props.book.description}</p>
             <hr className="hr"></hr>
           </div>
