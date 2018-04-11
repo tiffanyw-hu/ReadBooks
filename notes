@@ -46,6 +46,7 @@ Things to consider:
 ## Routing issues for days
 * Trouble: signing out: doesn't redirect to splash page. Signing in doesn't redirect to shelves page (though sometimes it does and we wonder why).
 * Tips: We looked at other people's source code to figure out routes. Except it's still boo :C
+* Solution: Turns out you can create your own route util. We did that.
 
-## Browse React issues
-* Trouble: Browse is not doing the react thing where it adds /books onto /shelves to create the path /shelves/books.
+## Book Show does not render when book_id is manually typed into the url
+* Trouble: is the title. The show doesn't run until you refresh (or if you type in another one).
