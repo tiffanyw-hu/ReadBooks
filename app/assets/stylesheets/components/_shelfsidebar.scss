@@ -6,6 +6,7 @@
 }
 
 .currently-reading {
+  padding: 10px;
 }
 
 .currently-reading > h2 {
@@ -22,10 +23,31 @@
 }
 
 .shelf-book-container {
-  // background-color: $green;
   margin: 0 auto;
   width: 75%;
   margin-top: 5px;
+}
+
+.not-wanting-anything {
+  padding: 10px;
+}
+
+.shelves-index {
+  padding: 10px;
+}
+
+.counts-and-list {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.shelves-index-item a {
+  text-decoration: none;
+  color: $teal;
+  list-style: none;
+}
+
+.add-shelf p, .add-shelf input {
+  margin: 5px;
 }

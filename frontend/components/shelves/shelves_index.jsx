@@ -58,13 +58,17 @@ class ShelvesIndex extends React.Component {
     return (
       <div className="shelves-index">
         <h3 className="bookshelves-title">BOOKSHELVES</h3>
-        <div className="shelves-counts">
-          {counts}
+        <div className="counts-and-list">
+          <div className="shelves-counts">
+            {counts}
+          </div>
+          <div className="shelves-list">
+            <ul className="shelves-list-items">
+              {shelves}
+            </ul>
+          </div>
         </div>
-        <div className="shelves-list">
-          <ul className="shelves-list-items">
-            {shelves}
-          </ul>
+        <div className="add-shelf">
           <p>Add a Shelf:</p>
           <input type="text" value={this.state.name}
             onChange={this.update('name')} />
