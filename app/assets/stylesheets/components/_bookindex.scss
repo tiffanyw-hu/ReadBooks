@@ -13,10 +13,10 @@
 
 .index-heading h4 {
   font-weight: bold;
-  margin: 0 auto;
+  // margin: 0 auto;
   font-size: 25px;
   text-align: left;
-  padding: 15px 0px;
+  color: $brown;
 }
 
 .book-index-item {
@@ -28,7 +28,7 @@ body {
 }
 
 .index-heading {
-  margin: 0 auto;
-  width: 79%;
-  padding: 10px;
+  // margin: 0 auto;
+  // width: 79%;
+  padding: 13px;
 }

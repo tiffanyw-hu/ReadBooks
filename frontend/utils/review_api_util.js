@@ -30,7 +30,7 @@ export const updateReview = review => (
 export const createReview = review => (
   $.ajax({
     method: 'POST',
-    url: `api/books/${review.book_id}/reviews/${review.id}`,
+    url: `api/books/${review.book_id}/reviews/`,
     data: {review},
   })
 )
