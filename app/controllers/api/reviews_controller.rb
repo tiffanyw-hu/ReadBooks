@@ -12,7 +12,7 @@ class Api::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @book = Book.find_by(id: params[:book_id])
-    @review.user_id = current_user.id 
+    @review.user_id = current_user.id
     if @review.save
       render 'api/books/show'
     else
@@ -40,7 +40,7 @@ class Api::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :body, :book_id)
+    params.require(:review).permit(:body, :rating, :book_id)
   end
 
 end
