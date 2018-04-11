@@ -30,12 +30,18 @@
   background-color: $brown;
   color: white;
   border: none;
-  padding: 6px;
+  padding: 7px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 10px;
   border-radius: 2px;
+  margin-right: 5px;
+}
+
+.splash-buttons {
+  margin-top: 1px;
+
 }
 
 .splash-header {
