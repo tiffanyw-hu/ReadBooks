@@ -1,0 +1,33 @@
+.book-index-container {
+  width: 70%;
+  margin: 20px;
+}
+
+.book-index {
+  // background-color: $off-white;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  flex-flow: row wrap;
+}
+
+.index-heading h4 {
+  font-weight: bold;
+  margin: 0 auto;
+  font-size: 25px;
+  text-align: left;
+  padding: 15px 0px;
+}
+
+.book-index-item {
+  padding: 16px 8px;
+}
+
+body {
+  background-color: $off-white;
+}
+
+.index-heading {
+  margin: 0 auto;
+  width: 79%;
+}

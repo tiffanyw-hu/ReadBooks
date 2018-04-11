@@ -29,7 +29,9 @@ class shelfSideBar extends React.Component {
       return (
         <div className="shelf-side-bar">
           <CurrentlyReading shelf={secondShelf}/>
+          <hr></hr>
           <WantToRead shelf={thirdShelf} />
+          <hr></hr>
           <ShelvesIndexContainer />
         </div>
       )
