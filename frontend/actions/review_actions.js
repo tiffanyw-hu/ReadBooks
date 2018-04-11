@@ -16,3 +16,7 @@ export const createReview = review => dispatch => (
 export const deleteReview = review => dispatch => (
   ReviewAPIUtil.deleteReview(review).then(book => dispatch(receiveBook(book)))
 )
+
+export const updateReview = review => dispatch => (
+  ReviewAPIUtil.updateReview(review).then(book => dispatch(receiveBook(book)))
+)

@@ -1,10 +1,17 @@
 import React from 'react';
+import CreateReviewContainer from '../reviews/create_review_container';
+import EditReviewContainer from '../reviews/edit_review_container';
 
 class BookShow extends React.Component {
 
   constructor(props) {
     super(props);
-    // this.state = {showmore: false}
+    this.state = {
+      modalshow: false
+    }
+    this.modalToggle = this.modalToggle.bind(this);
+    this.reviewExists = this.reviewExists.bind(this);
+    this.whereIsReview = this.whereIsReview.bind(this);
   }
 
   componentDidMount() {
@@ -19,25 +26,64 @@ class BookShow extends React.Component {
   //   }
   // }
 
-  render () {
-    if (!this.props.book) return null
+  modalToggle(e) {
+    e.preventDefault();
+    this.setState({
+      modalshow: this.state.modalshow === false
+        ? true
+        : false
+    })
+  }
 
-    return (
-      <div className="bookshowpage-container">
-        <div className="page-top">
-          <div className="img-col">
-            <img className="book-img" src={this.props.book.img_url} width="150px" height="231px" />
-          </div>
-          <div className="book-details">
-            <h3 className="book-title">{this.props.book.title}</h3>
-            <p className="book-author">{this.props.book.author}</p>
-            <div></div>
-            <p className="book-description">{this.props.book.description}</p>
-            <hr className="hr"></hr>
-          </div>
+  reviewExists() {
+    let userReview = this.whereIsReview();
+    if (!userReview) {
+      return (<CreateReviewContainer bookId={this.props.book.id}/>)
+    }
+    return (<EditReviewContainer bookId={this.props.book.id} review={userReview}/>)
+  }
+
+  whereIsReview() {
+    if (this.props.book) {
+      let reviewsArray = this.props.book.reviews;
+      for (let i = 0; i < reviewsArray.length; i++) {
+        if (reviewsArray[i].user_id === this.props.currentUser.id) {
+          return reviewsArray[i]
+        }
+      }
+    }
+    return false
+  }
+
+  render() {
+    if (!this.props.book)
+      return null
+
+    return (<div className="bookshowpage-container">
+      <div className="page-top">
+
+        <div className="img-col">
+          <img className="book-img" src={this.props.book.img_url} width="150px" height="231px"/>
         </div>
+
+        <div className="book-details">
+          <h3 className="book-title">{this.props.book.title}</h3>
+          <p className="book-author">{this.props.book.author}</p>
+          <p className="book-description">{this.props.book.description}</p>
+          <hr className="hr"></hr>
+        </div>
+
       </div>
-    )
+
+      <div className="modal-stuff">
+        <a href="#" onClick={this.modalToggle}>Write a review</a>
+      </div>
+
+      <div className="the-modal hidden">
+        {this.reviewExists()}
+      </div>
+
+    </div>)
   }
 
 }
