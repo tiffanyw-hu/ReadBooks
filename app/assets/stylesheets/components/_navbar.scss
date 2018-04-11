@@ -19,9 +19,9 @@
    color: $nav_hover_text;
 }
 
-.navbar > a:last-of-type {
-  margin-left: auto;
-}
+// .navbar > a:last-of-type {
+//   margin-left: auto;
+// }
 
 .nav-button {
   justify-content: flex-end;
@@ -33,7 +33,11 @@
   display: flex;
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   height: 50px;
+  margin-left: auto;
+}
 
+.last {
+  margin-left: auto;
 }
 
 .login-signup > a {
