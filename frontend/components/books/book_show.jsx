@@ -1,13 +1,15 @@
 import React from 'react';
 import CreateReviewContainer from '../reviews/create_review_container';
 import EditReviewContainer from '../reviews/edit_review_container';
+import MyActivity from '../reviews/myactivity';
+import AllReviews from '../reviews/all_reviews';
 
 class BookShow extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      modalshow: false
+      modalshow: "hidden"
     }
     this.modalToggle = this.modalToggle.bind(this);
     this.reviewExists = this.reviewExists.bind(this);
@@ -28,10 +30,11 @@ class BookShow extends React.Component {
 
   modalToggle(e) {
     e.preventDefault();
+    console.log(this.state);
     this.setState({
-      modalshow: this.state.modalshow === false
-        ? true
-        : false
+      modalshow: this.state.modalshow === "hidden"
+        ? ""
+        : "hidden"
     })
   }
 
@@ -56,8 +59,11 @@ class BookShow extends React.Component {
   }
 
   render() {
-    if (!this.props.book)
+    if (!this.props.book) {
       return null
+    }
+
+    let userReview = this.whereIsReview();
 
     return (<div className="bookshowpage-container">
       <div className="page-top">
@@ -75,11 +81,14 @@ class BookShow extends React.Component {
 
       </div>
 
-      <div className="modal-stuff">
-        <a href="#" onClick={this.modalToggle}>Write a review</a>
+      <div className="myactivity">
+        {(this.props.currentUser.user_id === "guest") ? "" : <MyActivity review={userReview} modalToggle={this.modalToggle} />}
       </div>
 
-      <div className="the-modal hidden">
+      <div className="all-the-reviews">
+        <AllReviews reviews={this.props.book.reviews} />
+      </div>
+      <div className={`the-modal ${this.state.modalshow}`}>
         {this.reviewExists()}
       </div>
 
