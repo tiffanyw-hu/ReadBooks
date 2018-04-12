@@ -6,7 +6,7 @@ const AllReviews = reviews => {
     <div className="reviews-index">
       <h4>COMMUNITY REVIEWS</h4>
       <hr className="hr"></hr>
-      {reviews.reviews.map(review => <ReviewDetails review={review} user={review.username} />)}
+      {reviews.reviews.map(review => <ReviewDetails key={review.id} review={review} user={review.user.username} />)}
     </div>
   )
 }

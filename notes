@@ -50,3 +50,6 @@ Things to consider:
 
 ## Book Show does not render when book_id is manually typed into the url
 * Trouble: is the title. The show doesn't run until you refresh (or if you type in another one).
+
+## Sometimes I wonder
+* Trouble: editing a review removes the reading status of a book

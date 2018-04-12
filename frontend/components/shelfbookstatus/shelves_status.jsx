@@ -7,23 +7,32 @@ class ShelvesStatus extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {reading_status: this.props.book.reading_status, dropdownShow: "hidden"}
+    let reading_status = this.props.book.reading_status.name || "YOU CAN'T JUDGE ME"
+    this.state = {reading_status: reading_status, dropdownShow: "hidden"}
     this.toggleHiddenShelves = this.toggleHiddenShelves.bind(this);
     this.userCustomShelves = this.userCustomShelves.bind(this);
+    this.toggleReadingStatus = this.toggleReadingStatus.bind(this);
   }
 
   toggleHiddenShelves() {
-    this.setState({dropdownShow: dropdownShow === "hidden" ? "" : "hidden"})
+    this.setState({dropdownShow: this.state.dropdownShow === "hidden" ? "" : "hidden"})
+  }
+
+  toggleReadingStatus(reading_status) {
+    this.setState({reading_status: reading_status})
   }
 
   userCustomShelves() {
-    let shelvesLength = this.props.userShelves.length
-    let customShelves = this.props.userShelves.slice(2, shelvesLength)
-    return customShelves.map(shelf => {
-      return (
-        <CustomShelf shelf={shelf}/>
-      )
-    })
+    if (Object.keys(this.props.userShelves).length !== 0) {
+      let shelvesLength = this.props.userShelves.length
+      let customShelves = this.props.userShelves.slice(2, shelvesLength)
+      return customShelves.map(shelf => {
+        return (
+          <CustomShelf shelf={shelf} createShelving={this.props.createShelving}
+            deleteShelving={this.props.deleteShelving} />
+        )
+      })
+    }
   }
 
   render() {
@@ -35,7 +44,11 @@ class ShelvesStatus extends React.Component {
         </div>
         <div className={`hidden-shelves ${this.state.dropdownShow}`}>
           <ThreeShelves readingStatus={this.state.reading_status}
-            userShelves={this.props.userShelves} />
+            userShelves={this.props.userShelves}
+            createShelving={this.props.createShelving}
+            deleteShelving={this.props.deleteShelving}
+            toggleReadingStatus={this.toggleReadingStatus}
+            toggleHiddenShelves={this.toggleHiddenShelves} />
           {this.userCustomShelves()}
         </div>
       </div>
