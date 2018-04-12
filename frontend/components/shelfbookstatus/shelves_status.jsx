@@ -35,8 +35,7 @@ class ShelvesStatus extends React.Component {
         </div>
         <div className={`hidden-shelves ${this.state.dropdownShow}`}>
           <ThreeShelves readingStatus={this.state.reading_status}
-            userShelves={this.props.userShelves} deleteShelving={this.props.deleteShelving}
-            createShelving={this.props.createShelving} />
+            userShelves={this.props.userShelves} />
           {this.userCustomShelves()}
         </div>
       </div>

@@ -3,6 +3,7 @@ import CreateReviewContainer from '../reviews/create_review_container';
 import EditReviewContainer from '../reviews/edit_review_container';
 import MyActivity from '../reviews/myactivity';
 import AllReviews from '../reviews/all_reviews';
+import ShelvesStatusContainer from '../shelfbookstatus/shelves_status_container';
 
 class BookShow extends React.Component {
 
@@ -91,6 +92,7 @@ class BookShow extends React.Component {
 
         <div className="img-col">
           <img className="book-img" src={this.props.book.img_url} width="150px" height="231px"/>
+          <ShelvesStatusContainer book={this.props.book} />
         </div>
 
         <div className="book-details">
