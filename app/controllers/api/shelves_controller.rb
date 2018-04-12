@@ -3,6 +3,7 @@ class Api::ShelvesController < ApplicationController
   before_action :require_logged_in
 
   def create
+    @user = current_user
     @shelf = Shelf.new(shelf_params)
 
     if @shelf.save
@@ -14,6 +15,7 @@ class Api::ShelvesController < ApplicationController
   end
 
   def update
+    @user = current_user
     @shelf = Shelf.find(params[:id])
 
     if @shelf.update(shelf_params)
@@ -25,6 +27,7 @@ class Api::ShelvesController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @shelf = Shelf.find(params[:id])
     @shelf.destroy
     render "api/shelves/show"
