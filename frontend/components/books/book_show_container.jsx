@@ -6,7 +6,7 @@ const mapStateToProps = (state, ownProps) => {
   let book = state.entities.books[ownProps.match.params.book_id]
   let currentUser = state.session.currentUser
   if (!currentUser) {
-    return {user_id: "guest"}
+     currentUser = {user_id: "guest"}
   }
   return {book, currentUser};
 }
