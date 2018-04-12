@@ -17,12 +17,16 @@ class ReviewForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state);
+    this.props.closeModal();
   }
 
   render () {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="modal-form" onSubmit={this.handleSubmit}>
+          <img src={this.props.book.img_url} width="49px" height="75px" />
+          <p>{this.props.book.title}</p>
+          <p>{this.props.book.author}</p>
           <p>Rating:</p><input type="number" onChange={this.update('rating')} value={this.state.rating}
             name="rating" min="1" max="5" /><span>out of 5</span>
           <label>What did you think?
@@ -30,7 +34,7 @@ class ReviewForm extends React.Component {
               onChange={this.update('body')} />
           </label>
 
-          <input type="submit" />
+          <button onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
     );

@@ -14,6 +14,8 @@ class BookShow extends React.Component {
     this.modalToggle = this.modalToggle.bind(this);
     this.reviewExists = this.reviewExists.bind(this);
     this.whereIsReview = this.whereIsReview.bind(this);
+    this.checkChildrenForModal = this.checkChildrenForModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
@@ -30,20 +32,35 @@ class BookShow extends React.Component {
 
   modalToggle(e) {
     e.preventDefault();
-    console.log(this.state);
-    this.setState({
-      modalshow: this.state.modalshow === "hidden"
+    let childrenHasModal = this.checkChildrenForModal(e.target.children);
+    if ((e.target.className !== "this-review-yea" && childrenHasModal) || e.target.className === "possible-review") {
+      this.setState({
+        modalshow: this.state.modalshow === "hidden"
         ? ""
         : "hidden"
-    })
+      })
+    }
+  }
+
+  checkChildrenForModal(children) {
+    for (let i = 0; i < children.length; i++) {
+      if (children[i].className === 'this-review-yea') {
+          return true
+      }
+    }
+
+    return false
   }
 
   reviewExists() {
     let userReview = this.whereIsReview();
     if (!userReview) {
-      return (<CreateReviewContainer bookId={this.props.book.id}/>)
+      return (<CreateReviewContainer bookId={this.props.book.id}
+        book={this.props.book} closeModal={this.closeModal} />)
     }
-    return (<EditReviewContainer bookId={this.props.book.id} review={userReview}/>)
+    return (<EditReviewContainer bookId={this.props.book.id}
+      review={userReview} book={this.props.book}
+      closeModal={this.closeModal}/>)
   }
 
   whereIsReview() {
@@ -56,6 +73,10 @@ class BookShow extends React.Component {
       }
     }
     return false
+  }
+
+  closeModal() {
+    this.setState({modalshow: "hidden"})
   }
 
   render() {
@@ -88,8 +109,11 @@ class BookShow extends React.Component {
       <div className="all-the-reviews">
         <AllReviews reviews={this.props.book.reviews} />
       </div>
-      <div className={`the-modal ${this.state.modalshow}`}>
-        {this.reviewExists()}
+      <div onClick={this.modalToggle} className={`the-modal ${this.state.modalshow}`}>
+        <span onClick={this.modalToggle} className="modal-close js-modal-close">&times;</span>
+        <div className="this-review-yea">
+          {this.reviewExists()}
+        </div>
       </div>
 
     </div>)
