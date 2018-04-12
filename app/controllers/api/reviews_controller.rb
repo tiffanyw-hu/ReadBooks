@@ -2,6 +2,7 @@ class Api::ReviewsController < ApplicationController
   def show
     @review = Review.where(book_id: params[:book_id])
     @book = Book.find_by(id: params[:book_id])
+    @user = current_user
     if @review
       render 'api/books/show'
     else

@@ -49,7 +49,6 @@ class BookShow extends React.Component {
           return true
       }
     }
-
     return false
   }
 
@@ -68,7 +67,7 @@ class BookShow extends React.Component {
     if (this.props.book) {
       let reviewsArray = this.props.book.reviews;
       for (let i = 0; i < reviewsArray.length; i++) {
-        if (reviewsArray[i].user_id === this.props.currentUser.id) {
+        if (reviewsArray[i].user.id === this.props.currentUser.id) {
           return reviewsArray[i]
         }
       }
