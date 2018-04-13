@@ -1,0 +1,35 @@
+.shelves-show-table > tbody > th {
+  margin-right: 30px;
+}
+
+.shelves-show-list {
+  width: 80%;
+  padding-top:40px;
+}
+
+.shelves-show-table {
+  width: 100%;
+}
+
+th {
+  border-bottom: 1px solid black;
+
+  padding-bottom: 10px;
+}
+
+td {
+  text-align:center;
+  padding: 10px 0px;
+  vertical-align:middle;
+}
+
+td:last-of-type > a{
+  text-decoration: none;
+}
+
+td:last-of-type > a:hover {
+  font-weight: bold;
+}
+
+tr {
+}
