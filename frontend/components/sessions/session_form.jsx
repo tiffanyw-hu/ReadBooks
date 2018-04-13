@@ -55,9 +55,9 @@ class SessionForm extends React.Component {
   }
 
   renderError() {
-    let error = [<div></div>];
+    let error = <div></div>;
     if (this.props.errors.length !== 0) {
-      error = [<div className="error">{this.props.errors[0]}</div>];
+      error = <div className="error">{this.props.errors[0]}</div>;
     }
     return error;
   }
