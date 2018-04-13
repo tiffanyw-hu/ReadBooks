@@ -17,7 +17,6 @@ class ThreeShelves extends React.Component {
       "Currently Reading": this.props.userShelves[1],
       "Want to Read": this.props.userShelves[2] }
     let chosenShelf = e.target.getAttribute("data-shelfname")
-    // this.props.toggleHiddenShelves();
     let newState = {"Read": "",
       "Currently Reading": "",
       "Want to Read": "" }
