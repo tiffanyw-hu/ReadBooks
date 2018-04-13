@@ -7,6 +7,7 @@ class ShelvesShow extends React.Component {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
     this.bookIdsToShelvingIds = this.bookIdsToShelvingIds.bind(this);
+    this.state = {books: this.props.books}
   }
 
   componentDidMount() {
@@ -51,7 +52,6 @@ class ShelvesShow extends React.Component {
             <th>Title</th>
             <th>Author</th>
             <th>Rating</th>
-            <th>Review</th>
             <th></th>
           </tr>
           {shelf}

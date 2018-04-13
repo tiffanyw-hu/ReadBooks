@@ -17,17 +17,35 @@
   padding-bottom: 10px;
 }
 
-.currently-reading p {
+.currently-reading p, .not-wanting-anything p {
   font-size: 13px;
 }
 
 .currently-reading img {
 }
 
+.current-reading-detail {
+  display:flex;
+  justify-content: space-between;
+}
+
+.current-reading-detail-text{
+  margin-left:20px;
+}
+
+.current-reading-detail-title{
+  padding-bottom: 5px;
+   font-weight:bold;
+}
 .shelf-book-container {
   margin: 0 auto;
   width: 75%;
   margin-top: 5px;
+}
+
+.shelf-side-bar img {
+   width: 50px;
+   height: 77px;
 }
 
 .not-wanting-anything {
@@ -40,8 +58,10 @@
 
 .counts-and-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 10px;
+  font-size:14px;
+  line-height: 25px;
 }
 
 .shelves-index-item a {
@@ -50,10 +70,20 @@
   list-style: none;
 }
 
+.shelves-index-item {
+  display:flex;
+  justify-content: space-between;
+}
 .add-shelf p, .add-shelf input {
   margin: 5px;
 }
 
 .active-shelf {
   background-color: $green;
+}
+
+.want-to-read-gallery {
+  display:flex;
+width: 30%;
+max-width: 200px;
 }

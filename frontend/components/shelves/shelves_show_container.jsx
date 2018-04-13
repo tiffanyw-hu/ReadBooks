@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     shelves: ownProps.match.params.shelf_id === "books" ? {books: []} : state.entities.shelves,
     shelf_id: ownProps.match.params.shelf_id,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    books: state.entities.books
   }
 }
 
@@ -17,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
   fetchBooks: () => dispatch(fetchBooks()),
   fetchShelves: () => dispatch(fetchShelves()),
   fetchShelf: id => dispatch(fetchShelf(id)),
-  deleteShelving: id => dispatch(deleteShelving(id))
+  deleteShelving: id => dispatch(deleteShelving(id)).then(() => dispatch(fetchShelves()))
 })
 
 const ShelvesShowContainer = connect(mapStateToProps, mapDispatchToProps)(ShelvesShow)

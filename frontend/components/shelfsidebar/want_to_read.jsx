@@ -6,6 +6,7 @@ const WantToRead = ({shelf}) => {
     return (
       <div className="not-wanting-anything">
         <h2>WANT TO READ</h2>
+        <img src="http://res.cloudinary.com/dqj3kgpoj/image/upload/v1523379167/wanttoread.svg" />
         <p>What do you want to read next?</p>
       </div>
     )
@@ -18,7 +19,9 @@ const WantToRead = ({shelf}) => {
     return (
       <div className="want-to-read-img">
         <h2>WANT TO READ</h2>
-        {books.slice(0, 8)}
+        <div className="want-to-read-gallery">
+          {books.slice(0, 8)}
+        </div>
       </div>
     )
   }
