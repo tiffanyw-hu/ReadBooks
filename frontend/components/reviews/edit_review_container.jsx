@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import React from 'react';
-import {fetchReview, updateReview} from '../../actions/review_actions';
+import {fetchReview, updateReview, deleteReview} from '../../actions/review_actions';
 import ReviewForm from './review_form';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchReview: review => dispatch(fetchReview(review)),
   action: review => dispatch(updateReview(review)),
+  deleteReview: review => dispatch(deleteReview(review))
 })
 
 const EditReviewContainer = connect(
