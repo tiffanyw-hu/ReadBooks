@@ -53,3 +53,7 @@ Things to consider:
 
 ## Sometimes I wonder
 * Trouble: editing a review removes the reading status of a book
+
+## Andrew be crazy
+* Trouble: changing reading status would break sometimes. Everything works the first time around, because the store has stuffs, but we never actually update the store. Once we delete a shelving, it'll fetch for a shelving that is no longer there (since no update). The reason we don't update the store is because we're going through shelvings from book.shelves.shelvings (which is how we wrote it in our json views)
+*Solution: changed json views so that shelving went through books to directly update the store. Instead of doing book.shelves.shelvings, we did book.shelvings, which always updates the store.
