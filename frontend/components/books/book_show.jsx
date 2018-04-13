@@ -102,7 +102,7 @@ class BookShow extends React.Component {
         <div className="img-col">
 
           <img className="book-img" src={this.props.book.img_url} width="150px" height="231px"/>
-          <ShelvesStatusContainer book={this.props.book} />
+          {(this.props.currentUser.user_id === "guest") ? "" : <ShelvesStatusContainer book={this.props.book} />}
         </div>
 
         <div className="book-details">

@@ -20,9 +20,21 @@ class Splash extends React.Component {
           </div>
         </div>
         <div className="splash-body">
-          <BooksIndexContainer />
+          <div className="splash-body-text-container">
+            <div className="first-wall">
+              <h3>Deciding what to read next?</h3>
+              <p>You’re in the right place. Tell us what titles or genres you’ve enjoyed in the past, and we’ll give you surprisingly insightful recommendations.</p>
+            </div>
+            <div className="second-wall">
+              <h3>What are your friends reading?</h3>
+              <p>Chances are your friends are discussing their favorite (and least favorite) books on Goodreads.</p>
+            </div>
+          </div>
+          </div>
+          <div className="splash-books">
+            <BooksIndexContainer />
+          </div>
         </div>
-      </div>
     )
   }
 }

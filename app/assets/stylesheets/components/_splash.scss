@@ -92,6 +92,50 @@
   padding-bottom: 8px;
 }
 
+.splash-body-text-container {
+  display: flex;
+  margin: 0 auto;
+  width: 60%;
+  justify-content: space-around;
+}
+
+.first-wall {
+  width: 280px;
+  margin: 0 10px 10px 0;
+  float: left;
+}
+
+.second-wall {
+  width: 280px;
+  margin: 0 10px 10px 0;
+  float: right;
+}
+
+.splash-body-text-container h3 {
+  padding: 25px 0px;
+  font-size: 18px;
+}
+
+.splash-body-text-container p {
+  font-size: 16px;
+}
+
+.book-index-splash {
+  align-items: center;
+  border-radius: 2px;
+  border: 1px solid $gray;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.splash-books {
+  padding-top: 30px;
+}
+
+.books-index-container-splash {
+}
+
 @media (max-width: 992px) {
   .splash-bottom {
     flex-direction: column;
