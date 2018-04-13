@@ -28,7 +28,7 @@ For this application, users are easily able to access between their bookshelves 
 #### Adding books to a bookshelf 
 Adding a book to a bookshelf is component on the book details page that allows users to add or remove books to their shelves. A book is not able to be in multiple status of the main three: Currently Reading, Read, and Want To Read. This is achieved by having a user shelve a book with an onClick function, which toggles the value of the default state. When a shelf is clicked and does not have a value of "active-shelf", it will delete the shelvings of the book on the other two main shelves and create a shelving on the shelf that has been clicked. This avoids the issue of a book simultaneously being in one of the main three shelves.
 
-```
+```js
   constructor(props) {
     super(props);
     let defaultState = {"Read": "",
