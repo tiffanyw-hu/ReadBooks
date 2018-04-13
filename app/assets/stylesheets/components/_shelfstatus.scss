@@ -1,0 +1,25 @@
+.active-shelf {
+  background-color: $green;
+}
+
+
+.shelf-display-name {
+  border: 1px solid $gray;
+  border-radius: 3px;
+  background-color: $green;
+  margin-top: 20px;
+  padding: 10px 0px;
+  min-width: 150px;
+  max-width: 150px;
+  box-shadow: 2px  $gray;
+  text-align:center;
+  // width: 100%;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+.shelf-display-name p {
+  font-size: 14px;
+  font-weight:bold;
+  color: $sandy-white;
+
+}

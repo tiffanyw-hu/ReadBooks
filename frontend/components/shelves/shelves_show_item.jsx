@@ -30,8 +30,6 @@ const ShelvesShowItem = props => {
         </td>
         <td><p className="shelves-show-author">{props.book.author}</p></td>
 
-        <td><p>{props.book.name}</p></td>
-
         <td><p>{userReview.rating} out of 5</p></td>
 
         <td><p>{userReview.body}</p></td>

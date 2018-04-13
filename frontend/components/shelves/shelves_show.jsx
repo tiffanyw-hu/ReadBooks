@@ -50,7 +50,6 @@ class ShelvesShow extends React.Component {
             <th>Cover</th>
             <th>Title</th>
             <th>Author</th>
-            <th>Shelf</th>
             <th>Rating</th>
             <th>Review</th>
             <th></th>
