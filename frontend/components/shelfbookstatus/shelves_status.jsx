@@ -1,7 +1,7 @@
 import React from 'react';
 import ShelfNameDisplay from './shelf_name_display';
 import ThreeShelves from './three_shelves';
-// import CustomShelf from './custom_shelf';
+import CustomShelf from './custom_shelf';
 
 class ShelvesStatus extends React.Component {
 
@@ -33,18 +33,18 @@ class ShelvesStatus extends React.Component {
     let userShelvesArray = Object.values(this.props.userShelves)
     if (Object.keys(this.props.userShelves).length !== 0) {
       let shelvesLength = userShelvesArray.length
-      let customShelves = userShelvesArray.slice(2, shelvesLength)
-      // <CustomShelf shelf={shelf} createShelving={this.props.createShelving}
-      //   deleteShelving={this.props.deleteShelving} />
+      let customShelves = userShelvesArray.slice(3, shelvesLength)
       return customShelves.map(shelf => {
         return (
-          <div></div>
+          <CustomShelf shelf={shelf} createShelving={this.props.createShelving}
+            deleteShelving={this.props.deleteShelving} book={this.props.book} />
         )
       })
     }
   }
 
   render() {
+    console.log(this.userCustomShelves())
     return (
       <div className="shelves-status-container">
         <div className="shelf-display">
