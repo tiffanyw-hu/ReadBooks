@@ -16,7 +16,6 @@ class BooksIndex extends React.Component {
 
     let urlArray = window.location.href.split("/")
     if (urlArray[urlArray.length - 1] === "books") {
-      console.log(urlArray)
       return (
         <div className="books-index-container">
           <div className="index-heading">

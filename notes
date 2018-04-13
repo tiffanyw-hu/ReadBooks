@@ -8,21 +8,21 @@ Bugs/Trouble spots
 * Trouble: The NavBar should appear everywhere except for the splash page.
 * First attempt: have the NavBar render an empty div if location.pathname
 was the same as the splash page "/"
-* Noticed we didn't have ownProps because the NavBarContainer wasn't
+* Noticed I didn't have ownProps because the NavBarContainer wasn't
 in the routes in the app component
 * Solution: window.location.href.split("/") returns the url in an array
-Since the splash page would always have that a length of 5, we will not
+Since the splash page would always have that a length of 5, I will not
 render the navBar if the urlArray length is 5.
 * Future problems: The length count is the count of the localhost, so
-the count is going to change when we push it to heroku.
+the count is going to change when I push it to heroku.
 
 ## Shelving updates shelf but not the book
 * Trouble: Shelving dispatches receiveShelf, which updates the shelf but
 not the book which means book will not be updated in the store, which
 means book will not re-render, which makes the book's shelf status
 incorrect since it relies on the book's value in the store.
-* Solution: Since status is a boolean, we can update the visual representation of it without updating the store by keeping a local state in the shelving status component. The database can still be updated without needing to update the store. Refreshing the page or going to another link will show that the data persists (this term means save to database apparently)
-* This saved a lot of time in redoing our actions because Andrew was doing some weird way
+* Solution: Since status is a boolean, I can update the visual representation of it without updating the store by keeping a local state in the shelving status component. The database can still be updated without needing to update the store. Refreshing the page or going to another link will show that the data persists (this term means save to database apparently)
+* This saved a lot of time in redoing our actions because I was doing some Iird way
 
 ## Routing issues
 * "/" renders splash page when there isn't a currentUser
@@ -35,16 +35,16 @@ Things to consider:
 
 ## deleteShelving issues
 * Trouble: deleteShelving took in an id, which should've been specified as a shelving id. The ShelvesShowItem is actually a single book, but a book didn't have a shelving_id.
-* Solution: the shelf the book was on contains a shelving_id. We created an empty object and set it with the key of book_id to a value of shelving_id; that way, we are able to extract the shelving_id through the new object.
+* Solution: the shelf the book was on contains a shelving_id. We created an empty object and set it with the key of book_id to a value of shelving_id; that way, I are able to extract the shelving_id through the new object.
 * Tips: always see what you have available. store.getState(); and etc. and see where you can go from there.
 
 ## more Routing issues
 * Trouble: /shelves/books and /shelves/:shelf_id had some issues as they both go through the same /shelves route. We couldn't get the /:shelf_id page to render because the ownProps.match.params.id was going to "books" every time.
-* Solution: Redirect what was being passed in if the params.url matched "books". Pass in an empty array/object (either would've worked) if the url was "books". If not, we pass in what we want, which was state.entities.shelves.
+* Solution: Redirect what was being passed in if the params.url matched "books". Pass in an empty array/object (either would've worked) if the url was "books". If not, I pass in what I want, which was state.entities.shelves.
 * Tips: Added extra shelf_id as an a prop to make easier access.
 
 ## Routing issues for days
-* Trouble: signing out: doesn't redirect to splash page. Signing in doesn't redirect to shelves page (though sometimes it does and we wonder why).
+* Trouble: signing out: doesn't redirect to splash page. Signing in doesn't redirect to shelves page (though sometimes it does and I wonder why).
 * Tips: We looked at other people's source code to figure out routes. Except it's still boo :C
 * Solution: Turns out you can create your own route util. We did that.
 
@@ -54,6 +54,6 @@ Things to consider:
 ## Sometimes I wonder
 * Trouble: editing a review removes the reading status of a book
 
-## Andrew be crazy
-* Trouble: changing reading status would break sometimes. Everything works the first time around, because the store has stuffs, but we never actually update the store. Once we delete a shelving, it'll fetch for a shelving that is no longer there (since no update). The reason we don't update the store is because we're going through shelvings from book.shelves.shelvings (which is how we wrote it in our json views)
-*Solution: changed json views so that shelving went through books to directly update the store. Instead of doing book.shelves.shelvings, we did book.shelvings, which always updates the store.
+## I be crazy
+* Trouble: changing reading status would break sometimes. Everything works the first time around, because the store has stuffs, but I never actually update the store. Once I delete a shelving, it'll fetch for a shelving that is no longer there (since no update). The reason I don't update the store is because I're going through shelvings from book.shelves.shelvings (which is how I wrote it in our json views)
+*Solution: changed json views so that shelving Int through books to directly update the store. Instead of doing book.shelves.shelvings, I did book.shelvings, which always updates the store.

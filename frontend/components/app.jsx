@@ -12,7 +12,6 @@ import ShelvesShowContainer from './shelves/shelves_show_container';
 import Splash from './splash';
 
 const App = (props) => {
-  // debugger
   return (
     <div>
     <NavBarContainer />

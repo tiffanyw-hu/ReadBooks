@@ -1,3 +1,4 @@
+##Manual Book Seeds##
 Book.create(title: "And Then There Were None", author: "Agatha Christie", img_url: "http://res.cloudinary.com/dqj3kgpoj/image/upload/v1523300890/01.jpg", description: "First, there were ten—a curious assortment of strangers summoned as weekend guests to a private island off the coast of Devon. Their host, an eccentric millionaire unknown to all of them, is nowhere to be found. All that the guests have in common is a wicked past they're unwilling to reveal—and a secret that will seal their fate. For each has been marked for murder. One by one they fall prey. Before the weekend is out, there will be none. And only the dead are above suspicion.")
 Book.create(title: "The Left Hand of Darkness", author: "Ursula K. Le Guin", img_url: "http://res.cloudinary.com/dqj3kgpoj/image/upload/v1523386598/05.jpg", description: "A groundbreaking work of science fiction, The Left Hand of Darkness tells the story of a lone human emissary to Winter, an alien world whose inhabitants can choose -and change - their gender. His goal is to facilitate Winter's inclusion in a growing intergalactic civilization. But to do so he must bridge the gulf between his own views and those of the completely dissimilar culture that he encounters.
 
@@ -93,7 +94,26 @@ Inspired by a longing for justice, and driven by the memory of lost love, Darrow
 Book.create(title: "THe Abyss", author: "Orson Scott Card", img_url: "http://res.cloudinary.com/dqj3kgpoj/image/upload/v1523639980/40289.jpg", description: "From the author of \"Speaker's for the Dead\", and \"Seventh Son\", this science fiction thriller is set in the Caribbean where a US submarine is mysteriously attacked. Foul play by the Soviets is suspected, and the world draws close to nuclear war. But the answer has nothing to do with human deeds.")
 Book.create(title: "Their Eyes Were Watching God", author: "Zora Neale Hurston", img_url: "http://res.cloudinary.com/dqj3kgpoj/image/upload/v1523640108/37415.jpg", description: "Fair and long-legged, independent and articulate, Janie Crawford sets out to be her own person -- no mean feat for a black woman in the '30s. Janie's quest for identity takes her through three marriages and into a journey back to her roots.
 ")
-# Shelf.create(name: "Currently Reading", user_id: 7)
-# Shelf.create(name: "Read", user_id: 7)
-# Shelving.create(book_id: 1, shelf_id: 1)
-# Shelving.create(book_id: 3, shelf_id: 1)
+
+##User Seeds##
+# demo = User.create(username: Seshat, password: scribe)
+# random_users = [demo]
+#   25.times do
+#     name = Faker::Name.first_name
+#     password = "password"
+#     user = User.create(username: name, password: password);
+#     random_users << user
+#   end
+#
+#
+# ##Reviews Seeds##
+# all_reviews = []
+#   30.times do
+#     body = Faker::HarryPotter.quote
+#     rating = Faker::Number.between(1, 5)
+#     user_id = Faker::Number.between
+#     review = Review.create(body: body, rating: rating)
+#     all_reviews << review
+#   end
+#
+#
