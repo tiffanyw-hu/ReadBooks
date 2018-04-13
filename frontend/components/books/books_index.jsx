@@ -14,16 +14,33 @@ class BooksIndex extends React.Component {
       )
     });
 
-    return (
-      <div className="books-index-container">
-        <div className="index-heading">
-          <h4>Explore Books</h4>
-        </div>
+    let urlArray = window.location.href.split("/")
+    if (urlArray[urlArray.length - 1] === "books") {
+      console.log(urlArray)
+      return (
+        <div className="books-index-container">
+          <div className="index-heading">
+            <h4>Explore Books</h4>
+          </div>
           <div className="book-index">
             {books}
           </div>
-    </div>
-    )
+        </div>
+      )
+
+    } else {
+      return (
+        <div className="books-index-container-splash">
+          <div className="index-heading">
+          </div>
+          <div className="book-index-splash">
+            {books}
+          </div>
+        </div>
+      )
+    }
+
+
   }
 
 }

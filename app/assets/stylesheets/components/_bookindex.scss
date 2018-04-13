@@ -21,6 +21,9 @@
 
 .book-index-item {
   padding: 16px 8px;
+  display: flex;
+  flex-direction: row;
+  flex-flow:row wrap;
 }
 
 body {
