@@ -13,7 +13,7 @@
 
 class Review < ApplicationRecord
 
-  validates :body, :rating, :user_id, :book_id, presence: true
+  validates :body, :user_id, :book_id, presence: true
   validates :book_id, uniqueness: {scope: :user_id}
   validate :blank_review
 

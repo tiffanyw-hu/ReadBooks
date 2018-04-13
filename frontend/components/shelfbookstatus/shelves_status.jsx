@@ -34,9 +34,9 @@ class ShelvesStatus extends React.Component {
     if (Object.keys(this.props.userShelves).length !== 0) {
       let shelvesLength = userShelvesArray.length
       let customShelves = userShelvesArray.slice(3, shelvesLength)
-      return customShelves.map(shelf => {
+      return customShelves.map((shelf, i) => {
         return (
-          <CustomShelf shelf={shelf} createShelving={this.props.createShelving}
+          <CustomShelf key={`${i}`} shelf={shelf} createShelving={this.props.createShelving}
             deleteShelving={this.props.deleteShelving} book={this.props.book} />
         )
       })
@@ -44,15 +44,14 @@ class ShelvesStatus extends React.Component {
   }
 
   render() {
-    console.log(this.userCustomShelves())
     return (
       <div className="shelves-status-container">
         <div className="shelf-display">
-          <ShelfNameDisplay readingStatus={this.state.reading_status}
+          <ShelfNameDisplay key={this.props.book.id} readingStatus={this.state.reading_status}
             onClick={this.toggleHiddenShelves} />
         </div>
         <div className={`hidden-shelves ${this.state.dropdownShow}`}>
-          <ThreeShelves readingStatus={this.state.reading_status}
+          <ThreeShelves three-key={`three_id: ${this.props.book.id}`} readingStatus={this.state.reading_status}
             userShelves={Object.values(this.props.userShelves)}
             createShelving={this.props.createShelving}
             deleteShelving={this.props.deleteShelving}

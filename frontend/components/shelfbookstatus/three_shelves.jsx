@@ -34,7 +34,6 @@ class ThreeShelves extends React.Component {
 
   deleteTheShelving(shelf_name, shelf_ids) {
     let currentShelfId = shelf_ids[shelf_name].id
-    console.log(this.props.shelvings)
       for(let i = 0; i < this.props.shelvings.length; i++) {
         if (this.props.shelvings[i].shelf_id === currentShelfId) {
           let shelvingId = this.props.shelvings[i].id

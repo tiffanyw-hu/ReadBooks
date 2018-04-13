@@ -40,7 +40,6 @@ class BookShow extends React.Component {
   // }
 
   modalToggle(e) {
-    console.log("hi")
     e.preventDefault();
     let childrenHasModal = this.checkChildrenForModal(e.target.children);
     if ((e.target.className !== "this-review-yea" && childrenHasModal) || e.target.className === "possible-review-link" || e.target.className === "possible-review-link bigger-review") {

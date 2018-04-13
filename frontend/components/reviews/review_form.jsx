@@ -34,6 +34,12 @@ class ReviewForm extends React.Component {
         href="#"
         onClick={this.handleDelete}>Delete Review</a>]
     }
+
+    let rating = 1
+    if (this.state.rating) {
+      rating = this.state.rating
+    }
+
     return (
       <div>
 
@@ -46,8 +52,8 @@ class ReviewForm extends React.Component {
               <p>{this.props.book.author}</p>
             </div>
           </div>
-          <p><span className="modal-heading">Rating:</span> <input type="number" onChange={this.update('rating')} value={this.state.rating}
-            name="rating" min="1" max="5" /><span> out of 5</span></p>
+          <p><span className="modal-heading">Rating:</span> <input type="number" onChange={this.update('rating')} value={rating}
+            name="rating" min="1" max="5" /><span>{rating} out of 5</span></p>
           <label><p className="modal-heading smaller-heading">What did you think? </p>
             <textarea placeholder="Write your review" type="text" value={this.state.body}
               onChange={this.update('body')} />
