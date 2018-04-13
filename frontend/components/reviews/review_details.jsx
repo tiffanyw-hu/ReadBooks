@@ -1,16 +1,19 @@
 import React from 'react';
 
-const ReviewDetails = ({review, user}) => {
+const ReviewDetails = ({review, user, modalToggle, edit}) => {
   return (
     <div className="review-details-container">
       <div className="review-username">
-        <p><span>{user}</span> rated it {review.rating} out of 5</p>
+        <h5><span>{user}</span> rated it {review.rating} out of 5</h5>
       </div>
 
+
       <div className="review-body">
+        <h4 className="just-says-review">Review</h4>
         <p>{review.body}</p>
+
       </div>
-      <hr className="hr"></hr>
+      {user == "You" ? "" : <hr className="hr"></hr>}
     </div>
   )
 }

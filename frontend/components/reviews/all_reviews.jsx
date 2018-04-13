@@ -4,9 +4,9 @@ import ReviewDetails from './review_details';
 const AllReviews = reviews => {
   return (
     <div className="reviews-index">
-      <h4>COMMUNITY REVIEWS</h4>
+      <h4 className="community-reviews-heading">COMMUNITY REVIEWS</h4>
       <hr className="hr"></hr>
-      {reviews.reviews.map(review => <ReviewDetails key={review.id} review={review} user={review.user.username} />)}
+      {reviews.reviews.map(review => <ReviewDetails key={review.id} review={review}  user={review.user.username} />)}
     </div>
   )
 }

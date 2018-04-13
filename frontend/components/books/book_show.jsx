@@ -89,27 +89,33 @@ class BookShow extends React.Component {
     return (<div className="bookshowpage-container">
       <div className="page-top">
 
+        <div className="book-details-container">
         <div className="img-col">
+
           <img className="book-img" src={this.props.book.img_url} width="150px" height="231px"/>
           <ShelvesStatusContainer book={this.props.book} />
         </div>
 
         <div className="book-details">
-          <h3 className="book-title">{this.props.book.title}</h3>
+          <h3 className="book-title ">{this.props.book.title}</h3>
           <p className="book-author">{this.props.book.author}</p>
           <p className="book-description">{this.props.book.description}</p>
           <hr className="hr"></hr>
         </div>
-
       </div>
 
-      <div className="myactivity">
-        {(this.props.currentUser.user_id === "guest") ? "" : <MyActivity review={userReview} modalToggle={this.modalToggle} />}
+      <div className="reviews-activity-container">
+
+        <div className="myactivity">
+          {(this.props.currentUser.user_id === "guest") ? "" : <MyActivity review={userReview} modalToggle={this.modalToggle} />}
+        </div>
+
+        <div className="all-the-reviews">
+          <AllReviews reviews={this.props.book.reviews} />
+        </div>
+      </div>
       </div>
 
-      <div className="all-the-reviews">
-        <AllReviews reviews={this.props.book.reviews} />
-      </div>
       <div onClick={this.modalToggle} className={`the-modal ${this.state.modalshow}`}>
         <span onClick={this.modalToggle} className="modal-close js-modal-close">&times;</span>
         <div className="this-review-yea">
