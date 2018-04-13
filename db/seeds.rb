@@ -1,4 +1,3 @@
-User.destroy_all
 Book.destroy_all
 ##Manual Book Seeds##
 Book.create(title: "And Then There Were None", author: "Agatha Christie", img_url: "http://res.cloudinary.com/dqj3kgpoj/image/upload/v1523300890/01.jpg", description: "First, there were ten—a curious assortment of strangers summoned as weekend guests to a private island off the coast of Devon. Their host, an eccentric millionaire unknown to all of them, is nowhere to be found. All that the guests have in common is a wicked past they're unwilling to reveal—and a secret that will seal their fate. For each has been marked for murder. One by one they fall prey. Before the weekend is out, there will be none. And only the dead are above suspicion.")
@@ -97,25 +96,23 @@ Book.create(title: "THe Abyss", author: "Orson Scott Card", img_url: "http://res
 Book.create(title: "Their Eyes Were Watching God", author: "Zora Neale Hurston", img_url: "http://res.cloudinary.com/dqj3kgpoj/image/upload/v1523640108/37415.jpg", description: "Fair and long-legged, independent and articulate, Janie Crawford sets out to be her own person -- no mean feat for a black woman in the '30s. Janie's quest for identity takes her through three marriages and into a journey back to her roots.
 ")
 
-##User Seeds##
-# demo = User.create(username: Seshat, password: scribe)
-# random_users = [demo]
-#   25.times do
-#     name = Faker::Name.first_name
-#     password = "password"
-#     user = User.create(username: name, password: password);
-#     random_users << user
-#   end
-#
-#
-# ##Reviews Seeds##
-# all_reviews = []
-#   30.times do
-#     body = Faker::HarryPotter.quote
-#     rating = Faker::Number.between(1, 5)
-#     user_id = Faker::Number.between
-#     review = Review.create(body: body, rating: rating)
-#     all_reviews << review
-#   end
-#
-#
+#User Seeds##
+  25.times do
+    name = Faker::Name.first_name
+    password = Faker::Internet.password
+    user = User.create(username: name, password: password);
+  end
+
+
+##Reviews Seeds##
+  i = 1
+  while i < 41
+    5.times do
+      body = Faker::HarryPotter.quote
+      rating = Faker::Number.between(1, 5)
+      user_id = Faker::Number.between(1, 25)
+      book_id = i
+      review = Review.create(body: body, rating: rating, user_id: user_id, book_id: book_id)
+    end
+    i += 1
+  end
