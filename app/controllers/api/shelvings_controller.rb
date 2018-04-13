@@ -1,10 +1,11 @@
 class Api::ShelvingsController < ApplicationController
 
   def create
-    @shelf = Shelf.find_by(id: shelving_params[:shelf_id])
+    @book = Book.find_by(id: shelving_params[:book_id])
+    @user = current_user
     @shelving = Shelving.new(shelving_params)
     if @shelving.save!
-      render "api/shelves/show"
+      render "api/books/show"
     else
       render json: @shelving.errors.full_messages, status: 422
     end
@@ -12,10 +13,11 @@ class Api::ShelvingsController < ApplicationController
 
   def destroy
     @shelving = Shelving.find(params[:id])
-    @shelf = Shelf.find_by(id: @shelving.shelf_id)
+    @user = current_user
+    @book = Book.find_by(id: @shelving.book_id)
     if @shelving
       @shelving.destroy!
-      render "api/shelves/show"
+      render "api/books/show"
     else
       render json: @shelving.errors.full_messages, status: 404
     end
