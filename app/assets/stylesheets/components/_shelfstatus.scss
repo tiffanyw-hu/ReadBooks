@@ -1,5 +1,15 @@
 .active-shelf {
   background-color: $green;
+  color: white;
+}
+
+.shelves-status-container{
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+.hidden-shelves p{
+  font-size: 14px;
+  padding: 7px;
 }
 
 
@@ -14,12 +24,20 @@
   box-shadow: 2px  $gray;
   text-align:center;
   // width: 100%;
-  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 .shelf-display-name p {
   font-size: 14px;
   font-weight:bold;
   color: $sandy-white;
+}
 
+.shelves-status-container > div:hover {
+  cursor:pointer;
+}
+
+
+.hidden-shelves {
+  border: 1px solid $gray;
+  background-color:$off-white;
 }

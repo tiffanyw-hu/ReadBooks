@@ -32,23 +32,31 @@ class ReviewForm extends React.Component {
     if (this.props.formType === "Edit Review") {
       deleteButton = [<a key={`review_id_delete: ${this.state.id}`}
         href="#"
-        onClick={this.handleDelete}>Delete Me</a>]
+        onClick={this.handleDelete}>Delete Review</a>]
     }
     return (
       <div>
+
         <form className="modal-form" onSubmit={this.handleSubmit}>
-          <img src={this.props.book.img_url} width="49px" height="75px" />
-          <p>{this.props.book.title}</p>
-          <p>{this.props.book.author}</p>
-          <p>Rating:</p><input type="number" onChange={this.update('rating')} value={this.state.rating}
-            name="rating" min="1" max="5" /><span>out of 5</span>
-          <label>What did you think?
-            <input placeholder="Write your review" type="text" value={this.state.body}
+          <span onClick={this.props.closeModal} className="modal-close js-modal-close">&times;</span>
+          <div className="modal-book-details">
+            <img src={this.props.book.img_url} width="49px" height="75px" />
+            <div className="modal-book-details-text">
+              <h2>{this.props.book.title}</h2>
+              <p>{this.props.book.author}</p>
+            </div>
+          </div>
+          <p><span className="modal-heading">Rating:</span> <input type="number" onChange={this.update('rating')} value={this.state.rating}
+            name="rating" min="1" max="5" /><span> out of 5</span></p>
+          <label><p className="modal-heading smaller-heading">What did you think? </p>
+            <textarea placeholder="Write your review" type="text" value={this.state.body}
               onChange={this.update('body')} />
           </label>
 
-          <button onClick={this.handleSubmit}>Submit</button>
-          <div>{deleteButton}</div>
+          <div className="modal-form-buttons">
+            <button onClick={this.handleSubmit}>Submit</button>
+            <div>{deleteButton}</div>
+          </div>
 
         </form>
       </div>

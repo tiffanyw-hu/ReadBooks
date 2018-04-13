@@ -19,6 +19,14 @@ class BookShow extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
+  componentWillMount() {
+    document.body.style.backgroundColor = "white";
+  }
+
+  componentWillUnmount() {
+    document.body.style.backgroundColor = "#F4F1EA"
+  }
+
   componentDidMount() {
     this.props.fetchBook(this.props.match.params.book_id)
   }
@@ -32,9 +40,10 @@ class BookShow extends React.Component {
   // }
 
   modalToggle(e) {
+    console.log("hi")
     e.preventDefault();
     let childrenHasModal = this.checkChildrenForModal(e.target.children);
-    if ((e.target.className !== "this-review-yea" && childrenHasModal) || e.target.className === "possible-review") {
+    if ((e.target.className !== "this-review-yea" && childrenHasModal) || e.target.className === "possible-review-link" || e.target.className === "possible-review-link bigger-review") {
       this.setState({
         modalshow: this.state.modalshow === "hidden"
         ? ""
@@ -117,7 +126,6 @@ class BookShow extends React.Component {
       </div>
 
       <div onClick={this.modalToggle} className={`the-modal ${this.state.modalshow}`}>
-        <span onClick={this.modalToggle} className="modal-close js-modal-close">&times;</span>
         <div className="this-review-yea">
           {this.reviewExists()}
         </div>

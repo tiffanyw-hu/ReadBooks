@@ -141,3 +141,56 @@
   color: $teal;
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
 }
+
+.modal-book-details{
+  display: flex;
+
+}
+
+.modal-book-details img {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.modal-book-details-text {
+
+}
+.modal-book-details h2 {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.modal-heading {
+  font-family: $lato;
+}
+
+p.smaller-heading {
+  font-size: 14px;
+  padding-top: 15px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+
+   opacity: 1;
+
+}
+
+.modal-form input {
+  text-align:center;
+}
+.modal-form textarea {
+  width: 100%;
+  padding-top: 10px;
+  min-height: 250px;
+}
+
+.modal-form-buttons {
+  padding-top: 5px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.modal-form-buttons:last-child {
+  font-family:$lato;
+  font-size: 14px;
+}
