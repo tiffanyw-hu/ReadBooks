@@ -102,6 +102,7 @@ Book.create(title: "Their Eyes Were Watching God", author: "Zora Neale Hurston",
     password = Faker::Internet.password
     user = User.create(username: name, password: password);
   end
+  user = User.create(username: "Seshat", password: "scribe");
 
 
 ##Reviews Seeds##

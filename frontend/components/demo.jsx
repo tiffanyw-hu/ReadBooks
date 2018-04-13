@@ -22,7 +22,7 @@ class Demo extends React.Component {
       return (
         <button
           className='demo-button'
-          onClick={() => signin(demo)}
+          onClick={(e) => {e.preventDefault(); signin(demo)}}
           >Demo
         </button>
       );
