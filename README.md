@@ -69,6 +69,9 @@ Adding a book to a bookshelf is component on the book details page that allows u
 When users write a review, they are able to see their review render on the page without the page refreshing. When submitting an edited, review, users will be able see their changes right away. This is accomplished by having the user's review having it's own slice of state, so any updates will render right away.
 ![fourth](http://res.cloudinary.com/dqj3kgpoj/image/upload/c_scale,w_760/v1523656028/fourth.gif)
 
+#### Challenges 
+I encountered a problem in read status of a book where changing the reading status would break sometimes. It would work the first time because the store is populated with initial items. However, since the deleting and creating shelving on the read status bar only updates the local state of the shelf and not the actual store, when we click on multiple shelves to do multiple shelvings, we would run into an error because it's fetching for a shelving that is no longer there but the store is not aware. I was able to solve this problem by rewriting the json views so that shelvign directly updates the store through books, which will always update the setore.
+
 ## Future Direction/Features 
 Future updates will include: 
 + Users will be given the option to create a shelf when they want to shelve a book 
