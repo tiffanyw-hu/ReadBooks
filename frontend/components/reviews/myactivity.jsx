@@ -6,14 +6,14 @@ const MyActivity = ({review, modalToggle}) => {
     return (
       <div className="review-exists">
         <div className="my-activity-and-edit">
-          <h4 class="section-heading">MY ACTIVITY</h4>
+          <h4 className="section-heading">MY ACTIVITY</h4>
           <h4 className="possible-review-link" onClick={modalToggle}>Edit</h4>
         </div>
         <hr className="hr-gradient"></hr>
         <div className="review-container">
 
           <div className="possible-review">
-            <ReviewDetails review={review} user={"You"} onclick={modalToggle}/>
+            <ReviewDetails review={review} user={"You"} />
           </div>
 
       </div>
@@ -24,7 +24,7 @@ const MyActivity = ({review, modalToggle}) => {
       <div className="review-doesn't-exist">
         <div className="my-activity-and-edit">
 
-        <h4 class="section-heading">MY ACTIVITY</h4>
+        <h4 className="section-heading">MY ACTIVITY</h4>
       </div>
         <hr className="hr-gradient"></hr>
         <div className="review-container">

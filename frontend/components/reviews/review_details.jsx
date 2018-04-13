@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReviewDetails = ({review, user, modalToggle, edit}) => {
+const ReviewDetails = ({review, user}) => {
   return (
     <div className="review-details-container">
       <div className="review-username">
