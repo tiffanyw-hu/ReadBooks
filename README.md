@@ -65,7 +65,7 @@ Adding a book to a bookshelf is component on the book details page that allows u
 
 ![second](http://res.cloudinary.com/dqj3kgpoj/image/upload/c_scale,w_760/v1523654675/second.gif)
 
-## Wrting a review 
+#### Wrting a review 
 When users write a review, they are able to see their review render on the page without the page refreshing. When submitting an edited, review, users will be able see their changes right away. This is accomplished by having the user's review having it's own slice of state, so any updates will render right away.
 ![fourth](http://res.cloudinary.com/dqj3kgpoj/image/upload/c_scale,w_760/v1523656028/fourth.gif)
 
