@@ -4,20 +4,54 @@ class ThreeShelves extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {"Read": "",
+    let defaultState = {"Read": "",
       "Currently Reading": "",
       "Want to Read": "" }
+    defaultState[this.props.readingStatus] = "active-shelf"
+    this.state = defaultState
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    this.props.toggleReadingStatus(e.target.getAttribute("data-shelfname"))
+    this.mainShelfIds = {"Read": this.props.userShelves[0],
+      "Currently Reading": this.props.userShelves[1],
+      "Want to Read": this.props.userShelves[2] }
+    let chosenShelf = e.target.getAttribute("data-shelfname")
     // this.props.toggleHiddenShelves();
     let newState = {"Read": "",
       "Currently Reading": "",
       "Want to Read": "" }
-    newState[e.target.getAttribute("data-shelfname")] = "active-shelf"
+    if (this.state[chosenShelf] === "active-shelf") {
+      this.props.toggleReadingStatus("Want To Read")
+      this.deleteTheShelving(chosenShelf, this.mainShelfIds);
+    } else {
+      newState[chosenShelf] = "active-shelf"
+      this.props.toggleReadingStatus(chosenShelf)
+      this.mainShelfShelving(chosenShelf, this.mainShelfIds);
+    }
     this.setState(newState)
+  }
+
+  deleteTheShelving(shelf_name, shelf_ids) {
+    let currentShelfId = shelf_ids[shelf_name].id
+    console.log(this.props.shelvings)
+      for(let i = 0; i < this.props.shelvings.length; i++) {
+        if (this.props.shelvings[i].shelf_id === currentShelfId) {
+          let shelvingId = this.props.shelvings[i].id
+          this.props.deleteShelving(shelvingId)
+        }
+      }
+  }
+
+  mainShelfShelving(shelf_name, shelf_ids) {
+    let keys = Object.keys(this.state)
+    for (let i = 0; i < 3; i++) {
+      if (this.state[keys[i]] === "active-shelf") {
+        this.deleteTheShelving(keys[i], this.mainShelfIds)
+      }
+    }
+    let shelving = {book_id: this.props.book.id, shelf_id: shelf_ids[shelf_name].id}
+    this.props.createShelving(shelving)
   }
 
   render() {
