@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import React from 'react';
 import {createShelving, deleteShelving} from '../../actions/shelving_actions';
 import ShelvesStatus from './shelves_status';
+import {fetchShelves} from '../../actions/shelf_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let userShelves = state.entities.shelves
@@ -15,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   createShelving: shelving => dispatch(createShelving(shelving)),
-  deleteShelving: id => dispatch(deleteShelving(id))
+  deleteShelving: id => dispatch(deleteShelving(id)),
+  fetchShelves: () => dispatch(fetchShelves())
 })
 
 const ShelvesStatusContainer = connect(
