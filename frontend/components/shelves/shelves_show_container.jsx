@@ -8,7 +8,8 @@ import {withRouter} from 'react-router-dom';
 const mapStateToProps = (state, ownProps) => {
   return {
     shelves: ownProps.match.params.shelf_id === "books" ? {books: []} : state.entities.shelves,
-    shelf_id: ownProps.match.params.shelf_id
+    shelf_id: ownProps.match.params.shelf_id,
+    currentUser: state.session.currentUser
   }
 }
 

@@ -6,6 +6,7 @@ class ReviewForm extends React.Component {
     super(props);
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   update(field) {
@@ -16,12 +17,23 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     this.props.action(this.state);
     this.props.closeModal();
   }
 
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.deleteReview(this.state);
+    this.props.closeModal();
+  }
+
   render () {
+    let deleteButton = ""
+    if (this.props.formType === "Edit Review") {
+      deleteButton = [<a key={`review_id_delete: ${this.state.id}`}
+        href="#"
+        onClick={this.handleDelete}>Delete Me</a>]
+    }
     return (
       <div>
         <form className="modal-form" onSubmit={this.handleSubmit}>
@@ -36,6 +48,8 @@ class ReviewForm extends React.Component {
           </label>
 
           <button onClick={this.handleSubmit}>Submit</button>
+          <div>{deleteButton}</div>
+
         </form>
       </div>
     );

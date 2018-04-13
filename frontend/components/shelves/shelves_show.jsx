@@ -36,7 +36,7 @@ class ShelvesShow extends React.Component {
       let bookshelving_table = this.bookIdsToShelvingIds();
       shelf = this.props.shelves[this.props.shelf_id].books.map(book => {
       return (
-        <ShelvesShowItem book={book} key={`book_id: ${book.id}`}
+        <ShelvesShowItem book={book} currentUser={this.props.currentUser} key={`book_id: ${book.id}`}
           handleDelete={this.handleDelete} shelvingId={bookshelving_table[book.id]} />
       )
     });
