@@ -1,4 +1,16 @@
 # README
+[ReadBooks](https://readbooksapp.herokuapp.com)
+
+ReadBooks is a cataloging platform that allows users to comment, organize, and discover books. Backend development is built using Ruby on Rails, while the frontend relies on React Redux.
+
+## Key Features 
+
++ Secure user authentication 
++ Custom bookshelves for personal organization 
++ Library of books to peruse 
++ Write your own review
+
+## 
 
 ## Implementation Timeline
 
