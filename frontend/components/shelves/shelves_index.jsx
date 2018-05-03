@@ -35,6 +35,14 @@ class ShelvesIndex extends React.Component {
   //clears the name of the form/state/whateverthingy
   }
 
+  renderError() {
+    let error = <div></div>;
+    if (this.props.errors.length !== 0) {
+      error = <div className="error">{this.props.errors[0]}</div>;
+    }
+    return error;
+  }
+
   render() {
     let shelves;
     let counts;
