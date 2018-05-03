@@ -14,6 +14,8 @@ class Shelf < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: { scope: :user_id,
   message: "that shelf name already exists" }
+  validates :name, length: { in: 1..20,
+  message: "Shelf name must be 1 - 20 characters long" }
 
   belongs_to :user
   has_many :shelvings,
