@@ -2,7 +2,7 @@ class Api::BooksController < ApplicationController
 
   def index
     @user = current_user
-    @books = Book.all.includes(:shelvings, :reviews, :shelves)
+    @books = Book.all.includes(:shelvings, :shelves, reviews: [:user])
   end
 
   def show
