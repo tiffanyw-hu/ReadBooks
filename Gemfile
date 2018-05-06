@@ -26,7 +26,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'faker'
 gem 'jquery-rails'
 gem 'bcrypt'
-
+gem 'derailed'
+gem 'stackprof'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -57,7 +58,6 @@ group :development do
 end
 
 group :production do
-  gem 'derailed'
   gem 'rails_12factor'
 end
 
