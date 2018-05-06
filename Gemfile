@@ -54,10 +54,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate'
-  gem 'derailed'
 end
 
 group :production do
+  gem 'derailed'
   gem 'rails_12factor'
 end
 
