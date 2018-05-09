@@ -16,6 +16,8 @@ class Review < ApplicationRecord
   validates :body, :user_id, :book_id, presence: true
   validates :book_id, uniqueness: {scope: :user_id}
   validate :blank_review
+  validates :body, length: { maximum: 2000,
+  message: "Your review is too long" }
 
   belongs_to :book
   belongs_to :user
