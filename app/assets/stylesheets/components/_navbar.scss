@@ -34,6 +34,7 @@
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   height: 50px;
   margin-left: auto;
+
 }
 
 .last {
@@ -46,6 +47,8 @@
   text-decoration: none;
   padding: 17px 30px;
   color: $brown;
+  min-width: 50px;
+
 }
 
 .login-signup > a:hover {
