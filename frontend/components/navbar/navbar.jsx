@@ -10,7 +10,6 @@ const navBar = ({ currentUser, signout, splash, clearErrors }) => {
         <Link className="home" to="/shelves">Home</Link>
         <Link className="mybooks" to="/shelves">MyBooks</Link>
         <Link className="browse" to="/shelves/books">Browse</Link>
-        <a href="https://github.com/tiffanyw-hu">Github</a>
         <Link className="last" to="/" onClick={signout}>Log Out</Link>
       </div>
     )
@@ -27,7 +26,7 @@ const navBar = ({ currentUser, signout, splash, clearErrors }) => {
           <Link onClick={clearErrors} to="/books">Browse</Link>
           <nav className="login-signup">
             <Link onClick={clearErrors} to="/login">Login</Link>
-            <Link onClick={clearErrors} to="/signup">Sign up</Link>
+            <Link onClick={clearErrors} to="/signup">Sign&nbsp;up</Link>
           </nav>
         </div>
       )
