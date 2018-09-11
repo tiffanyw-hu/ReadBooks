@@ -92,6 +92,7 @@ class BookShow extends React.Component {
       return null
     }
 
+    console.log(this.props.book.id)
     let userReview = this.whereIsReview();
 
     return (<div className="bookshowpage-container">
