@@ -28806,7 +28806,7 @@ var _book_show2 = _interopRequireDefault(_book_show);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var book = state.entities.books[ownProps.match.params.book_id];
+  var book = state.entities.books[ownProps.match.params.book_id - 1];
   var currentUser = state.session.currentUser;
   if (!currentUser) {
     currentUser = { user_id: "guest" };
