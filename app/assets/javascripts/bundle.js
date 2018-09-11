@@ -28739,6 +28739,7 @@ var BooksIndex = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      console.log(this.props.books);
       var books = this.props.books.map(function (book) {
         return _react2.default.createElement(_books_index_item2.default, { book: book, key: 'book_id: ' + book.id });
       });
