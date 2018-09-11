@@ -4280,7 +4280,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var books = Object.keys(state.entities.books).map(function (id) {
-    return state.entities.books[id];
+    return state.entities.books[id - 1];
   });
   return {
     books: ownProps.location.pathname === "/" ? books.slice(0, 10) : books
