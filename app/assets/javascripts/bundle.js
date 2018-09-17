@@ -28740,8 +28740,8 @@ var BooksIndex = function (_React$Component) {
     key: 'render',
     value: function render() {
       console.log(this.props.books);
-      var books = this.props.books.map(function (book) {
-        return _react2.default.createElement(_books_index_item2.default, { book: book, key: 'book_id: ' + book.id });
+      var books = this.props.books.map(function (book, index) {
+        return _react2.default.createElement(_books_index_item2.default, { book: book, key: book.id });
       });
 
       var urlArray = window.location.href.split("/");
@@ -29932,6 +29932,7 @@ var navBar = function navBar(_ref) {
       )
     );
   } else {
+    console.log(splash);
     if (splash.length === 5 && !splash.includes("books") && !splash.includes("shelves") && !splash.includes("signup") && !splash.includes("login")) {
       return _react2.default.createElement('div', null);
     }
@@ -33594,7 +33595,7 @@ var _book_actions = __webpack_require__(10);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var booksReducer = function booksReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments[1];
 
   Object.freeze(state);
@@ -33603,7 +33604,9 @@ var booksReducer = function booksReducer() {
       return action.books;
     case _book_actions.RECEIVE_BOOK:
       var newState = (0, _merge2.default)({}, state);
-      newState[action.book.id] = action.book;
+      var bookObject = {};
+      bookObject[action.book.id] = action.book;
+      newState << bookObject;
       return newState;
     default:
       return state;

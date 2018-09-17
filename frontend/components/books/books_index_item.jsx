@@ -5,7 +5,6 @@ class BooksIndexItem extends React.Component {
 
   constructor(props) {
     super(props);
-
   }
 
   render() {
@@ -17,7 +16,7 @@ class BooksIndexItem extends React.Component {
     </div>
   )
   }
-  
+
 }
 
 

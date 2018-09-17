@@ -14,6 +14,7 @@ const navBar = ({ currentUser, signout, splash, clearErrors }) => {
       </div>
     )
   } else {
+    console.log(splash)
       if (splash.length === 5 && !splash.includes("books") && !splash.includes("shelves")
     && !splash.includes("signup") && !splash.includes("login")) {
         return <div></div>
