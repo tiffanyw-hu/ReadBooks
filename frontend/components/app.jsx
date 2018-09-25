@@ -14,8 +14,8 @@ import Splash from './splash';
 const App = (props) => {
   return (
     <div>
-      <NavBarContainer />
     <div className="shelf-book-container">
+      <NavBarContainer />
       <div className="page-container">
       <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
       <ProtectedRoute path="/shelves/books" component={BooksIndexContainer} />
