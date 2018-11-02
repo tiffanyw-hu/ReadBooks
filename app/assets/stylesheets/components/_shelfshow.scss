@@ -11,6 +11,15 @@
   width: 100%;
 }
 
+.shelves-show-book-link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.shelves-show-book-link:hover {
+  text-decoration: underline;
+}
+
 th {
   border-bottom: 1px solid black;
 

@@ -29311,9 +29311,13 @@ var AllReviews = function AllReviews(reviews) {
       'COMMUNITY REVIEWS'
     ),
     _react2.default.createElement('hr', { className: 'hr' }),
-    reviews.reviews.map(function (review) {
-      return _react2.default.createElement(_review_details2.default, { key: review.id, review: review, user: review.user.username });
-    })
+    _react2.default.createElement(
+      'div',
+      { className: 'review-container' },
+      reviews.reviews.map(function (review) {
+        return _react2.default.createElement(_review_details2.default, { key: review.id, review: review, user: review.user.username });
+      })
+    )
   );
 };
 
@@ -30783,7 +30787,7 @@ var ShelvesShowItem = function ShelvesShowItem(props) {
       null,
       _react2.default.createElement(
         _reactRouterDom.Link,
-        { to: '/books/' + props.book.id },
+        { className: 'shelves-show-book-link', to: '/books/' + props.book.id },
         _react2.default.createElement('img', { src: props.book.img_url, width: '50px', height: '77px' })
       )
     ),
