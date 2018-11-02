@@ -28739,10 +28739,12 @@ var BooksIndex = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      console.log(this.props.books);
+      // console.log(this.props.books)
       var books = this.props.books.map(function (book, index) {
         return _react2.default.createElement(_books_index_item2.default, { book: book, key: book.id });
       });
+
+      console.log(books);
 
       var urlArray = window.location.href.split("/");
       if (urlArray[urlArray.length - 1] === "books") {
@@ -29912,12 +29914,7 @@ var navBar = function navBar(_ref) {
       ),
       _react2.default.createElement(
         _reactRouterDom.Link,
-        { className: 'home', to: '/shelves' },
-        'Home'
-      ),
-      _react2.default.createElement(
-        _reactRouterDom.Link,
-        { className: 'mybooks', to: '/shelves' },
+        { className: 'mybooks', to: '/shelves/152' },
         'MyBooks'
       ),
       _react2.default.createElement(
@@ -29932,7 +29929,7 @@ var navBar = function navBar(_ref) {
       )
     );
   } else {
-    console.log(splash);
+    // console.log(splash)
     if (splash.length === 5 && !splash.includes("books") && !splash.includes("shelves") && !splash.includes("signup") && !splash.includes("login")) {
       return _react2.default.createElement('div', null);
     }
@@ -29943,11 +29940,6 @@ var navBar = function navBar(_ref) {
         _reactRouterDom.Link,
         { onClick: clearErrors, to: '/', className: 'nav-logo' },
         'ReadBooks'
-      ),
-      _react2.default.createElement(
-        _reactRouterDom.Link,
-        { onClick: clearErrors, to: '/' },
-        'Home'
       ),
       _react2.default.createElement(
         _reactRouterDom.Link,
