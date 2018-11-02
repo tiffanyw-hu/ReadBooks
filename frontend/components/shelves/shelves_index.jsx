@@ -9,6 +9,7 @@ class ShelvesIndex extends React.Component {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.capitalize = this.capitalize.bind(this);
     this.state = {name: "", user_id: this.props.currentUser.id}
   }
 
@@ -18,7 +19,8 @@ class ShelvesIndex extends React.Component {
 
   update(field) {
     return (e) => {
-      this.setState({ [field]: e.target.value })
+      let capitalizedName = this.capitalize(e.target.value)
+      this.setState({ [field]: capitalizedName })
     }
   }
 
@@ -33,6 +35,10 @@ class ShelvesIndex extends React.Component {
     this.props.createShelf(shelf);
     this.setState({name: "" })
   //clears the name of the form/state/whateverthingy
+  }
+
+  capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
   renderError() {

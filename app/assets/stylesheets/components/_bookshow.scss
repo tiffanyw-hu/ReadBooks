@@ -188,13 +188,29 @@ input[type=number]::-webkit-outer-spin-button {
   min-height: 250px;
 }
 
-.modal-form-buttons {
-  padding-top: 5px;
-  display:flex;
-  justify-content:space-between;
+.modal-form-buttons button {
+  // padding-top: 5px;
+  // display:flex;
+  // justify-content:space-between;
+  border-radius: 3px;
+  border: 1px solid $other-gray;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: #333333;
+  background-color: $sandy-white;
+  line-height: 1;
+  padding: 8px 12px;
 }
 
 .modal-form-buttons:last-child {
+  cursor: pointer;
   font-family:$lato;
   font-size: 14px;
+  text-decoration: none;
+}
+
+.modal-form-buttons:last-child:hover {
+  text-decoration: underline;
 }
