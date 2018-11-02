@@ -4562,12 +4562,12 @@ var ReviewForm = function (_React$Component) {
             { className: "modal-form-buttons" },
             _react2.default.createElement(
               "button",
-              { onClick: this.handleSubmit },
+              { className: "submitbuttonreview", onClick: this.handleSubmit },
               "Submit"
             ),
             _react2.default.createElement(
               "div",
-              null,
+              { className: "deletebuttonreview" },
               deleteButton
             )
           )
@@ -30018,6 +30018,7 @@ var ShelvesIndex = function (_React$Component) {
 
     _this.handleDelete = _this.handleDelete.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.capitalize = _this.capitalize.bind(_this);
     _this.state = { name: "", user_id: _this.props.currentUser.id };
     return _this;
   }
@@ -30033,7 +30034,8 @@ var ShelvesIndex = function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
-        _this2.setState(_defineProperty({}, field, e.target.value));
+        var capitalizedName = _this2.capitalize(e.target.value);
+        _this2.setState(_defineProperty({}, field, capitalizedName));
       };
     }
   }, {
@@ -30050,6 +30052,11 @@ var ShelvesIndex = function (_React$Component) {
       this.props.createShelf(shelf);
       this.setState({ name: "" });
       //clears the name of the form/state/whateverthingy
+    }
+  }, {
+    key: 'capitalize',
+    value: function capitalize(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
     }
   }, {
     key: 'renderError',
