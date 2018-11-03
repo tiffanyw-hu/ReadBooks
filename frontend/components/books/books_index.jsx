@@ -8,14 +8,12 @@ class BooksIndex extends React.Component {
   }
 
   render() {
-    // console.log(this.props.books)
     let books = this.props.books.map((book, index) => {
       return (
         <BooksIndexItem book={book} key={book.id} />
       )
     });
 
-    console.log(books)
 
     let urlArray = window.location.href.split("/")
     if (urlArray[urlArray.length - 1] === "books") {
