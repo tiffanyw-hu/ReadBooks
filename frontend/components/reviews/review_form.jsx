@@ -62,8 +62,10 @@ class ReviewForm extends React.Component {
           </label>
 
           <div className="modal-form-buttons">
-            <button className="submitbuttonreview" onClick={this.handleSubmit}>Submit</button>
-            <div className="deletebuttonreview">{deleteButton}</div>
+            <div className="modal-form-button-container">
+              <button className="submitbuttonreview" onClick={this.handleSubmit}>Submit</button>
+              <div className="delete-button-review">{deleteButton}</div>
+            </div>
           </div>
 
         </form>

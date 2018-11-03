@@ -203,7 +203,7 @@ input[type=number]::-webkit-outer-spin-button {
   padding-bottom: 15px;
 }
 
-.modal-form-buttons button {
+.modal-form-button-container button {
   // padding-top: 5px;
   // display:flex;
   // justify-content:space-between;
@@ -219,13 +219,34 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 8px 12px;
 }
 
+.modal-form-button-container button:hover {
+  // text-decoration: none;
+}
+
 .modal-form-buttons:last-child {
   cursor: pointer;
   font-family:$lato;
   font-size: 14px;
-  text-decoration: none;
 }
 
-.modal-form-buttons:last-child:hover {
+// .modal-form-buttons:last-child:hover {
+//   text-decoration: underline;
+// }
+.delete-button-review {
+
+  margin-top: 10px;
+}
+
+.delete-button-review a {
+  text-decoration: none;
+  color: $teal;
+}
+
+.delete-button-review a:hover {
   text-decoration: underline;
+}
+
+.modal-form-button-container {
+  display: flex;
+  justify-content: space-between;
 }
