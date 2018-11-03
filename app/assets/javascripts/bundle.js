@@ -4554,8 +4554,12 @@ var ReviewForm = function (_React$Component) {
               { className: "modal-heading smaller-heading" },
               "What did you think? "
             ),
-            _react2.default.createElement("textarea", { placeholder: "Write your review", type: "text", value: this.state.body,
-              onChange: this.update('body') })
+            _react2.default.createElement(
+              "div",
+              { className: "textarea-container" },
+              _react2.default.createElement("textarea", { placeholder: "Write your review", type: "text", value: this.state.body,
+                onChange: this.update('body') })
+            )
           ),
           _react2.default.createElement(
             "div",
@@ -30789,7 +30793,7 @@ var ShelvesShowItem = function ShelvesShowItem(props) {
       null,
       _react2.default.createElement(
         _reactRouterDom.Link,
-        { className: 'shelves-show-book-link', to: '/books/' + props.book.id },
+        { to: '/books/' + props.book.id },
         _react2.default.createElement('img', { src: props.book.img_url, width: '50px', height: '77px' })
       )
     ),
@@ -30798,7 +30802,7 @@ var ShelvesShowItem = function ShelvesShowItem(props) {
       null,
       _react2.default.createElement(
         _reactRouterDom.Link,
-        { to: '/books/' + props.book.id },
+        { className: 'shelves-show-book-link', to: '/books/' + props.book.id },
         props.book.title
       )
     ),

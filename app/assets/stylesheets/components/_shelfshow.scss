@@ -14,6 +14,7 @@
 .shelves-show-book-link {
   cursor: pointer;
   text-decoration: none;
+  color: $teal;
 }
 
 .shelves-show-book-link:hover {
@@ -34,6 +35,7 @@ td {
 
 td:last-of-type > a{
   text-decoration: none;
+  color: $teal;
 }
 
 td:last-of-type > a:hover {

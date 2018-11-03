@@ -55,8 +55,10 @@ class ReviewForm extends React.Component {
           <p><span className="modal-heading">Rating:</span> <input type="number" onChange={this.update('rating')} value={rating}
             name="rating" min="1" max="5" /><span>{rating} out of 5</span></p>
           <label><p className="modal-heading smaller-heading">What did you think? </p>
-            <textarea placeholder="Write your review" type="text" value={this.state.body}
-              onChange={this.update('body')} />
+            <div className="textarea-container">
+              <textarea placeholder="Write your review" type="text" value={this.state.body}
+                onChange={this.update('body')} />
+            </div>
           </label>
 
           <div className="modal-form-buttons">

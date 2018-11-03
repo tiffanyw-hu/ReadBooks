@@ -190,8 +190,13 @@ input[type=number]::-webkit-outer-spin-button {
   min-height: 250px;
 }
 
+.textarea-container {
+  padding-top: 15px;
+}
+
 .modal-form label {
   text-align: center;
+  padding-bottom: 15px;
 }
 
 .modal-form-buttons button {
