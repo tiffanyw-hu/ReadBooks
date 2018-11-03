@@ -4565,14 +4565,18 @@ var ReviewForm = function (_React$Component) {
             "div",
             { className: "modal-form-buttons" },
             _react2.default.createElement(
-              "button",
-              { className: "submitbuttonreview", onClick: this.handleSubmit },
-              "Submit"
-            ),
-            _react2.default.createElement(
               "div",
-              { className: "deletebuttonreview" },
-              deleteButton
+              { className: "modal-form-button-container" },
+              _react2.default.createElement(
+                "button",
+                { className: "submitbuttonreview", onClick: this.handleSubmit },
+                "Submit"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "delete-button-review" },
+                deleteButton
+              )
             )
           )
         )
