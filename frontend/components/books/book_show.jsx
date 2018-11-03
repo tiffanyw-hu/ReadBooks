@@ -88,11 +88,12 @@ class BookShow extends React.Component {
   }
 
   render() {
+    console.log("hello" + " " + this.props.book)
     if (!this.props.book) {
       return null
     }
 
-    console.log(this.props.book.id)
+    // console.log(this.props.book.id)
     let userReview = this.whereIsReview();
 
     return (<div className="bookshowpage-container">

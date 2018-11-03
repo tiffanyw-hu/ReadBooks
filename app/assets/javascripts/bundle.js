@@ -28739,12 +28739,9 @@ var BooksIndex = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      // console.log(this.props.books)
       var books = this.props.books.map(function (book, index) {
         return _react2.default.createElement(_books_index_item2.default, { book: book, key: book.id });
       });
-
-      console.log(books);
 
       var urlArray = window.location.href.split("/");
       if (urlArray[urlArray.length - 1] === "books") {
@@ -28808,7 +28805,11 @@ var _book_show2 = _interopRequireDefault(_book_show);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var urlArray = window.location.href.split("/");
   var book = state.entities.books[ownProps.match.params.book_id - 1];
+  if (urlArray.includes("localhost")) {
+    var _book = state.entities.books[ownProps.match.params.book_id];
+  }
   var currentUser = state.session.currentUser;
   if (!currentUser) {
     currentUser = { user_id: "guest" };
@@ -28970,11 +28971,12 @@ var BookShow = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      console.log("hello" + " " + this.props.book);
       if (!this.props.book) {
         return null;
       }
 
-      console.log(this.props.book.id);
+      // console.log(this.props.book.id)
       var userReview = this.whereIsReview();
 
       return _react2.default.createElement(
@@ -29918,7 +29920,7 @@ var navBar = function navBar(_ref) {
       ),
       _react2.default.createElement(
         _reactRouterDom.Link,
-        { className: 'mybooks', to: '/shelves/152' },
+        { className: 'mybooks', to: '/shelves/' },
         'MyBooks'
       ),
       _react2.default.createElement(
