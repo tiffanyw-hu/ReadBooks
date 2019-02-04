@@ -25,7 +25,7 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
 const Default = ({ component: Component, path, loggedIn, exact }) => (
   <Route path={path} exact={exact} render={(props) => (
      loggedIn ? (
-       <Redirect to="/shelves" />
+       <Redirect to="/shelves/books" />
     ) : (
       <Component {...props} />
     )

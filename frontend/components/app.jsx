@@ -17,8 +17,8 @@ const App = (props) => {
       <NavBarContainer />
     <div className="shelf-book-container">
       <div className="page-container">
-      <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
       <ProtectedRoute path="/shelves/books" component={BooksIndexContainer} />
+      <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
       <ProtectedRoute path="/shelves/:shelf_id" component={ShelvesShowContainer} />
       </div>
       <Switch>

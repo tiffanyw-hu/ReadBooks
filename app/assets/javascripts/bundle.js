@@ -28525,8 +28525,8 @@ var App = function App(props) {
       _react2.default.createElement(
         'div',
         { className: 'page-container' },
-        _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves', component: _shelf_sidebar_container2.default }),
         _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves/books', component: _books_index_container2.default }),
+        _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves', component: _shelf_sidebar_container2.default }),
         _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves/:shelf_id', component: _shelves_show_container2.default })
       ),
       _react2.default.createElement(
@@ -28806,6 +28806,8 @@ var _reactRedux = __webpack_require__(3);
 
 var _book_actions = __webpack_require__(10);
 
+var _shelf_actions = __webpack_require__(17);
+
 var _book_show = __webpack_require__(160);
 
 var _book_show2 = _interopRequireDefault(_book_show);
@@ -28815,6 +28817,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var urlArray = window.location.href.split("/");
   var book = state.entities.books[ownProps.match.params.book_id - 1];
+  var shelves = state.entities.shelves;
   if (urlArray.includes("localhost")) {
     var _book = state.entities.books[ownProps.match.params.book_id];
   }
@@ -28822,13 +28825,19 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   if (!currentUser) {
     currentUser = { user_id: "guest" };
   }
-  return { book: book, currentUser: currentUser };
+  return { book: book, shelves: shelves, currentUser: currentUser };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchBook: function fetchBook(id) {
       return dispatch((0, _book_actions.fetchBook)(id));
+    },
+    fetchShelves: function fetchShelves() {
+      return dispatch((0, _shelf_actions.fetchShelves)());
+    },
+    fetchBooks: function fetchBooks() {
+      return dispatch((0, _book_actions.fetchBooks)());
     }
   };
 };
@@ -28914,7 +28923,12 @@ var BookShow = function (_React$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.props.fetchBook(this.props.match.params.book_id);
+      console.log(this.props.match.params.book_id);
+      if (Object.keys(this.props.shelves).length === 0) {
+        this.props.fetchShelves();
+      }
+      // this.props.fetchBook(this.props.match.params.book_id)
+      this.props.fetchBooks();
     }
 
     // renderDescription() {
@@ -28979,10 +28993,12 @@ var BookShow = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      console.log("hello" + " " + this.props.book);
+      // console.log("hello" + " " + this.props.book)
       if (!this.props.book) {
         return null;
       }
+      // console.log(this.props.book)
+
 
       // console.log(this.props.book.id)
       var userReview = this.whereIsReview();
@@ -30223,7 +30239,9 @@ var ShelfCountsItem = function ShelfCountsItem(props) {
       _react2.default.createElement(
         'li',
         null,
-        props.shelf.books.length
+        '(',
+        props.shelf.books.length,
+        ')'
       )
     )
   );
@@ -30551,7 +30569,7 @@ var Default = function Default(_ref3) {
       loggedIn = _ref3.loggedIn,
       exact = _ref3.exact;
   return _react2.default.createElement(_reactRouterDom.Route, { path: path, exact: exact, render: function render(props) {
-      return loggedIn ? _react2.default.createElement(_reactRouterDom.Redirect, { to: '/shelves' }) : _react2.default.createElement(Component, props);
+      return loggedIn ? _react2.default.createElement(_reactRouterDom.Redirect, { to: '/shelves/books' }) : _react2.default.createElement(Component, props);
     } });
 };
 
