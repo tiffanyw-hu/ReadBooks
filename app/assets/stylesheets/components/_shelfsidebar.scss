@@ -70,6 +70,10 @@
   list-style: none;
 }
 
+.shelves-index-item:hover {
+  text-decoration: underline;
+}
+
 .shelves-index-item {
   display:flex;
   justify-content: space-between;

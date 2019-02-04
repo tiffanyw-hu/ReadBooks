@@ -10,7 +10,7 @@ const ShelvesIndexItem = props => {
   return (
     <li className="shelves-index-item">
       <Link to={`/shelves/${props.shelf.id}`}>
-      {props.shelf.name + ' '} 
+      {props.shelf.name + ' '}
       </Link>
       {deleteButton}
     </li>

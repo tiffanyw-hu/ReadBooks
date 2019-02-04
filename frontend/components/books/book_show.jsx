@@ -28,7 +28,12 @@ class BookShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBook(this.props.match.params.book_id)
+    console.log(this.props.match.params.book_id)
+    if (Object.keys(this.props.shelves).length === 0) {
+      this.props.fetchShelves();
+    }
+    // this.props.fetchBook(this.props.match.params.book_id)
+    this.props.fetchBooks()
   }
 
   // renderDescription() {
@@ -88,10 +93,12 @@ class BookShow extends React.Component {
   }
 
   render() {
-    console.log("hello" + " " + this.props.book)
+    // console.log("hello" + " " + this.props.book)
     if (!this.props.book) {
       return null
     }
+    // console.log(this.props.book)
+
 
     // console.log(this.props.book.id)
     let userReview = this.whereIsReview();
