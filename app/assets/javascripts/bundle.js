@@ -28526,8 +28526,8 @@ var App = function App(props) {
         'div',
         { className: 'page-container' },
         _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves/books', component: _books_index_container2.default }),
-        _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves', component: _shelf_sidebar_container2.default }),
-        _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves/:shelf_id', component: _shelves_show_container2.default })
+        _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves/:shelf_id', component: _shelves_show_container2.default }),
+        _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves', component: _shelf_sidebar_container2.default })
       ),
       _react2.default.createElement(
         _reactRouterDom.Switch,
@@ -29953,9 +29953,13 @@ var navBar = function navBar(_ref) {
         'Browse'
       ),
       _react2.default.createElement(
-        _reactRouterDom.Link,
-        { className: 'last', to: '/', onClick: signout },
-        'Log Out'
+        'nav',
+        { className: 'login-signup' },
+        _react2.default.createElement(
+          _reactRouterDom.Link,
+          { className: 'last', to: '/', onClick: signout },
+          'Log Out'
+        )
       )
     );
   } else {

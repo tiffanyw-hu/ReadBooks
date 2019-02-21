@@ -1,15 +1,15 @@
 .navbar {
   background-color: $sandy-white;
   display: flex;
-  height: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
   font-size: 14px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .navbar > a {
   padding: 17px 30px;
-  justify-content: flex-start;
   text-decoration: none;
   color: $brown;
 }
@@ -19,27 +19,15 @@
    color: $nav_hover_text;
 }
 
-// .navbar > a:last-of-type {
+.login-signup {
+  // width: 200px;
+  display: flex;
+  margin-left: auto;
+}
+
+// .last {
 //   margin-left: auto;
 // }
-
-.nav-button {
-  justify-content: flex-end;
-}
-
-.login-signup {
-  width: 200px;
-  background-color: $sandy-white;
-  display: flex;
-  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
-  height: 50px;
-  margin-left: auto;
-
-}
-
-.last {
-  margin-left: auto;
-}
 
 .login-signup > a {
   justify-content: flex-end;
@@ -54,10 +42,4 @@
 .login-signup > a:hover {
   background-color: $nav_hover_color;
   color: $nav_hover_text;
-}
-
-.nav-logo {
-  font-size: 20px;
-  display: flex;
-  margin-top: -3px;
 }

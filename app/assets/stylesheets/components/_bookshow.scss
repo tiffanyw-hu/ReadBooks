@@ -45,17 +45,13 @@
 }
 
 .img-col {
-  width: 40%;
-  // padding-right: 20px;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  // align-items: left;
+  width: 150px;
 }
 
 .book-details {
-  width: 60%;
   margin-right: 0px;
+  margin-left: 5%;
+  width: 57%;
 }
 
 .hr {
@@ -71,8 +67,6 @@
 
 .book-img {
   max-width: 150px;
-  display: block;
-  border: 0;
   box-shadow: #ddd 0px 5px 5px;
 }
 

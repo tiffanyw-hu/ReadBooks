@@ -18,8 +18,8 @@ const App = (props) => {
     <div className="shelf-book-container">
       <div className="page-container">
       <ProtectedRoute path="/shelves/books" component={BooksIndexContainer} />
-      <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
       <ProtectedRoute path="/shelves/:shelf_id" component={ShelvesShowContainer} />
+      <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
       </div>
       <Switch>
         <Route path="/books/:book_id" component={BookShowContainer} />
