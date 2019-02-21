@@ -33,11 +33,8 @@ class SplashSignInForm extends React.Component {
           <input placeholder="password" type="password" value={this.state.password}
             onChange={this.update('password')} />
         </label>
-        <div className="splash-buttons">
-          <button>{this.props.formType}</button>
-          <Demo />
-        </div>
-
+        <button>{this.props.formType}</button>
+        <Demo />
       </form>
     )
   }

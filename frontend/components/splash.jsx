@@ -15,7 +15,9 @@ class Splash extends React.Component {
             <SplashSignInContainer />
           </div>
           <div className="splash-bottom">
-            <img src="http://res.cloudinary.com/dqj3kgpoj/image/upload/c_scale,w_337/v1523307981/headline-e2cd420e71737ff2815d09af5b65c4e4.png" />
+            <div>
+              <img src="http://res.cloudinary.com/dqj3kgpoj/image/upload/c_scale,w_337/v1523307981/headline-e2cd420e71737ff2815d09af5b65c4e4.png" />
+            </div>
             <SplashSignUpContainer />
           </div>
         </div>

@@ -5,12 +5,14 @@
 
 .splash-signin {
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
   font-size: 12px;
   padding-top: 20px;
-  padding-bottom: 5px;
-  margin: 0 auto;
-  width: 60%;
+}
+.splash-top {
+  height: 75px;
 }
 
 .splash-signin input {
@@ -52,19 +54,13 @@
 }
 
 .splash-bottom {
-  height: 300px;
+  height: 295px;
   display: flex;
-  align-self: center;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   width: 75%;
   margin: 0 auto;
-}
-
-.splash-bottom > img {
-  padding-left: 150px;
-  padding-top: 80px;
-  align-self: start;
 }
 
 .splash-signup input {

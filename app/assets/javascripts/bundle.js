@@ -30923,7 +30923,11 @@ var Splash = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'splash-bottom' },
-            _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dqj3kgpoj/image/upload/c_scale,w_337/v1523307981/headline-e2cd420e71737ff2815d09af5b65c4e4.png' }),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dqj3kgpoj/image/upload/c_scale,w_337/v1523307981/headline-e2cd420e71737ff2815d09af5b65c4e4.png' })
+            ),
             _react2.default.createElement(_splash_signup_container2.default, null)
           )
         ),
@@ -31245,15 +31249,11 @@ var SplashSignInForm = function (_React$Component) {
             onChange: this.update('password') })
         ),
         _react2.default.createElement(
-          'div',
-          { className: 'splash-buttons' },
-          _react2.default.createElement(
-            'button',
-            null,
-            this.props.formType
-          ),
-          _react2.default.createElement(_demo2.default, null)
-        )
+          'button',
+          null,
+          this.props.formType
+        ),
+        _react2.default.createElement(_demo2.default, null)
       );
     }
   }]);
