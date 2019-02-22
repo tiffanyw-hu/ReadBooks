@@ -28522,13 +28522,9 @@ var App = function App(props) {
     _react2.default.createElement(
       'div',
       { className: 'shelf-book-container' },
-      _react2.default.createElement(
-        'div',
-        { className: 'page-container' },
-        _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves/books', component: _books_index_container2.default }),
-        _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves/:shelf_id', component: _shelves_show_container2.default }),
-        _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves', component: _shelf_sidebar_container2.default })
-      ),
+      _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves/books', component: _books_index_container2.default }),
+      _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves/:shelf_id', component: _shelves_show_container2.default }),
+      _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves', component: _shelf_sidebar_container2.default }),
       _react2.default.createElement(
         _reactRouterDom.Switch,
         null,
@@ -29055,50 +29051,46 @@ var BookShow = function (_React$Component) {
         { className: 'bookshowpage-container' },
         _react2.default.createElement(
           'div',
-          { className: 'page-top' },
+          { className: 'book-details-container' },
           _react2.default.createElement(
             'div',
-            { className: 'book-details-container' },
-            _react2.default.createElement(
-              'div',
-              { className: 'img-col' },
-              _react2.default.createElement('img', { className: 'book-img', src: this.props.book.img_url, width: '150px', height: '231px' }),
-              this.props.currentUser.user_id === "guest" ? "" : _react2.default.createElement(_shelves_status_container2.default, { book: this.props.book })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'book-details' },
-              _react2.default.createElement(
-                'h3',
-                { className: 'book-title ' },
-                this.props.book.title
-              ),
-              _react2.default.createElement(
-                'p',
-                { className: 'book-author' },
-                this.props.book.author
-              ),
-              _react2.default.createElement(
-                'p',
-                { className: 'book-description' },
-                this.props.book.description
-              ),
-              _react2.default.createElement('hr', { className: 'hr' })
-            )
+            { className: 'img-col' },
+            _react2.default.createElement('img', { className: 'book-img', src: this.props.book.img_url, width: '150px', height: '231px' }),
+            this.props.currentUser.user_id === "guest" ? "" : _react2.default.createElement(_shelves_status_container2.default, { book: this.props.book })
           ),
           _react2.default.createElement(
             'div',
-            { className: 'reviews-activity-container' },
+            { className: 'book-details' },
             _react2.default.createElement(
-              'div',
-              { className: 'myactivity' },
-              this.props.currentUser.user_id === "guest" ? "" : _react2.default.createElement(_myactivity2.default, { review: userReview, modalToggle: this.modalToggle })
+              'h3',
+              { className: 'book-title ' },
+              this.props.book.title
             ),
             _react2.default.createElement(
-              'div',
-              { className: 'all-the-reviews' },
-              _react2.default.createElement(_all_reviews2.default, { reviews: this.props.book.reviews })
-            )
+              'p',
+              { className: 'book-author' },
+              this.props.book.author
+            ),
+            _react2.default.createElement(
+              'p',
+              { className: 'book-description' },
+              this.props.book.description
+            ),
+            _react2.default.createElement('hr', { className: 'hr' })
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'reviews-activity-container' },
+          _react2.default.createElement(
+            'div',
+            { className: 'myactivity' },
+            this.props.currentUser.user_id === "guest" ? "" : _react2.default.createElement(_myactivity2.default, { review: userReview, modalToggle: this.modalToggle })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'all-the-reviews' },
+            _react2.default.createElement(_all_reviews2.default, { reviews: this.props.book.reviews })
           )
         ),
         _react2.default.createElement(
@@ -31092,31 +31084,35 @@ var SplashSignUpForm = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'form',
-        { className: 'splash-signup', onSubmit: this.handleSubmit },
+        'div',
+        null,
         _react2.default.createElement(
-          'h2',
-          null,
-          'New here? Create a free account!'
-        ),
-        _react2.default.createElement(
-          'label',
-          null,
-          _react2.default.createElement('input', { placeholder: 'Username', type: 'text', value: this.state.username,
-            onChange: this.update('username') })
-        ),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement(
-          'label',
-          null,
-          _react2.default.createElement('input', { placeholder: 'Password', type: 'password', value: this.state.password,
-            onChange: this.update('password') })
-        ),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement(
-          'button',
-          null,
-          this.props.formType
+          'form',
+          { className: 'splash-signup', onSubmit: this.handleSubmit },
+          _react2.default.createElement(
+            'h2',
+            null,
+            'New here? Create a free account!'
+          ),
+          _react2.default.createElement(
+            'label',
+            null,
+            _react2.default.createElement('input', { placeholder: 'Username', type: 'text', value: this.state.username,
+              onChange: this.update('username') })
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'label',
+            null,
+            _react2.default.createElement('input', { placeholder: 'Password', type: 'password', value: this.state.password,
+              onChange: this.update('password') })
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'button',
+            null,
+            this.props.formType
+          )
         )
       );
     }

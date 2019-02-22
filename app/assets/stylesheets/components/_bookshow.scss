@@ -2,6 +2,7 @@
   font-family: "Merriweather", "Georgia", serif;
   margin: 0 auto;
   width: 60%;
+  margin-top: 20px;
 }
 
 .bookshowpage-container h4, .bookshowpage-container h5 {
@@ -35,13 +36,6 @@
 .reviews-index hr{
   margin-top: 5px;
   margin-bottom: 10px;
-}
-
-.page-top {
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction:column;
 }
 
 .img-col {

@@ -16,15 +16,15 @@ const App = (props) => {
     <div>
       <NavBarContainer />
     <div className="shelf-book-container">
-      <div className="page-container">
+
       <ProtectedRoute path="/shelves/books" component={BooksIndexContainer} />
       <ProtectedRoute path="/shelves/:shelf_id" component={ShelvesShowContainer} />
       <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
-      </div>
-      <Switch>
+
+    <Switch>
         <Route path="/books/:book_id" component={BookShowContainer} />
         <Route path="/books" component={BooksIndexContainer} />
-      </Switch>
+    </Switch>
     </div>
       <Switch>
       <AuthRoute exact path="/login" component={SignInFormContainer} />

@@ -22,7 +22,8 @@ class SplashSignUpForm extends React.Component {
 
   render() {
     return (
-      <form className="splash-signup" onSubmit={this.handleSubmit}>
+      <div>
+        <form className="splash-signup" onSubmit={this.handleSubmit}>
         <h2>New here? Create a free account!</h2>
         <label>
           <input placeholder="Username" type="text" value={this.state.username}
@@ -37,6 +38,7 @@ class SplashSignUpForm extends React.Component {
         <button>{this.props.formType}</button>
 
       </form>
+    </div>
     )
   }
 

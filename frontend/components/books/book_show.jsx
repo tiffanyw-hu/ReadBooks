@@ -104,7 +104,6 @@ class BookShow extends React.Component {
     let userReview = this.whereIsReview();
 
     return (<div className="bookshowpage-container">
-      <div className="page-top">
 
         <div className="book-details-container">
         <div className="img-col">
@@ -130,7 +129,6 @@ class BookShow extends React.Component {
         <div className="all-the-reviews">
           <AllReviews reviews={this.props.book.reviews} />
         </div>
-      </div>
       </div>
 
       <div onClick={this.modalToggle} className={`the-modal ${this.state.modalshow}`}>
