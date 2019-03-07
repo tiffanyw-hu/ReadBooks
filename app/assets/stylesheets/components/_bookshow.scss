@@ -1,8 +1,10 @@
 .bookshowpage-container {
   font-family: "Merriweather", "Georgia", serif;
   margin: 0 auto;
-  width: 60%;
-  margin-top: 20px;
+  width: 72%;
+  margin-top: 77px;
+  grid-template-rows: 1fr 5fr;
+  display: grid;
 }
 
 .bookshowpage-container h4, .bookshowpage-container h5 {
@@ -10,7 +12,7 @@
 }
 
 .bookshowpage-container h5{
-  font-size:14px;
+  font-size: 14px;
   padding-bottom: 14px;
 }
 
@@ -87,10 +89,14 @@
 
 .book-details-container {
   display:flex;
+  justify-content: center;
 }
 
 .reviews-activity-container{
-
+  margin-right: 10%;
+  display: flex;
+  margin-left: 10%;
+  flex-direction: column;
 }
 
 .review-body {

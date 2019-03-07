@@ -15,22 +15,18 @@ const App = (props) => {
   return (
     <div>
       <NavBarContainer />
-    <div className="shelf-book-container">
-
       <ProtectedRoute path="/shelves/books" component={BooksIndexContainer} />
       <ProtectedRoute path="/shelves/:shelf_id" component={ShelvesShowContainer} />
       <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
-
-    <Switch>
+      <Switch>
         <Route path="/books/:book_id" component={BookShowContainer} />
         <Route path="/books" component={BooksIndexContainer} />
-    </Switch>
-    </div>
+      </Switch>
       <Switch>
-      <AuthRoute exact path="/login" component={SignInFormContainer} />
-      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      <DefaultRoute exact path="/" component={Splash} />
-    </Switch>
+        <AuthRoute exact path="/login" component={SignInFormContainer} />
+        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+        <DefaultRoute exact path="/" component={Splash} />
+      </Switch>
   </div>
 )
 };
