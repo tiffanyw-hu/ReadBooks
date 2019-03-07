@@ -57,29 +57,14 @@
   padding: 50px 10px;
 }
 
-.counts-and-list {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 10px;
-  font-size:14px;
-  line-height: 25px;
-}
-
-.shelves-index-item a {
-  text-decoration: none;
-  color: $teal;
-  list-style: none;
-  padding-right: 10px;
-}
-
 .shelves-index-item:hover {
   text-decoration: underline;
 }
 
 .shelves-index-item {
-  display:flex;
-  justify-content: space-between;
+  margin-right: 10px;
 }
+
 .add-shelf p, .add-shelf input {
   margin: 5px;
 }
@@ -93,4 +78,13 @@
   width: 100%;
   // max-width: 200px;
   flex-wrap: wrap;
+}
+.shelves-index > ul > li {
+  display: flex;
+  // margin-right: 10px;
+}
+
+.shelves-index > ul > li > div > a {
+  text-decoration: none;
+  color: $teal;
 }

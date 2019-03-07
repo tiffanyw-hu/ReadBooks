@@ -58,30 +58,21 @@ class ShelvesIndex extends React.Component {
 
       shelves = this.props.shelvesArray.map(shelf => {
       return (
-        <ShelvesIndexItem shelf={shelf} key={`shelf_id: ${shelf.id}`}
-          deleteShelf={this.deleteShelf} handleDelete={this.handleDelete} />
+        <li>
+          <ShelfCountsItem shelf={shelf} key={`shelf_id: ${shelf.id}`} />
+          <ShelvesIndexItem shelf={shelf} key={`shelf_id: ${shelf.id}`}
+            deleteShelf={this.deleteShelf} handleDelete={this.handleDelete} />
+        </li>
       )
     })
 
-      counts = this.props.shelvesArray.map(shelf => {
-      return (
-        <ShelfCountsItem shelf={shelf} key={`shelf_id: ${shelf.id}`} />
-      )
-    })
   }
     return (
       <div className="shelves-index">
         <h3 className="bookshelves-title">BOOKSHELVES</h3>
-        <div className="counts-and-list">
-          <div className="shelves-counts">
-            {counts}
-          </div>
-          <div className="shelves-list">
-            <ul className="shelves-list-items">
-              {shelves}
-            </ul>
-          </div>
-        </div>
+        <ul className="shelves-list-items">
+          {shelves}
+        </ul>
         <div className="add-shelf">
           <p>Add a Shelf:</p>
           <input type="text" value={this.state.name}

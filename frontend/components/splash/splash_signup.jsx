@@ -22,7 +22,7 @@ class SplashSignUpForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="splash-form">
         <form className="splash-signup" onSubmit={this.handleSubmit}>
         <h2>New here? Create a free account!</h2>
         <label>
@@ -35,7 +35,9 @@ class SplashSignUpForm extends React.Component {
             onChange={this.update('password')} />
         </label>
         <br></br>
-        <button>{this.props.formType}</button>
+        <div>
+          <button>{this.props.formType}</button>
+        </div>
 
       </form>
     </div>

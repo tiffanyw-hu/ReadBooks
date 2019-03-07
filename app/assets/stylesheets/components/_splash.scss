@@ -46,7 +46,6 @@
 
 .splash-buttons {
   margin-top: 1px;
-
 }
 
 .splash-header {
@@ -54,7 +53,8 @@
   min-height: 370px;
 }
 
-.splash-header form {
+.splash-form {
+  // background-color: green;
 
 }
 
@@ -143,4 +143,9 @@
   .splash-bottom {
     flex-direction: column;
   }
+}
+
+.splash-signup {
+  display: flex;
+  flex-direction: column;
 }
