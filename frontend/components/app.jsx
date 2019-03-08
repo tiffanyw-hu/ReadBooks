@@ -14,10 +14,12 @@ import Splash from './splash';
 const App = (props) => {
   return (
     <div>
-      <NavBarContainer />
-      <ProtectedRoute path="/shelves/books" component={BooksIndexContainer} />
-      <ProtectedRoute path="/shelves/:shelf_id" component={ShelvesShowContainer} />
-      <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
+        <NavBarContainer />
+        <div className="book-index-container">
+          <ProtectedRoute path="/shelves" component={ShelfSideBarContainer} />
+          <ProtectedRoute path="/shelves/books" component={BooksIndexContainer} />
+          <ProtectedRoute path="/shelves/:shelf_id" component={ShelvesShowContainer} />
+      </div>
       <Switch>
         <Route path="/books/:book_id" component={BookShowContainer} />
         <Route path="/books" component={BooksIndexContainer} />

@@ -31,8 +31,6 @@ class BooksIndex extends React.Component {
     } else {
       return (
         <div className="books-index-container-splash">
-          <div className="index-heading">
-          </div>
           <div className="book-index-splash">
             {books}
           </div>
