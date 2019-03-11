@@ -7,9 +7,10 @@ const ShelvesIndexItem = props => {
   || props.shelf.name === "Want to Read") {
     deleteButton = ""
   }
+
   return (
     <div>
-      <Link to={`/shelves/${props.shelf.id}`}>
+      <Link className={props.className} to={`/shelves/${props.shelf.id}`}>
         {props.shelf.name + ' '}
       </Link>
       {deleteButton}

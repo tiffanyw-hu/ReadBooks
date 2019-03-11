@@ -4,11 +4,16 @@ import {withRouter} from 'react-router-dom';
 import ShelvesIndex from './shelves_index';
 import {fetchShelves, createShelf, deleteShelf} from '../../actions/shelf_actions';
 
-const mapStateToProps = (state, ownProps) => ({
-  currentUser: state.session.currentUser,
-  shelves: state.entities.shelves,
-  shelvesArray: Object.keys(state.entities.shelves).map(id => state.entities.shelves[id])
-})
+const mapStateToProps = (state, ownProps) => {
+  let urlArray = window.location.href.split("/");
+  let urlLength = urlArray.length
+  return {
+    currentUser: state.session.currentUser,
+    shelves: state.entities.shelves,
+    shelvesArray: Object.keys(state.entities.shelves).map(id => state.entities.shelves[id]),
+    currentShelf_id: urlArray[urlLength - 1]
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
   fetchShelves: () => dispatch(fetchShelves()),

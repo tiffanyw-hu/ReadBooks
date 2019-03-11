@@ -52,16 +52,19 @@ class ShelvesIndex extends React.Component {
   render() {
     let shelves;
     let counts;
-
     let shelfArray = Object.keys(this.props.shelves)
+
+    let firstShelf = shelfArray[0]
     if (shelfArray.length !== 0) {
 
       shelves = this.props.shelvesArray.map(shelf => {
+      let boldClassName = (parseInt(this.props.currentShelf_id) === shelf.id) ? "bold" : shelf.id
       return (
-        <li>
+        <li className={boldClassName}>
           <ShelfCountsItem shelf={shelf} key={`shelf_id: ${shelf.id}`} />
           <ShelvesIndexItem shelf={shelf} key={`shelf_id: ${shelf.id}`}
-            deleteShelf={this.deleteShelf} handleDelete={this.handleDelete} />
+            deleteShelf={this.deleteShelf} handleDelete={this.handleDelete}
+            className={boldClassName} />
         </li>
       )
     })
