@@ -30176,7 +30176,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     shelves: state.entities.shelves,
     shelvesArray: Object.keys(state.entities.shelves).map(function (id) {
       return state.entities.shelves[id];
-    })
+    }),
+    firstShelf: Object.keys(state.entities.shelves)[0]
   };
 };
 
@@ -30237,13 +30238,26 @@ var shelfSideBar = function (_React$Component) {
   function shelfSideBar(props) {
     _classCallCheck(this, shelfSideBar);
 
-    return _possibleConstructorReturn(this, (shelfSideBar.__proto__ || Object.getPrototypeOf(shelfSideBar)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (shelfSideBar.__proto__ || Object.getPrototypeOf(shelfSideBar)).call(this, props));
+
+    _this.state = {
+      fetchedShelves: false
+    };
+    return _this;
   }
 
   _createClass(shelfSideBar, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.props.fetchShelves();
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      if (!this.state.fetchedShelves && !window.location.href.split("/").includes(Object.keys(this.props.shelves))) {
+        this.props.history.push('/shelves/' + this.props.firstShelf);
+        this.setState({ fetchedShelves: true });
+      }
     }
   }, {
     key: 'render',
@@ -30258,7 +30272,7 @@ var shelfSideBar = function (_React$Component) {
       }
 
       var urlArray = window.location.href.split("/");
-      if (urlArray[urlArray.length - 1] === "books" || urlArray[urlArray.length - 1] === "shelves") {
+      if (urlArray[urlArray.length - 1] === "books" || urlArray[urlArray.length - 2] === "shelves") {
         return _react2.default.createElement(
           'div',
           { className: 'shelf-side-bar' },
