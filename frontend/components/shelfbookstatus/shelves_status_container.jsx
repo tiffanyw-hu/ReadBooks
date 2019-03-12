@@ -7,10 +7,10 @@ import {fetchShelves} from '../../actions/shelf_actions';
 const mapStateToProps = (state, ownProps) => {
   let userShelves = state.entities.shelves
   // this list is so we know what's being passed in ownProps
-  // let book = ownProps.book
-  // let bookId = ownProps.bookId
-  // let shelvings = ownProps.shelvings
-  // let readingStatus = ownProps.reading_status
+  let book = ownProps.book
+  let bookId = ownProps.bookId
+  let shelvings = ownProps.shelvings
+  let readingStatus = ownProps.reading_status
   return {userShelves}
 }
 

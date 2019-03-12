@@ -29422,10 +29422,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var userShelves = state.entities.shelves;
   // this list is so we know what's being passed in ownProps
-  // let book = ownProps.book
-  // let bookId = ownProps.bookId
-  // let shelvings = ownProps.shelvings
-  // let readingStatus = ownProps.reading_status
+  var book = ownProps.book;
+  var bookId = ownProps.bookId;
+  var shelvings = ownProps.shelvings;
+  var readingStatus = ownProps.reading_status;
   return { userShelves: userShelves };
 };
 
@@ -29681,7 +29681,7 @@ var ThreeShelves = function (_React$Component) {
         "Want to Read": "" };
       if (this.state[chosenShelf] === "active-shelf") {
         this.props.toggleReadingStatus("Want To Read");
-        this.deleteTheShelving(chosenShelf, this.mainShelfIds);
+        // this.deleteTheShelving(chosenShelf, this.mainShelfIds);
       } else {
         newState[chosenShelf] = "active-shelf";
         this.props.toggleReadingStatus(chosenShelf);
@@ -29706,7 +29706,7 @@ var ThreeShelves = function (_React$Component) {
       var keys = Object.keys(this.state);
       for (var i = 0; i < 3; i++) {
         if (this.state[keys[i]] === "active-shelf") {
-          this.deleteTheShelving(keys[i], this.mainShelfIds);
+          // this.deleteTheShelving(keys[i], this.mainShelfIds)
         }
       }
       var shelving = { book_id: this.props.book.id, shelf_id: shelf_ids[shelf_name].id };

@@ -22,7 +22,7 @@ class ThreeShelves extends React.Component {
       "Want to Read": "" }
     if (this.state[chosenShelf] === "active-shelf") {
       this.props.toggleReadingStatus("Want To Read")
-      this.deleteTheShelving(chosenShelf, this.mainShelfIds);
+      // this.deleteTheShelving(chosenShelf, this.mainShelfIds);
     } else {
       newState[chosenShelf] = "active-shelf"
       this.props.toggleReadingStatus(chosenShelf)
@@ -45,7 +45,7 @@ class ThreeShelves extends React.Component {
     let keys = Object.keys(this.state)
     for (let i = 0; i < 3; i++) {
       if (this.state[keys[i]] === "active-shelf") {
-        this.deleteTheShelving(keys[i], this.mainShelfIds)
+        // this.deleteTheShelving(keys[i], this.mainShelfIds)
       }
     }
     let shelving = {book_id: this.props.book.id, shelf_id: shelf_ids[shelf_name].id}
