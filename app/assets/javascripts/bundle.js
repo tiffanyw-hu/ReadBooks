@@ -29969,8 +29969,8 @@ var ShelvesIndex = function (_React$Component) {
       var listOfIds = Object.keys(this.props.shelves).map(function (el) {
         return el + "";
       });
-      console.log(window.location.href.split("/").includes("mybooks"));
-      console.log(this.props.firstShelf);
+      // console.log(window.location.href.split("/").includes("mybooks"))
+      // console.log(this.props.firstShelf)
       if (window.location.href.split("/").includes("mybooks")) {
         this.props.history.push('/shelves/' + this.props.firstShelf);
       }
@@ -30036,11 +30036,10 @@ var ShelvesIndex = function (_React$Component) {
           // console.log(parseInt(this.props.currentShelf_id) === shelf.id)
           return _react2.default.createElement(
             'li',
-            { className: boldClassName },
-            _react2.default.createElement(_shelves_count2.default, { shelf: shelf, key: 'shelf_id: ' + shelf.id }),
+            { key: 'shelf_list_id: ' + shelf.id, className: boldClassName },
+            _react2.default.createElement(_shelves_count2.default, { shelf: shelf, key: 'shelf_count_id: ' + shelf.id }),
             _react2.default.createElement(_shelves_index_item2.default, { shelf: shelf, key: 'shelf_id: ' + shelf.id,
-              deleteShelf: _this3.deleteShelf, handleDelete: _this3.handleDelete,
-              className: boldClassName })
+              deleteShelf: _this3.deleteShelf, handleDelete: _this3.handleDelete })
           );
         });
       }
@@ -30148,7 +30147,7 @@ var ShelfCountsItem = function ShelfCountsItem(props) {
       _reactRouterDom.Link,
       { to: '/shelves/' + props.shelf.id },
       _react2.default.createElement(
-        'li',
+        'div',
         null,
         '(',
         props.shelf.books.length,
