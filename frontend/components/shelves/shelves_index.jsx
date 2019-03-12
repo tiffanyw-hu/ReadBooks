@@ -59,6 +59,8 @@ class ShelvesIndex extends React.Component {
 
       shelves = this.props.shelvesArray.map(shelf => {
       let boldClassName = (parseInt(this.props.currentShelf_id) === shelf.id) ? "bold" : shelf.id
+      console.log(this.props.currentShelf_id)
+      console.log(parseInt(this.props.currentShelf_id) === shelf.id)
       return (
         <li className={boldClassName}>
           <ShelfCountsItem shelf={shelf} key={`shelf_id: ${shelf.id}`} />
