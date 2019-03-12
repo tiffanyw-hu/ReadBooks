@@ -4721,7 +4721,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     shelvesArray: Object.keys(state.entities.shelves).map(function (id) {
       return state.entities.shelves[id];
     }),
-    currentShelf_id: urlArray[urlLength - 1]
+    currentShelf_id: urlArray[urlLength - 1],
+    firstShelf: Object.keys(state.entities.shelves)[0]
   };
 };
 
@@ -28526,6 +28527,7 @@ var App = function App(props) {
       'div',
       { className: 'book-index-container' },
       _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves', component: _shelf_sidebar_container2.default }),
+      _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves/mybooks', component: _shelf_sidebar_container2.default }),
       _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves/books', component: _books_index_container2.default }),
       _react2.default.createElement(_route_util.ProtectedRoute, { path: '/shelves/:shelf_id', component: _shelves_show_container2.default })
     ),
@@ -29951,7 +29953,8 @@ var ShelvesIndex = function (_React$Component) {
     _this.handleDelete = _this.handleDelete.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.capitalize = _this.capitalize.bind(_this);
-    _this.state = { name: "", user_id: _this.props.currentUser.id };
+    _this.state = { name: "", user_id: _this.props.currentUser.id,
+      fetchedShelves: false };
     return _this;
   }
 
@@ -29959,6 +29962,18 @@ var ShelvesIndex = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.props.fetchShelves();
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      var listOfIds = Object.keys(this.props.shelves).map(function (el) {
+        return el + "";
+      });
+      console.log(window.location.href.split("/").includes("mybooks"));
+      console.log(this.props.firstShelf);
+      if (window.location.href.split("/").includes("mybooks")) {
+        this.props.history.push('/shelves/' + this.props.firstShelf);
+      }
     }
   }, {
     key: 'update',
@@ -30017,8 +30032,8 @@ var ShelvesIndex = function (_React$Component) {
 
         shelves = this.props.shelvesArray.map(function (shelf) {
           var boldClassName = parseInt(_this3.props.currentShelf_id) === shelf.id ? "bold" : shelf.id;
-          console.log(_this3.props.currentShelf_id);
-          console.log(parseInt(_this3.props.currentShelf_id) === shelf.id);
+          // console.log(this.props.currentShelf_id)
+          // console.log(parseInt(this.props.currentShelf_id) === shelf.id)
           return _react2.default.createElement(
             'li',
             { className: boldClassName },
@@ -30176,8 +30191,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     shelves: state.entities.shelves,
     shelvesArray: Object.keys(state.entities.shelves).map(function (id) {
       return state.entities.shelves[id];
-    }),
-    firstShelf: Object.keys(state.entities.shelves)[0]
+    })
   };
 };
 
@@ -30238,26 +30252,13 @@ var shelfSideBar = function (_React$Component) {
   function shelfSideBar(props) {
     _classCallCheck(this, shelfSideBar);
 
-    var _this = _possibleConstructorReturn(this, (shelfSideBar.__proto__ || Object.getPrototypeOf(shelfSideBar)).call(this, props));
-
-    _this.state = {
-      fetchedShelves: false
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (shelfSideBar.__proto__ || Object.getPrototypeOf(shelfSideBar)).call(this, props));
   }
 
   _createClass(shelfSideBar, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.props.fetchShelves();
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
-      if (!this.state.fetchedShelves && !window.location.href.split("/").includes(Object.keys(this.props.shelves))) {
-        this.props.history.push('/shelves/' + this.props.firstShelf);
-        this.setState({ fetchedShelves: true });
-      }
     }
   }, {
     key: 'render',
@@ -30610,11 +30611,14 @@ var ShelvesShow = function (_React$Component) {
   }, {
     key: 'bookIdsToShelvingIds',
     value: function bookIdsToShelvingIds() {
+      console.log(this.props);
       var result = {};
-      var shelvings = this.props.shelves[this.props.shelf_id].shelvings;
-      Object.keys(shelvings).map(function (key) {
-        result[shelvings[key].book_id] = shelvings[key].id;
-      });
+      if (this.props.shelves[this.props.shelf_id]) {
+        var shelvings = this.props.shelves[this.props.shelf_id].shelvings;
+        Object.keys(shelvings).map(function (key) {
+          result[shelvings[key].book_id] = shelvings[key].id;
+        });
+      }
       return result;
     }
   }, {
@@ -30627,7 +30631,8 @@ var ShelvesShow = function (_React$Component) {
       }
 
       var shelf = [];
-      if (Object.keys(this.props.shelves).length !== 0 && this.props.shelf_id !== "books") {
+      var badShelfIds = ["books", "mybooks"];
+      if (Object.keys(this.props.shelves).length !== 0 && !badShelfIds.includes(this.props.shelf_id)) {
         var bookshelving_table = this.bookIdsToShelvingIds();
         shelf = this.props.shelves[this.props.shelf_id].books.map(function (book) {
           return _react2.default.createElement(_shelves_show_item2.default, { book: book, currentUser: _this2.props.currentUser, key: 'book_id: ' + book.id,
@@ -33655,7 +33660,7 @@ var navBar = function navBar(_ref) {
       ),
       _react2.default.createElement(
         _reactRouterDom.Link,
-        { className: 'mybooks', to: '/shelves/' },
+        { className: 'mybooks', to: '/shelves/mybooks' },
         'MyBooks'
       ),
       _react2.default.createElement(

@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
     currentUser: state.session.currentUser,
     shelves: state.entities.shelves,
     shelvesArray: Object.keys(state.entities.shelves).map(id => state.entities.shelves[id]),
-    currentShelf_id: urlArray[urlLength - 1]
+    currentShelf_id: urlArray[urlLength - 1],
+    firstShelf: Object.keys(state.entities.shelves)[0]
   }
 }
 

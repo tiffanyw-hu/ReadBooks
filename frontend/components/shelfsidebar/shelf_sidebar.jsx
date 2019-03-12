@@ -8,20 +8,10 @@ class shelfSideBar extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      fetchedShelves: false
-    }
   }
 
   componentDidMount() {
     this.props.fetchShelves();
-  }
-
-  componentDidUpdate() {
-    if (!this.state.fetchedShelves && !window.location.href.split("/").includes(Object.keys(this.props.shelves))) {
-      this.props.history.push(`/shelves/${this.props.firstShelf}`)
-      this.setState({fetchedShelves: true})
-    }
   }
 
   render() {

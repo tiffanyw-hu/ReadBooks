@@ -7,7 +7,6 @@ const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
   shelves: state.entities.shelves,
   shelvesArray: Object.keys(state.entities.shelves).map(id => state.entities.shelves[id]),
-  firstShelf: Object.keys(state.entities.shelves)[0]
 })
 
 const mapDispatchToProps = dispatch => ({

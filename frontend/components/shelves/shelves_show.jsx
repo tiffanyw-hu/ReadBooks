@@ -21,9 +21,12 @@ class ShelvesShow extends React.Component {
   }
 
   bookIdsToShelvingIds() {
+    console.log(this.props)
     let result = {}
-    let shelvings = this.props.shelves[this.props.shelf_id].shelvings;
-    Object.keys(shelvings).map(key => {result[shelvings[key].book_id] = shelvings[key].id});
+    if (this.props.shelves[this.props.shelf_id]) {
+      let shelvings = this.props.shelves[this.props.shelf_id].shelvings;
+      Object.keys(shelvings).map(key => {result[shelvings[key].book_id] = shelvings[key].id});
+    }
     return result;
   }
 
@@ -33,7 +36,8 @@ class ShelvesShow extends React.Component {
     }
 
     let shelf = [];
-    if (Object.keys(this.props.shelves).length !== 0 && this.props.shelf_id !== "books") {
+    let badShelfIds = ["books", "mybooks"]
+    if (Object.keys(this.props.shelves).length !== 0 && !badShelfIds.includes(this.props.shelf_id)) {
       let bookshelving_table = this.bookIdsToShelvingIds();
       shelf = this.props.shelves[this.props.shelf_id].books.map(book => {
       return (
