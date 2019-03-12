@@ -30032,8 +30032,8 @@ var ShelvesIndex = function (_React$Component) {
 
         shelves = this.props.shelvesArray.map(function (shelf) {
           var boldClassName = parseInt(_this3.props.currentShelf_id) === shelf.id ? "bold" : shelf.id;
-          // console.log(this.props.currentShelf_id)
-          // console.log(parseInt(this.props.currentShelf_id) === shelf.id)
+          console.log(_this3.props.currentShelf_id);
+          console.log(parseInt(_this3.props.currentShelf_id) === shelf.id);
           return _react2.default.createElement(
             'li',
             { key: 'shelf_list_id: ' + shelf.id, className: boldClassName },
