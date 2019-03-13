@@ -30003,13 +30003,261 @@ exports.default = navBar;
 
 /***/ }),
 /* 175 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token (74:4)\n\n\u001b[0m \u001b[90m 72 | \u001b[39m    currentShelf_id\u001b[33m:\u001b[39m urlArray[urlLength \u001b[33m-\u001b[39m \u001b[35m1\u001b[39m]\u001b[33m,\u001b[39m\n \u001b[90m 73 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 74 | \u001b[39m    \u001b[36mif\u001b[39m (shelfArray\u001b[33m.\u001b[39mlength \u001b[33m!==\u001b[39m \u001b[35m0\u001b[39m) {\n \u001b[90m    | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 75 | \u001b[39m\n \u001b[90m 76 | \u001b[39m      shelves \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mprops\u001b[33m.\u001b[39mshelvesArray\u001b[33m.\u001b[39mmap(shelf \u001b[33m=>\u001b[39m {\n \u001b[90m 77 | \u001b[39m      let boldClassName \u001b[33m=\u001b[39m (parseInt(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mprops\u001b[33m.\u001b[39mcurrentShelf_id) \u001b[33m===\u001b[39m shelf\u001b[33m.\u001b[39mid) \u001b[33m?\u001b[39m \u001b[32m\"bold\"\u001b[39m \u001b[33m:\u001b[39m shelf\u001b[33m.\u001b[39mid\u001b[0m\n");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(2);
+
+var _shelves_index_item = __webpack_require__(176);
+
+var _shelves_index_item2 = _interopRequireDefault(_shelves_index_item);
+
+var _shelves_count = __webpack_require__(177);
+
+var _shelves_count2 = _interopRequireDefault(_shelves_count);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ShelvesIndex = function (_React$Component) {
+  _inherits(ShelvesIndex, _React$Component);
+
+  function ShelvesIndex(props) {
+    _classCallCheck(this, ShelvesIndex);
+
+    var _this = _possibleConstructorReturn(this, (ShelvesIndex.__proto__ || Object.getPrototypeOf(ShelvesIndex)).call(this, props));
+
+    _this.handleDelete = _this.handleDelete.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.capitalize = _this.capitalize.bind(_this);
+    _this.state = { name: "", user_id: _this.props.currentUser.id,
+      fetchedShelves: false, currentShelfid: "" };
+    return _this;
+  }
+
+  _createClass(ShelvesIndex, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.fetchShelves();
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      var urlArray = window.location.href.split("/");
+      var urlLength = urlArray.length;
+      var listOfIds = Object.keys(this.props.shelves).map(function (el) {
+        return el + "";
+      });
+      // console.log(window.location.href.split("/").includes("mybooks"))
+      // console.log(this.props.firstShelf)
+      if (urlArray.includes("mybooks")) {
+        this.props.history.push('/shelves/' + this.props.firstShelf);
+      }
+      this.setState({ currentShelfid: urlArray[urlLength - 1] });
+    }
+  }, {
+    key: 'update',
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        var capitalizedName = _this2.capitalize(e.target.value);
+        _this2.setState(_defineProperty({}, field, capitalizedName));
+      };
+    }
+  }, {
+    key: 'handleDelete',
+    value: function handleDelete(param, e) {
+      e.preventDefault();
+      this.props.deleteShelf(param);
+    }
+  }, {
+    key: 'handleSubmit',
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var shelf = this.state;
+      this.props.createShelf(shelf);
+      this.setState({ name: "" });
+      //clears the name of the form/state/whateverthingy
+    }
+  }, {
+    key: 'capitalize',
+    value: function capitalize(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+  }, {
+    key: 'renderError',
+    value: function renderError() {
+      var error = _react2.default.createElement('div', null);
+      if (this.props.errors.length !== 0) {
+        error = _react2.default.createElement(
+          'div',
+          { className: 'error' },
+          this.props.errors[0]
+        );
+      }
+      return error;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      var shelves = void 0;
+      var counts = void 0;
+      var shelfArray = Object.keys(this.props.shelves);
+
+      var firstShelf = shelfArray[0];
+      if (shelfArray.length !== 0) {
+        shelves = this.props.shelvesArray.map(function (shelf) {
+          var boldClassName = parseInt(_this3.state.currentShelfid) === shelf.id ? "bold" : shelf.id;
+          // console.log(this.props.currentShelf_id)
+          // console.log(parseInt(this.props.currentShelf_id) === shelf.id)
+          return _react2.default.createElement(
+            'li',
+            { key: 'shelf_list_id: ' + shelf.id, className: boldClassName },
+            _react2.default.createElement(_shelves_count2.default, { shelf: shelf, key: 'shelf_count_id: ' + shelf.id }),
+            _react2.default.createElement(_shelves_index_item2.default, { shelf: shelf, key: 'shelf_id: ' + shelf.id,
+              deleteShelf: _this3.deleteShelf, handleDelete: _this3.handleDelete })
+          );
+        });
+      }
+      return _react2.default.createElement(
+        'div',
+        { className: 'shelves-index' },
+        _react2.default.createElement(
+          'h3',
+          { className: 'bookshelves-title' },
+          'BOOKSHELVES'
+        ),
+        _react2.default.createElement(
+          'ul',
+          { className: 'shelves-list-items' },
+          shelves
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'add-shelf' },
+          _react2.default.createElement(
+            'p',
+            null,
+            'Add a Shelf:'
+          ),
+          _react2.default.createElement('input', { type: 'text', value: this.state.name,
+            onChange: this.update('name') }),
+          _react2.default.createElement('input', { type: 'submit', onClick: this.handleSubmit, value: 'add' })
+        )
+      );
+    }
+  }]);
+
+  return ShelvesIndex;
+}(_react2.default.Component);
+
+exports.default = ShelvesIndex;
 
 /***/ }),
-/* 176 */,
-/* 177 */,
+/* 176 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ShelvesIndexItem = function ShelvesIndexItem(props) {
+  var deleteButton = [_react2.default.createElement(
+    'a',
+    { key: 'shelf_id_delete: ' + props.shelf.id, href: '#', onClick: props.handleDelete.bind(undefined, props.shelf.id) },
+    '\xD7'
+  )];
+  if (props.shelf.name === "Read" || props.shelf.name === "Currently Reading" || props.shelf.name === "Want to Read") {
+    deleteButton = "";
+  }
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      _reactRouterDom.Link,
+      { className: props.className, to: '/shelves/' + props.shelf.id },
+      props.shelf.name + ' '
+    ),
+    deleteButton
+  );
+};
+
+exports.default = ShelvesIndexItem;
+
+/***/ }),
+/* 177 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ShelfCountsItem = function ShelfCountsItem(props) {
+  return _react2.default.createElement(
+    'div',
+    { className: 'shelves-index-item' },
+    _react2.default.createElement(
+      _reactRouterDom.Link,
+      { to: '/shelves/' + props.shelf.id },
+      _react2.default.createElement(
+        'div',
+        null,
+        '(',
+        props.shelf.books.length,
+        ')'
+      )
+    )
+  );
+};
+
+exports.default = ShelfCountsItem;
+
+/***/ }),
 /* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 

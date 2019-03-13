@@ -11,7 +11,7 @@ class ShelvesIndex extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.capitalize = this.capitalize.bind(this);
     this.state = {name: "", user_id: this.props.currentUser.id,
-    fetchedShelves: false, currentShelfid: this.props.currentShelf_id}
+    fetchedShelves: false, currentShelfid: ""}
   }
 
   componentDidMount() {
@@ -27,7 +27,7 @@ class ShelvesIndex extends React.Component {
     if (urlArray.includes("mybooks")) {
       this.props.history.push(`/shelves/${this.props.firstShelf}`)
     }
-    console.log(urlArray)
+    this.setState({currentShelfid: urlArray[urlLength - 1]})
   }
 
   update(field) {
@@ -68,13 +68,9 @@ class ShelvesIndex extends React.Component {
     let shelfArray = Object.keys(this.props.shelves)
 
     let firstShelf = shelfArray[0]
-
-    currentShelf_id: urlArray[urlLength - 1],
-
     if (shelfArray.length !== 0) {
-
       shelves = this.props.shelvesArray.map(shelf => {
-      let boldClassName = (parseInt(this.props.currentShelf_id) === shelf.id) ? "bold" : shelf.id
+      let boldClassName = (parseInt(this.state.currentShelfid) === shelf.id) ? "bold" : shelf.id
       // console.log(this.props.currentShelf_id)
       // console.log(parseInt(this.props.currentShelf_id) === shelf.id)
       return (
@@ -85,7 +81,6 @@ class ShelvesIndex extends React.Component {
         </li>
       )
     })
-
   }
     return (
       <div className="shelves-index">
