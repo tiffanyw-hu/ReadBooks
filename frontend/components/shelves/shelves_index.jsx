@@ -19,14 +19,15 @@ class ShelvesIndex extends React.Component {
   }
 
   componentDidUpdate() {
+    let urlArray = window.location.href.split("/");
+    let urlLength = urlArray.length
     let listOfIds = Object.keys(this.props.shelves).map(el => el + "")
     // console.log(window.location.href.split("/").includes("mybooks"))
     // console.log(this.props.firstShelf)
-    if (window.location.href.split("/").includes("mybooks")) {
+    if (urlArray.includes("mybooks")) {
       this.props.history.push(`/shelves/${this.props.firstShelf}`)
     }
-    console.log(this.props.urlArray)
-    console.log(this.props.currentShelf_id)
+    console.log(urlArray)
   }
 
   update(field) {
@@ -67,6 +68,9 @@ class ShelvesIndex extends React.Component {
     let shelfArray = Object.keys(this.props.shelves)
 
     let firstShelf = shelfArray[0]
+
+    currentShelf_id: urlArray[urlLength - 1],
+
     if (shelfArray.length !== 0) {
 
       shelves = this.props.shelvesArray.map(shelf => {
