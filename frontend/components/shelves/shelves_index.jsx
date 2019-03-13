@@ -60,8 +60,8 @@ class ShelvesIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(prevProps.currentShelf_id)
-    console.log(this.props.currentShelf_id)
+    console.log("prevProps" + prevProps.currentShelf_id)
+    console.log("props" + this.props.currentShelf_id)
   }
 
   render() {

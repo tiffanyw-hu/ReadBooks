@@ -30119,8 +30119,8 @@ var ShelvesIndex = function (_React$Component) {
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate(prevProps) {
-      console.log(prevProps.currentShelf_id);
-      console.log(this.props.currentShelf_id);
+      console.log("prevProps" + prevProps.currentShelf_id);
+      console.log("props" + this.props.currentShelf_id);
     }
   }, {
     key: 'render',
