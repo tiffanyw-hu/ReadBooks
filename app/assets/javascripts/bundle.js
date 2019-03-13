@@ -4713,13 +4713,15 @@ var _shelf_actions = __webpack_require__(11);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-
+  var urlArray = window.location.href.split("/");
+  var urlLength = urlArray.length;
   return {
     currentUser: state.session.currentUser,
     shelves: state.entities.shelves,
     shelvesArray: Object.keys(state.entities.shelves).map(function (id) {
       return state.entities.shelves[id];
     }),
+    currentShelf_id: urlArray[urlLength - 1],
     firstShelf: Object.keys(state.entities.shelves)[0]
   };
 };
@@ -30072,7 +30074,6 @@ var ShelvesIndex = function (_React$Component) {
       if (urlArray.includes("mybooks")) {
         this.props.history.push('/shelves/' + this.props.firstShelf);
       }
-      this.setState({ currentShelfid: urlArray[urlLength - 1] });
     }
   }, {
     key: 'update',
@@ -30125,11 +30126,14 @@ var ShelvesIndex = function (_React$Component) {
       var shelves = void 0;
       var counts = void 0;
       var shelfArray = Object.keys(this.props.shelves);
-
       var firstShelf = shelfArray[0];
+      var urlArray = window.location.href.split("/");
+      var urlLength = urlArray.length;
+      var currentShelf_id = urlArray[urlLength - 1];
+      console.log(currentShelf_id);
       if (shelfArray.length !== 0) {
         shelves = this.props.shelvesArray.map(function (shelf) {
-          var boldClassName = parseInt(_this3.state.currentShelfid) === shelf.id ? "bold" : shelf.id;
+          var boldClassName = parseInt(currentShelf_id) === shelf.id ? "bold" : shelf.id;
           // console.log(this.props.currentShelf_id)
           // console.log(parseInt(this.props.currentShelf_id) === shelf.id)
           return _react2.default.createElement(

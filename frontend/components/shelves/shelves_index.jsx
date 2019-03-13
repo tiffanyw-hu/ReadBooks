@@ -27,7 +27,6 @@ class ShelvesIndex extends React.Component {
     if (urlArray.includes("mybooks")) {
       this.props.history.push(`/shelves/${this.props.firstShelf}`)
     }
-    this.setState({currentShelfid: urlArray[urlLength - 1]})
   }
 
   update(field) {
@@ -66,11 +65,14 @@ class ShelvesIndex extends React.Component {
     let shelves;
     let counts;
     let shelfArray = Object.keys(this.props.shelves)
-
     let firstShelf = shelfArray[0]
+    let urlArray = window.location.href.split("/");
+    let urlLength = urlArray.length
+    let currentShelf_id = urlArray[urlLength - 1]
+    console.log(currentShelf_id)
     if (shelfArray.length !== 0) {
       shelves = this.props.shelvesArray.map(shelf => {
-      let boldClassName = (parseInt(this.state.currentShelfid) === shelf.id) ? "bold" : shelf.id
+      let boldClassName = (parseInt(currentShelf_id) === shelf.id) ? "bold" : shelf.id
       // console.log(this.props.currentShelf_id)
       // console.log(parseInt(this.props.currentShelf_id) === shelf.id)
       return (
