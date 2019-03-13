@@ -21,7 +21,6 @@ class ShelvesShow extends React.Component {
   }
 
   bookIdsToShelvingIds() {
-    console.log(this.props)
     let result = {}
     if (this.props.shelves[this.props.shelf_id]) {
       let shelvings = this.props.shelves[this.props.shelf_id].shelvings;
