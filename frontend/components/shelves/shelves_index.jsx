@@ -11,7 +11,7 @@ class ShelvesIndex extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.capitalize = this.capitalize.bind(this);
     this.state = {name: "", user_id: this.props.currentUser.id,
-    fetchedShelves: false}
+    fetchedShelves: false, currentShelfid: this.props.currentShelf_id}
   }
 
   componentDidMount() {
@@ -57,11 +57,6 @@ class ShelvesIndex extends React.Component {
       error = <div className="error">{this.props.errors[0]}</div>;
     }
     return error;
-  }
-
-  componentDidUpdate(prevProps) {
-    console.log("prevProps" + prevProps.currentShelf_id)
-    console.log("props" + this.props.currentShelf_id)
   }
 
   render() {

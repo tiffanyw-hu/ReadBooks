@@ -12,7 +12,10 @@ const mapStateToProps = (state, ownProps) => {
     shelves: state.entities.shelves,
     shelvesArray: Object.keys(state.entities.shelves).map(id => state.entities.shelves[id]),
     currentShelf_id: urlArray[urlLength - 1],
-    firstShelf: Object.keys(state.entities.shelves)[0]
+    firstShelf: Object.keys(state.entities.shelves)[0],
+    urlArray: urlArray,
+    urlLength: urlLength
+
   }
 }
 

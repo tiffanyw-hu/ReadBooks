@@ -4722,7 +4722,10 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
       return state.entities.shelves[id];
     }),
     currentShelf_id: urlArray[urlLength - 1],
-    firstShelf: Object.keys(state.entities.shelves)[0]
+    firstShelf: Object.keys(state.entities.shelves)[0],
+    urlArray: urlArray,
+    urlLength: urlLength
+
   };
 };
 
@@ -30052,7 +30055,7 @@ var ShelvesIndex = function (_React$Component) {
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.capitalize = _this.capitalize.bind(_this);
     _this.state = { name: "", user_id: _this.props.currentUser.id,
-      fetchedShelves: false };
+      fetchedShelves: false, currentShelfid: _this.props.currentShelf_id };
     return _this;
   }
 
@@ -30115,12 +30118,6 @@ var ShelvesIndex = function (_React$Component) {
         );
       }
       return error;
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate(prevProps) {
-      console.log("prevProps" + prevProps.currentShelf_id);
-      console.log("props" + this.props.currentShelf_id);
     }
   }, {
     key: 'render',
