@@ -25,6 +25,8 @@ class ShelvesIndex extends React.Component {
     if (window.location.href.split("/").includes("mybooks")) {
       this.props.history.push(`/shelves/${this.props.firstShelf}`)
     }
+    console.log(this.props.urlArray)
+    console.log(this.props.currentShelf_id)
   }
 
   update(field) {
