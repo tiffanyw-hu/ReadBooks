@@ -19,6 +19,7 @@ class CustomShelf extends React.Component {
 
   handleClick(e) {
     if (this.shelfdiv.className === "active-shelf") {
+      console.log(this.props.book.shelvings)
       for(let i = 0; i < this.props.book.shelvings.length; i++) {
         if (this.props.book.shelvings[i].shelf_id === this.props.shelf.id) {
           let shelvingId = this.props.book.shelvings[i].id

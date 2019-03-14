@@ -28816,7 +28816,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var urlArray = window.location.href.split("/");
-  var book = state.entities.books[ownProps.match.params.book_id - 1];
+  var book = state.entities.books[ownProps.match.params.book_id];
   var shelves = state.entities.shelves;
   if (urlArray.includes("localhost")) {
     var _book = state.entities.books[ownProps.match.params.book_id];
@@ -28970,7 +28970,7 @@ var BookShow = function (_React$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      console.log(this.props.match.params.book_id);
+      window.scrollTo(0, 0);
       if (Object.keys(this.props.shelves).length === 0) {
         this.props.fetchShelves();
       }
@@ -29681,7 +29681,7 @@ var ThreeShelves = function (_React$Component) {
         "Want to Read": "" };
       if (this.state[chosenShelf] === "active-shelf") {
         this.props.toggleReadingStatus("Want To Read");
-        // this.deleteTheShelving(chosenShelf, this.mainShelfIds);
+        this.deleteTheShelving(chosenShelf, this.mainShelfIds);
       } else {
         newState[chosenShelf] = "active-shelf";
         this.props.toggleReadingStatus(chosenShelf);
@@ -29706,7 +29706,7 @@ var ThreeShelves = function (_React$Component) {
       var keys = Object.keys(this.state);
       for (var i = 0; i < 3; i++) {
         if (this.state[keys[i]] === "active-shelf") {
-          // this.deleteTheShelving(keys[i], this.mainShelfIds)
+          this.deleteTheShelving(keys[i], this.mainShelfIds);
         }
       }
       var shelving = { book_id: this.props.book.id, shelf_id: shelf_ids[shelf_name].id };
@@ -29817,6 +29817,7 @@ var CustomShelf = function (_React$Component) {
     key: "handleClick",
     value: function handleClick(e) {
       if (this.shelfdiv.className === "active-shelf") {
+        console.log(this.props.book.shelvings);
         for (var i = 0; i < this.props.book.shelvings.length; i++) {
           if (this.props.book.shelvings[i].shelf_id === this.props.shelf.id) {
             var shelvingId = this.props.book.shelvings[i].id;
@@ -30098,7 +30099,6 @@ var ShelvesIndex = function (_React$Component) {
       var shelf = this.state;
       this.props.createShelf(shelf);
       this.setState({ name: "" });
-      //clears the name of the form/state/whateverthingy
     }
   }, {
     key: 'capitalize',
@@ -30130,7 +30130,6 @@ var ShelvesIndex = function (_React$Component) {
       var urlArray = window.location.href.split("/");
       var urlLength = urlArray.length;
       var currentShelf_id = urlArray[urlLength - 1];
-      console.log(currentShelf_id);
       if (shelfArray.length !== 0) {
         shelves = this.props.shelvesArray.map(function (shelf) {
           var boldClassName = parseInt(currentShelf_id) === shelf.id ? "bold" : shelf.id;
@@ -33653,18 +33652,21 @@ var _book_actions = __webpack_require__(10);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var booksReducer = function booksReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments[1];
 
   Object.freeze(state);
   switch (action.type) {
     case _book_actions.RECEIVE_BOOKS:
-      return action.books;
+      var newBookState = {};
+      action.books.forEach(function (book) {
+        newBookState[book.id] = book;
+      });
+      return newBookState;
     case _book_actions.RECEIVE_BOOK:
-      var newState = (0, _merge2.default)({}, state);
       var bookObject = {};
       bookObject[action.book.id] = action.book;
-      newState << bookObject;
+      var newState = (0, _merge2.default)({}, state, bookObject);
       return newState;
     default:
       return state;

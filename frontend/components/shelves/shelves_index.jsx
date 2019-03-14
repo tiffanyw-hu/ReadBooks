@@ -46,7 +46,6 @@ class ShelvesIndex extends React.Component {
     let shelf = this.state;
     this.props.createShelf(shelf);
     this.setState({name: "" })
-  //clears the name of the form/state/whateverthingy
   }
 
   capitalize(string) {
@@ -69,7 +68,6 @@ class ShelvesIndex extends React.Component {
     let urlArray = window.location.href.split("/");
     let urlLength = urlArray.length
     let currentShelf_id = urlArray[urlLength - 1]
-    console.log(currentShelf_id)
     if (shelfArray.length !== 0) {
       shelves = this.props.shelvesArray.map(shelf => {
       let boldClassName = (parseInt(currentShelf_id) === shelf.id) ? "bold" : shelf.id

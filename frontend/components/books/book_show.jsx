@@ -28,7 +28,7 @@ class BookShow extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.match.params.book_id)
+    window.scrollTo(0, 0)
     if (Object.keys(this.props.shelves).length === 0) {
       this.props.fetchShelves();
     }

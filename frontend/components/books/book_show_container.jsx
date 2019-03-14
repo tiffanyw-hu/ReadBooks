@@ -6,7 +6,7 @@ import BookShow from './book_show';
 
 const mapStateToProps = (state, ownProps) => {
   let urlArray = window.location.href.split("/")
-  let book = state.entities.books[ownProps.match.params.book_id - 1]
+  let book = state.entities.books[ownProps.match.params.book_id]
   let shelves = state.entities.shelves
   if (urlArray.includes("localhost")) {
     let book = state.entities.books[ownProps.match.params.book_id]

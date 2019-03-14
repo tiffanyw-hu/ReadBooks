@@ -5,7 +5,7 @@ class Api::ShelvingsController < ApplicationController
     @user = current_user
     @main_shelves = current_user.shelves.take(3)
     @main_shelves_id = current_user.shelves.pluck(:id).take(3)
-    if @main_shelves_id.include?(shelving_params[:shelf_id])
+    if @main_shelves_id.include?(shelving_params[:shelf_id].to_i)
       @main_shelves.each do |shelf|
         shelf.shelvings.find_by(book_id: shelving_params[:book_id]).try(:destroy!)
       end
